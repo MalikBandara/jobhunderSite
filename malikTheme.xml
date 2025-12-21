@@ -16,14 +16,14 @@
     <b:skin version='2.0.0'><![CDATA[
         /* JOB HUNDER CUSTOM CSS */
         :root {
-            --primary-color: #00b894;
+            --primary-color: #0984e3;
+            --primary-hover: #0056b3;
             --secondary-color: #2d3436;
-            --bg-color: #f5f6fa;
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
             --text-color: #2d3436;
             --text-muted: #636e72;
             --border-color: #dfe6e9;
-            --accent-green: #00cec9;
             --header-height: 70px;
         }
 
@@ -63,6 +63,37 @@
 
         .grid {
             display: grid;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         /* Header */
@@ -167,7 +198,7 @@
         .section-title {
             font-size: 16px;
             font-weight: 700;
-            color: #e15f41;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -176,7 +207,7 @@
         }
         
         .section-title.read-more {
-            color: #6c5ce7;
+            color: var(--primary-color);
         }
 
         .section-title i {
@@ -316,7 +347,7 @@
         }
 
         .tag {
-            background: #0984e3;
+            background: var(--primary-color);
             color: white;
             padding: 5px 12px;
             border-radius: 15px;
@@ -436,7 +467,7 @@
 
         /* Social Widget */
         .section-header-side {
-            border-left: 4px solid #3498db;
+            border-left: 4px solid var(--primary-color);
             padding-left: 10px;
             margin-bottom: 20px;
             font-weight: 700;
@@ -593,7 +624,7 @@
                                         <div class="section-title">
                                             <i class="fa-solid fa-thumbtack"></i> JUST NOW
                                         </div>
-                                        <i class="fa-solid fa-feather" style="color: #74b9ff;"></i>
+                                        <i class="fa-solid fa-feather" style="color: var(--primary-color);"></i>
                                     </div>
                                     
                                     <!-- Featured Card HTML -->
@@ -640,7 +671,7 @@
                                 <div class="section-title read-more">
                                     <i class="fa-solid fa-bookmark"></i> READ MORE
                                 </div>
-                                <div style="font-size: 12px; color: #636e72;">Grid <i class="fa-solid fa-border-all" style="color: #74b9ff;"></i></div>
+                                <div style="font-size: 12px; color: #636e72;">Grid <i class="fa-solid fa-border-all" style="color: var(--primary-color);"></i></div>
                             </div>
                             
                             <div class="job-grid-container">
@@ -831,7 +862,7 @@
             </div>
 
             <div class="copyright-bar">
-                <div>Design By <a href="#" style="color: #0984e3;">Blogger Templates</a> | Copyright ©2025. All Rights Reserved</div>
+                <div>Design By <a href="#" style="color: var(--primary-color);">Blogger Templates</a> | Copyright ©2025. All Rights Reserved</div>
             </div>
         </div>
     </footer>
