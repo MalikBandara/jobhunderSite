@@ -577,7 +577,7 @@
                             <b:if cond='data:useImage'>
                                 <img expr:alt='data:title' expr:src='data:image' style='max-height: 40px;' />
                             <b:else/>
-                                JOB <span>HUB</span>
+                                JOB <span>HUNDER</span>
                             </b:if>
                         </a>
                     </b:includable>
@@ -838,9 +838,9 @@
         <div class="container">
             <div class="footer-cols">
                 <div class="footer-brand">
-                    <h2><i class="fa-solid fa-j" style="color: var(--primary-color);"></i> JOB HUB</h2>
+                    <h2><i class="fa-solid fa-j" style="color: var(--primary-color);"></i> JOB HUNDER</h2>
                     <p class="footer-desc">
-                        <i class="fa-regular fa-paper-plane"></i> jobhub is an online platform built to make the hiring and skill acquisition process easier...
+                        <i class="fa-regular fa-paper-plane"></i> Jobhunder is an online platform built to make the hiring and skill acquisition process easier...
                     </p>
                 </div>
                 <div class="footer-link-col">
@@ -862,7 +862,7 @@
             </div>
 
             <div class="copyright-bar">
-                <div>Design By <a href="#" style="color: var(--primary-color);">jobhub Designers</a> | Copyright ©2025. All Rights Reserved</div>
+                <div>Design By <a href="#" style="color: var(--primary-color);">Blogger Templates</a> | Copyright ©2025. All Rights Reserved</div>
             </div>
         </div>
     </footer>
