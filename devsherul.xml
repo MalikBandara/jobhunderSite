@@ -794,17 +794,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-actions">
-                                            <a href="#apply" class="apply-btn-large">Apply Now <i class="fa-solid fa-paper-plane" style="margin-left: 5px;"></i></a>
+                                    <div class="post-actions" id="apply-section">
+                                        <div id="wait-msg" style="color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;">
+                                            <i class="fa-regular fa-clock"></i> Apply button appears in <span id="timer">15</span>s
                                         </div>
+                                        <a href="#" id="dynamic-apply-btn" class="apply-btn-large" style="display:none;">
+                                            Apply Now <i class="fa-solid fa-paper-plane" style="margin-left: 5px;"></i>
+                                        </a>
                                     </div>
+                                </div>
                                     
-                                    <div class="post-meta-badges">
+                                    <div class="post-meta-badges" id="post-tags">
                                          <b:loop values='data:post.labels' var='label'>
-                                            <a expr:href='data:label.url' class="meta-badge"><i class="fa-solid fa-tag"></i> <data:label.name/></a>
+                                            <a expr:href='data:label.url' class="meta-badge" expr:data-name='data:label.name'>
+                                                <i class="fa-solid fa-tag"></i> <data:label.name/>
+                                            </a>
                                          </b:loop>
-                                         <span class="meta-badge"><i class="fa-solid fa-clock"></i> Full Time</span>
-                                         <span class="meta-badge"><i class="fa-solid fa-location-dot"></i> Remote</span>
                                     </div>
                                 </div>
 
@@ -972,5 +977,77 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    //<![CDATA[
+    document.addEventListener("DOMContentLoaded", function() {
+        // --- 1. Dynamic Labels Types ---
+        const badges = document.querySelectorAll('.meta-badge');
+        const iconMap = {
+            'Full Time': 'fa-briefcase',
+            'FullTime': 'fa-briefcase',
+            'Part Time': 'fa-clock',
+            'PartTime': 'fa-clock',
+            'Remote': 'fa-globe',
+            'Frontend': 'fa-code',
+            'Backend': 'fa-server',
+            'Fullstack': 'fa-layer-group',
+            'Internship': 'fa-graduation-cap'
+        };
+
+        badges.forEach(badge => {
+            const name = badge.getAttribute('data-name');
+            if(name && iconMap[name]) {
+                const icon = badge.querySelector('i');
+                if(icon) {
+                    icon.className = 'fa-solid ' + iconMap[name]; 
+                }
+            }
+        });
+
+        // --- 2. Timer & Dynamic Email ---
+        const applyBtn = document.getElementById('dynamic-apply-btn');
+        const waitMsg = document.getElementById('wait-msg');
+        const timerSpan = document.getElementById('timer');
+        
+        if(applyBtn && waitMsg) {
+            // Find Email or Apply Link in Content
+            const postBody = document.querySelector('.post-body');
+            if(postBody) {
+                // First look for mailto
+                let targetLink = postBody.querySelector('a[href^="mailto:"]');
+                
+                // If not, identify by text content
+                if(!targetLink) {
+                    const allLinks = postBody.querySelectorAll('a');
+                    for(let link of allLinks) {
+                        if(link.textContent.toLowerCase().includes('apply')) {
+                            targetLink = link;
+                            break;
+                        }
+                    }
+                }
+
+                if(targetLink) {
+                    applyBtn.href = targetLink.href;
+                }
+            }
+
+            // Countdown
+            let count = 15;
+            const interval = setInterval(() => {
+                count--;
+                if(timerSpan) timerSpan.textContent = count;
+                
+                if(count <= 0) {
+                    clearInterval(interval);
+                    waitMsg.style.display = 'none';
+                    applyBtn.style.display = 'inline-block';
+                }
+            }, 1000);
+        }
+    });
+    //]]>
+    </script>
   </body>
 </html>
