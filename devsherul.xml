@@ -1014,10 +1014,15 @@
             // Find Email or Apply Link in Content
             const postBody = document.querySelector('.post-body');
             if(postBody) {
-                // First look for mailto
-                let targetLink = postBody.querySelector('a[href^="mailto:"]');
+                // 1. Look for LinkedIn
+                let targetLink = postBody.querySelector('a[href*="linkedin.com"]');
+
+                // 2. If not, look for Mailto
+                if(!targetLink) {
+                    targetLink = postBody.querySelector('a[href^="mailto:"]');
+                }
                 
-                // If not, identify by text content
+                // 3. If not, identify by text content "apply"
                 if(!targetLink) {
                     const allLinks = postBody.querySelectorAll('a');
                     for(let link of allLinks) {
@@ -1029,7 +1034,44 @@
                 }
 
                 if(targetLink) {
-                    applyBtn.href = targetLink.href;
+                    // Check if it is a Mailto link
+                    if(targetLink.href.startsWith('mailto:')) {
+                        // Extract email address (remove 'mailto:')
+                        const emailAddress = targetLink.href.replace('mailto:', '');
+                        
+                        // Check if user is on Mobile
+                        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+                        if(isMobile) {
+                            // Mobile: Use standard mailto to trigger the App Choice (Gmail/Outlook App)
+                            applyBtn.href = 'mailto:' + emailAddress;
+                            applyBtn.removeAttribute('target');
+                        } else {
+                            // Desktop: Force Open in Gmail Web (New Tab)
+                            // This ensures it works even if the user doesn't have a default mail app configured.
+                            applyBtn.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
+                            applyBtn.setAttribute('target', '_blank');
+                        }
+                    } else {
+                        // Regular Web Link (LinkedIn, etc)
+                        applyBtn.href = targetLink.href;
+                        applyBtn.setAttribute('target', '_blank');
+                    }
+
+                    // --- Auto-Hide the Source Link ---
+                    // This allows you to put the link in the text body (Compose View) 
+                    // and have it disappear from view, keeping the post clean.
+                    targetLink.style.display = 'none';
+
+                    // Optional: If the link was on its own line/paragraph, hide the empty container
+                    const parent = targetLink.parentElement;
+                    if(parent && (parent.tagName === 'P' || parent.tagName === 'DIV')) {
+                        // Check if parent has other visible text (trim whitespace)
+                        const remainingText = parent.innerText.replace(targetLink.innerText, '').trim();
+                        if(remainingText.length === 0) {
+                            parent.style.display = 'none';
+                        }
+                    }
                 }
             }
 
