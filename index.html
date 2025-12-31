@@ -1261,7 +1261,8 @@
                                                         <div
                                                             style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                                             <i class="fa-solid fa-briefcase fa-2x"
-                                                                style="color: #dfe6e9;"></i></div>
+                                                                style="color: #dfe6e9;"></i>
+                                                        </div>
                                                     </b:if>
                                                 </div>
                                                 <div class="list-card-info">
@@ -1308,7 +1309,8 @@
                                                             <div
                                                                 style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                                                 <i class="fa-solid fa-briefcase fa-2x"
-                                                                    style="color: #dfe6e9;"></i></div>
+                                                                    style="color: #dfe6e9;"></i>
+                                                            </div>
                                                         </b:if>
                                                     </div>
                                                     <div class="list-card-info">
@@ -1352,7 +1354,8 @@
                                                     <div
                                                         style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                                         <i class="fa-solid fa-briefcase fa-2x"
-                                                            style="color: #dfe6e9;"></i></div>
+                                                            style="color: #dfe6e9;"></i>
+                                                    </div>
                                                 </b:if>
                                             </div>
                                             <div class="list-card-info">
@@ -1477,7 +1480,7 @@
                                 }
                             </style>
 
-                            </b:else />
+                            <b:else />
                             <b:loop values='data:posts' var='post'>
                                 <b:if cond='data:view.isPost'>
                                     <div class="post-hero">
@@ -1611,6 +1614,321 @@
                     <b:includable id='threadedCommentForm' var='post' />
                     <b:includable id='threadedCommentJs' var='post' />
                     <b:includable id='threadedComments' var='post' />
+                </b:widget>
+                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                    <b:includable id='main'>
+                        <b:if cond='data:view.isMultipleItems'>
+                            <!-- Header Logic -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Latest Jobs</h2>
+                                    <div style="font-size: 14px; color: var(--text-muted);">New Opportunities</div>
+                                </div>
+                                <b:elseif cond='data:view.isLabelSearch' />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Jobs in "
+                                        <data:view.search.label />"
+                                    </h2>
+                                </div>
+                                <b:else />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">
+                                        <b:if cond='data:view.isSearch'>Search Results
+                                            <b:else />All Posts
+                                        </b:if>
+                                    </h2>
+                                    <b:if cond='data:view.isPage'>
+                                        <div style="font-size: 14px; color: var(--text-muted);">Page
+                                            <data:view.pageNumber />
+                                        </div>
+                                    </b:if>
+                                </div>
+                            </b:if>
+
+                            <!-- Latest Jobs (First 10) - Only on Home Page 1 -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post' index='i'>
+                                        <b:if cond='data:i &lt; 10'>
+                                            <a expr:href='data:post.url' class="job-list-card">
+                                                <div class="list-card-img">
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img expr:src='data:post.featuredImage' />
+                                                        <b:else />
+                                                        <div
+                                                            style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                            <i class="fa-solid fa-briefcase fa-2x"
+                                                                style="color: #dfe6e9;"></i>
+                                                        </div>
+                                                    </b:if>
+                                                </div>
+                                                <div class="list-card-info">
+                                                    <h3 class="list-card-title">
+                                                        <data:post.title />
+                                                    </h3>
+                                                    <div class="list-card-company">
+                                                        <data:post.author.name />
+                                                    </div>
+                                                    <div class="list-card-meta">
+                                                        <b:loop values='data:post.labels' var='label' index='j'>
+                                                            <b:if cond='data:j &lt; 2'>
+                                                                <span class="list-meta-item">
+                                                                    <i class="fa-solid fa-tag"></i>
+                                                                    <data:label.name />
+                                                                </span>
+                                                            </b:if>
+                                                        </b:loop>
+                                                    </div>
+                                                </div>
+                                                <div class="list-card-right">
+                                                    <div class="list-card-time">
+                                                        <i class="fa-regular fa-clock"></i>
+                                                        <data:post.date />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </b:if>
+                                    </b:loop>
+                                </div>
+
+                                <!-- Old Posts (11th onwards) -->
+                                <b:if cond='data:posts.size &gt; 10'>
+                                    <div class="main-section-header" style="margin-top: 50px;">
+                                        <h2 class="main-section-title">Old Posts</h2>
+                                    </div>
+                                    <div class="job-list-container">
+                                        <b:loop values='data:posts' var='post' index='i'>
+                                            <b:if cond='data:i &gt;= 10'>
+                                                <a expr:href='data:post.url' class="job-list-card">
+                                                    <div class="list-card-img">
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:src='data:post.featuredImage' />
+                                                            <b:else />
+                                                            <div
+                                                                style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                                <i class="fa-solid fa-briefcase fa-2x"
+                                                                    style="color: #dfe6e9;"></i>
+                                                            </div>
+                                                        </b:if>
+                                                    </div>
+                                                    <div class="list-card-info">
+                                                        <h3 class="list-card-title" style="color: var(--text-color);">
+                                                            <data:post.title />
+                                                        </h3>
+                                                        <div class="list-card-company">
+                                                            <data:post.author.name />
+                                                        </div>
+                                                        <div class="list-card-meta">
+                                                            <b:loop values='data:post.labels' var='label' index='j'>
+                                                                <b:if cond='data:j &lt; 2'>
+                                                                    <span class="list-meta-item">
+                                                                        <i class="fa-solid fa-tag"></i>
+                                                                        <data:label.name />
+                                                                    </span>
+                                                                </b:if>
+                                                            </b:loop>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-card-right">
+                                                        <div class="list-card-time">
+                                                            <i class="fa-regular fa-clock"></i>
+                                                            <data:post.date />
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </b:if>
+                                        </b:loop>
+                                    </div>
+                                </b:if>
+
+                                <b:else />
+                                <!-- Non-Home or Next Pages - Show ALL posts -->
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post'>
+                                        <a expr:href='data:post.url' class="job-list-card">
+                                            <div class="list-card-img">
+                                                <b:if cond='data:post.featuredImage'>
+                                                    <img expr:src='data:post.featuredImage' />
+                                                    <b:else />
+                                                    <div
+                                                        style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                        <i class="fa-solid fa-briefcase fa-2x"
+                                                            style="color: #dfe6e9;"></i>
+                                                    </div>
+                                                </b:if>
+                                            </div>
+                                            <div class="list-card-info">
+                                                <h3 class="list-card-title">
+                                                    <data:post.title />
+                                                </h3>
+                                                <div class="list-card-company">
+                                                    <data:post.author.name />
+                                                </div>
+                                                <div class="list-card-meta">
+                                                    <b:loop values='data:post.labels' var='label' index='j'>
+                                                        <b:if cond='data:j &lt; 2'>
+                                                            <span class="list-meta-item">
+                                                                <i class="fa-solid fa-tag"></i>
+                                                                <data:label.name />
+                                                            </span>
+                                                        </b:if>
+                                                    </b:loop>
+                                                </div>
+                                            </div>
+                                            <div class="list-card-right">
+                                                <div class="list-card-time">
+                                                    <i class="fa-regular fa-clock"></i>
+                                                    <data:post.date />
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </b:loop>
+                                </div>
+                            </b:if>
+
+                            <b:if cond='data:posts.empty'>
+                                <div
+                                    style="text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;">
+                                    <i class="fa-solid fa-magnifying-glass fa-3x"
+                                        style="color: var(--border-color); margin-bottom: 20px;"></i>
+                                    <h2 style="color: var(--text-color);">No jobs found</h2>
+                                    <p style="color: var(--text-muted);">Try a different category or check back later!
+                                    </p>
+                                    <a href="/" class="btn btn-primary" style="margin-top: 20px;">Back to Home</a>
+                                </div>
+                            </b:if>
+
+                            <!-- Improved Pagination -->
+                            <div class="pagination-bar">
+                                <b:if cond='data:newerPageUrl'>
+                                    <a class="pagination-btn" expr:href='data:newerPageUrl' title="Previous Page">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </a>
+                                </b:if>
+
+                                <!-- Page Numbers -->
+                                <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                    <span class="pagination-btn active">1</span>
+                                    <b:if cond='data:olderPageUrl'>
+                                        <a class="pagination-btn" expr:href='data:olderPageUrl'>2</a>
+                                    </b:if>
+                                    <b:elseif cond='data:view.isPage' />
+                                    <a class="pagination-btn" href="/">1</a>
+                                    <span class="pagination-btn active">
+                                        <data:view.pageNumber />
+                                    </span>
+                                    <b:if cond='data:olderPageUrl'>
+                                        <a class="pagination-btn" expr:href='data:olderPageUrl'>
+                                            <data:view.pageNumber + 1 />
+                                        </a>
+                                    </b:if>
+                                </b:if>
+
+                                <b:if cond='data:olderPageUrl'>
+                                    <a class="pagination-btn" expr:href='data:olderPageUrl' title="Next Page">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </b:if>
+                            </div>
+
+                            <b:else />
+                            <!-- Single Post View -->
+                            <b:loop values='data:posts' var='post'>
+                                <b:if cond='data:view.isPost'>
+                                    <div class="post-hero">
+                                        <div class="post-header-top">
+                                            <div class="post-company-info">
+                                                <div class="post-company-logo">
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img expr:src='data:post.featuredImage' style='width: 40px;' />
+                                                        <b:else />
+                                                        <i class="fa-solid fa-briefcase fa-xl"></i>
+                                                    </b:if>
+                                                </div>
+                                                <div class="post-title-group">
+                                                    <h1>
+                                                        <data:post.title />
+                                                    </h1>
+                                                    <div style="font-size: 14px; color: var(--text-muted);">
+                                                        <span style="color: var(--primary-color); font-weight: 600;">
+                                                            <data:post.author.name />
+                                                        </span> •
+                                                        <data:post.date />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="post-actions" id="apply-section">
+                                                <div id="wait-msg"
+                                                    style="color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;">
+                                                    <i class="fa-regular fa-clock"></i> Apply button appears in <span
+                                                        id="timer">15</span>s
+                                                </div>
+                                                <a href="#" id="dynamic-apply-btn" class="apply-btn-large"
+                                                    style="display:none;">
+                                                    Apply Now <i class="fa-solid fa-paper-plane"
+                                                        style="margin-left: 5px;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="post-meta-badges" id="post-tags">
+                                            <b:loop values='data:post.labels' var='label'>
+                                                <a expr:href='data:label.url' class="meta-badge"
+                                                    expr:data-name='data:label.name'>
+                                                    <i class="fa-solid fa-tag"></i>
+                                                    <data:label.name />
+                                                </a>
+                                            </b:loop>
+                                        </div>
+                                    </div>
+                                </b:if>
+
+                                <div class="post-content">
+                                    <div class="post-body">
+                                        <data:post.body />
+                                    </div>
+
+                                    <div class="post-share-box">
+                                        <div style="font-weight: 700;">Share this job:</div>
+                                        <div class="flex" style="gap: 10px;">
+                                            <a class="social-item fb"
+                                                expr:href='"https://www.facebook.com/sharer.php?u=" + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                            <a class="social-item wa"
+                                                expr:href='"https://api.whatsapp.com/send?text=" + data:post.title + " " + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;">
+                                                <i class="fa-brands fa-whatsapp"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:loop>
+                        </b:if>
+
+                        <b:if cond='!data:view.isMultipleItems'>
+                            <b:include name='postPagination' />
+                        </b:if>
+                    </b:includable>
+
+                    <b:includable id='postPagination'>
+                        <div class='blog-pager container' id='blog-pager'>
+                            <b:include cond='data:newerPageUrl' name='previousPageLink' />
+                            <b:include cond='data:olderPageUrl' name='nextPageLink' />
+                        </div>
+                    </b:includable>
+
+                    <b:includable id='previousPageLink'>
+                        <a class='btn btn-outline' expr:href='data:newerPageUrl'>Newer Posts</a>
+                    </b:includable>
+
+                    <b:includable id='nextPageLink'>
+                        <a class='btn btn-outline' expr:href='data:olderPageUrl'>Older Posts</a>
+                    </b:includable>
                 </b:widget>
             </b:section>
         </div>
