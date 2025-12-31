@@ -1,23 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="en">
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='modern-indie.xml'
+    b:templateVersion='2.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
+    xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
+    xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Hub</title>
+    <meta charset='UTF-8' />
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <title>
+        <data:view.title.escaped />
+    </title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <b:include data='blog' name='all-head-content' />
+
+    <b:skin version='2.0.0'>
+        <![CDATA[
+        /* JOB WAVE CUSTOM CSS */
         :root {
-            --primary-color: #00b894;
+            --primary-color: #0984e3;
+            --primary-hover: #0056b3;
             --secondary-color: #2d3436;
-            --bg-color: #f5f6fa;
+            --bg-color: #ffffff;
             --card-bg: #ffffff;
             --text-color: #2d3436;
             --text-muted: #636e72;
             --border-color: #dfe6e9;
-            --accent-green: #00cec9;
             --header-height: 70px;
         }
 
@@ -31,6 +44,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
+            font-size: 14px;
         }
 
         a {
@@ -43,15 +57,34 @@
         }
 
         /* Utility Classes */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Prevent tables and pre from breaking layout */
+        table, pre, code {
+            max-width: 100%;
+            display: block;
+            overflow-x: auto;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .flex {
             display: flex;
             align-items: center;
+            flex-wrap: wrap; /* Safety for flex containers */
         }
 
         .grid {
@@ -74,10 +107,19 @@
             color: white;
         }
 
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
         .btn-outline {
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
             background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
         }
 
         /* Header */
@@ -113,6 +155,7 @@
 
         .nav-menu {
             gap: 25px;
+            display: flex;
         }
 
         .nav-link {
@@ -129,8 +172,80 @@
             color: var(--primary-color);
         }
 
+        /* Dropdown Styles */
+        .nav-item {
+            position: relative;
+            list-style: none;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 250px;
+            padding: 5px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1001;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: block; 
+        }
+
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a5568; /* Slightly softer gray */
+            transition: all 0.2s;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(66, 153, 225, 0.05); /* Very light blue */
+            color: #4299e1; /* Blue color from image */
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Mobile Dropdown Fix */
+        @media (max-width: 900px) {
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: 20px;
+                display: none; /* Toggle this via JS if needed, or keep hidden */
+                min-width: 100%;
+            }
+            
+            .nav-item.active .dropdown-menu {
+                display: block;
+            }
+        }
+
         .nav-actions {
             gap: 15px;
+            display: flex;
+            align-items: center;
         }
 
         .theme-toggle {
@@ -154,6 +269,37 @@
             transition: transform 0.3s;
         }
 
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --bg-color: #1e1e1e;
+            --card-bg: #2d2d2d;
+            --text-color: #dfe6e9;
+            --text-muted: #b2bec3;
+            --border-color: #444;
+            --secondary-color: #ffffff;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--primary-color);
+        }
+
+        body.dark-mode .theme-toggle::after {
+            transform: translateX(24px);
+        }
+
+        body.dark-mode .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        body.dark-mode .company-logo-large {
+           background: #444;
+        }
+        
+        body.dark-mode .job-header a {
+           color: #dfe6e9;
+        }
+
         .search-btn {
             color: var(--primary-color);
             font-size: 18px;
@@ -166,6 +312,15 @@
             grid-template-columns: 2fr 1fr;
             gap: 25px;
             padding: 30px 0;
+            align-items: start;
+        }
+
+        /* Ensure sidebar visibility on all desktop views */
+        @media (min-width: 901px) {
+            .sidebar {
+                display: flex !important;
+                visibility: visible !important;
+            }
         }
 
         /* Section Headings */
@@ -179,7 +334,7 @@
         .section-title {
             font-size: 16px;
             font-weight: 700;
-            color: #e15f41; /* Reddish color for "JUST NOW" */
+            color: var(--primary-color);
             display: flex;
             align-items: center;
             gap: 8px;
@@ -188,7 +343,7 @@
         }
         
         .section-title.read-more {
-            color: #6c5ce7; /* Purple for READ MORE */
+            color: var(--primary-color);
         }
 
         .section-title i {
@@ -199,21 +354,33 @@
         .job-card {
             background: var(--card-bg);
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 25px;
             position: relative;
             display: flex;
+            transition: transform 0.3s;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Default is Grid Style, override for featured */
+        .job-card-grid {
+             display: block;
+             overflow: hidden;
         }
 
         .job-card-featured {
-            min-height: 280px;
+            min-height: 240px;
+            overflow: hidden; 
         }
 
         .card-left {
-            background: var(--secondary-color);
-            flex: 0 0 40%;
-            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            flex: 0 0 35%; 
+            padding: 30px 20px;
             position: relative;
             color: white;
             display: flex;
@@ -221,85 +388,77 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 1;
+            z-index: 2;
         }
         
-        /* Curved Divider Hack */
+        /* Blue Curve */
         .card-left::after {
             content: "";
             position: absolute;
             top: 0;
-            right: -50px;
+            right: -60px;
             bottom: 0;
             width: 100px;
-            background: var(--secondary-color);
+            background: var(--primary-color);
             border-radius: 0 50% 50% 0; 
             z-index: -1;
         }
-        
-        .card-left-curve-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            background: radial-gradient(circle at 100% 50%, transparent 40px, var(--primary-color) 41px);
-            opacity: 0.1; /* Just for texture */
-            display: none; /* Simplifying for now */
-        }
 
-        /* Custom Curve Design approximation */
-        .card-bg-design {
+        /* Light Blue Curve */
+        .card-left::before {
+            content: "";
             position: absolute;
-            right: 0;
             top: 0;
-            bottom:0;
-            width: 15%;
-            background: var(--primary-color);
-            border-top-left-radius: 100%;
-            border-bottom-left-radius: 100%;
-            z-index: 0;
+            right: -75px; 
+            bottom: 0;
+            width: 100px;
+            background: #74b9ff;
+            border-radius: 0 50% 50% 0;
+            z-index: -2;
         }
 
         .company-logo-large {
-            width: 80px;
-            height: 80px;
+            width: 150px;
+            height: 150px;
             background: white;
-            border-radius: 12px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 15px 0;
         }
         
         .company-logo-large img {
-            width: 60%;
+            width: 70%;
+            height: auto;
         }
 
         .job-title-large {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ecf0f1;
+            z-index: 2;
         }
 
         .company-name-large {
-            font-size: 14px;
+            font-size: 15px;
             color: #bdc3c7;
+            font-weight: 500;
+            z-index: 2;
         }
 
         .card-right {
             flex: 1;
-            padding: 25px 30px;
+            padding: 25px 40px;
             position: relative;
             z-index: 1;
             background: white;
-            border-top-left-radius: 100px; /* Curve effect */
-            margin-left: -40px; /* Overlap */
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border-left: 10px solid var(--primary-color); /* The green curve accent */
+            /* REMOVED justify-content: center to avoid weird spacing */
+            padding-left: 100px; /* Increased from 60px to clear the 75px curve */
         }
 
         .card-meta {
@@ -307,56 +466,49 @@
             align-items: center;
             gap: 10px;
             font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
+            color: #636e72;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 5;
         }
 
         .admin-avatar {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background: #2d3436;
             color: gold;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .job-header {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             margin-bottom: 10px;
-            color: var(--secondary-color);
+            color: #2d3436;
+            position: relative;
+            z-index: 5;
+            line-height: 1.3;
+        }
+        
+        .job-header a {
+            color: #2d3436;
         }
 
         .job-excerpt {
-            color: var(--text-muted);
-            font-size: 14px;
+            color: #636e72;
+            font-size: 15px;
             line-height: 1.6;
             margin-bottom: 20px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-        }
-
-        .tags-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: #0984e3;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            position: relative;
+            z-index: 5;
         }
 
         .card-footer {
@@ -365,29 +517,203 @@
             align-items: center;
             color: #b2bec3;
             font-size: 13px;
+            position: relative;
+            z-index: 5;
         }
 
         .watermark-j {
             position: absolute;
-            right: 20px;
+            left: 20px; /* Moved inwards slightly */
             top: 50%;
             transform: translateY(-50%);
-            font-size: 150px;
+            font-size: 140px;
             font-weight: 900;
-            color: rgba(0,0,0,0.03);
+            color: #2d3436; 
             pointer-events: none;
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
+            font-family: 'Inter', sans-serif;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            opacity: 0.05; /* Made simpler/lighter */
+        }
+        
+        .watermark-j img {
+            height: 100%;
+            opacity: 1;
         }
 
         /* Read More Grid */
-        .job-grid {
+        .job-grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
         
-        /* Sidebar Styles */
+        /* Grid Card Styles */
+        .grid-card-top {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            height: 120px; 
+            position: relative; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px 12px 0 0; 
+            overflow: hidden;
+        }
+        
+        .grid-curve {
+             position: absolute; right: 0; bottom: 0; top: 0; width: 60px; background: #74b9ff; border-top-left-radius: 100px;
+        }
+        
+        .grid-card-content {
+            padding: 20px; 
+            background: white;
+        }
+
+        /* Horizontal List Card Styles */
+        .job-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .job-list-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            display: flex;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .job-list-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .list-card-img {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #f1f2f6;
+            margin-right: 20px;
+        }
+
+        .list-card-img img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .list-card-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .list-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0984e3; /* Soft blue from image */
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .list-card-company {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .list-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .list-meta-item {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .list-meta-item i {
+            color: var(--primary-color);
+        }
+
+        .list-card-right {
+            text-align: right;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        .list-card-time {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .list-card-time i {
+            color: #74b9ff; /* Light blue clock */
+        }
+
+        /* Section Headings */
+        .main-section-header {
+            margin: 30px 0 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-section-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2d3436;
+        }
+
+        .load-more-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #f1f2f6;
+            color: #2d3436;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.3s;
+            border: 1px solid #dfe6e9;
+        }
+
+        .load-more-btn:hover {
+            background: #dfe6e9;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .job-list-card { flex-direction: column; align-items: flex-start; }
+            .list-card-img { margin-bottom: 15px; margin-right: 0; }
+            .list-card-right { margin-left: 0; margin-top: 10px; width: 100%; text-align: left; }
+        }
+
         .sidebar {
             display: flex;
             flex-direction: column;
@@ -399,6 +725,7 @@
             border-radius: 16px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
         }
 
         .whatsapp-widget {
@@ -423,11 +750,6 @@
             border: 1px dashed #25D366;
         }
 
-        .whatsapp-icon-large {
-            color: #25D366;
-            font-size: 32px;
-        }
-
         .qr-code {
             width: 120px;
             height: 120px;
@@ -439,10 +761,6 @@
             border-radius: 10px;
         }
         
-        .qr-code img {
-            width: 100%;
-        }
-
         .scan-me-btn {
             background: #fdcb6e;
             color: white;
@@ -455,7 +773,7 @@
 
         /* Social Widget */
         .section-header-side {
-            border-left: 4px solid #3498db;
+            border-left: 4px solid var(--primary-color);
             padding-left: 10px;
             margin-bottom: 20px;
             font-weight: 700;
@@ -501,7 +819,7 @@
         .tg { color: #0088cc; }
         .yt { color: #ff0000; }
         .wa { color: #25D366; }
-
+        
         /* Footer */
         footer {
             background: white;
@@ -510,86 +828,22 @@
             border-top: 1px solid var(--border-color);
         }
 
+        .footer-title{
+            margin-bottom:20px;
+        }
+
         .footer-cols {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
-
-        .footer-brand h2 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        .footer-desc {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .footer-socials {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .footer-social-circle {
-            width: 35px;
-            height: 35px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-title {
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
         
         .footer-links a {
-            color: var(--text-muted);
-            font-size: 14px;
-            transition: color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            display: block;
+            margin-bottom: 10px;
         }
         
-        .footer-links a::before {
-            content: "→";
-            font-size: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .copyright-bar {
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 13px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        /* Fixed Social Bar Left */
         .fixed-socials {
             position: fixed;
             left: 0;
@@ -604,54 +858,349 @@
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             border-radius: 0 10px 10px 0;
         }
-
+        
         .fixed-icon {
             font-size: 20px;
             color: var(--text-muted);
             padding: 5px;
             cursor: pointer;
         }
-        
-        .fixed-icon:hover {
-            color: var(--primary-color);
+
+        .post-hero {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.post-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.post-company-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.post-company-logo {
+    width: 60px;
+    height: 60px;
+    background: #f1f2f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+}
+.post-title-group h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+.post-meta-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.meta-badge {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #eef1f6;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+.meta-badge i { margin-right: 5px; }
+.apply-btn-large {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.3s;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
+}
+.apply-btn-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(9, 132, 227, 0.4);
+}
+.post-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    line-height: 1.8;
+}
+.post-share-box {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+        /* Global Responsive Fixes */
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
-        /* Responsive */
+        .post-body img {
+            max-width: 100% !important;
+            height: auto !important;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 1024px) {
+            .container { width: 100%; padding: 0 20px; }
+        }
+
+        /* Menu Toggle - Desktop Hidden */
+        .menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            header { height: auto; padding: 10px 0; } 
+            .header-content { flex-wrap: wrap; }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 22px;
+                color: var(--text-color);
+                cursor: pointer;
+            }
+
+            .nav-menu { 
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: var(--card-bg);
+                margin-top: 10px;
+                border-top: 1px solid var(--border-color);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li { width: 100%; }
+            .nav-link { padding: 12px 0; border-bottom: 1px solid var(--border-color); }
+            
+            .main-layout { grid-template-columns: 1fr; }
+            .job-grid-container { grid-template-columns: 1fr; }
+            .fixed-socials { display: none; }
+
+        /* Pagination Styling */
+        .blog-pager {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 50px 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .blog-pager a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 25px;
+            background: #ffffff;
+            border: 1.5px solid #0984e3;
+            border-radius: 50px; /* Pill shape like image */
+            color: #0984e3;
+            font-weight: 700;
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(9, 132, 227, 0.1);
+        }
+
+        .blog-pager a:hover {
+            background: #0984e3;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(9, 132, 227, 0.2);
+        }
+
+        .post-hero {
+            .logo { font-size: 20px; }
+            
+            /* Home Featured Card Mobile */
+            .job-card-featured { flex-direction: column; }
+            .card-left { width: 100%; padding: 40px 20px; }
+            .card-left::after, .card-left::before { display: none; }
+            .card-right { padding: 25px 20px !important; }
+            .watermark-j { display: none; }
+            .job-header { font-size: 18px; }
+
+            /* Single Post Mobile */
+            .post-hero { padding: 20px 15px; }
+            .post-company-info { flex-direction: column; text-align: center; }
+            .post-company-logo { margin-bottom: 10px; }
+            .post-title-group h1 { font-size: 18px; line-height: 1.4; }
+            .post-meta-badges { justify-content: center; }
+            
+            .post-share-box { flex-direction: column; gap: 15px; text-align: center; }
+            .footer-cols { grid-template-columns: 1fr; text-align: center; }
+            
+            .post-content { padding: 20px 15px; }
+        .post-body {
+            font-size: 16px;
+            color: var(--text-color);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Clean up Blogger Editor mess */
+        .post-body p, .post-body span, .post-body div {
+            white-space: normal !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            max-width: 100% !important;
+        }
+
         @media (max-width: 900px) {
             .main-layout {
                 grid-template-columns: 1fr;
+                padding: 15px;
             }
-            .job-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-menu {
-                display: none; /* simple hiding for mobile demo */
+            .sidebar {
+                display: flex !important;
+                flex-direction: column;
+                margin-top: 30px;
             }
         }
-    </style>
+    ]]>
+    </b:skin>
 </head>
-<body>
 
+<body>
     <!-- Header -->
     <header>
         <div class="container header-content flex">
-            <a href="#" class="logo flex">
-                <i class="fa-solid fa-j"></i>
-                JOB <span>HUB</span>
-            </a>
+            <b:section id='header-layout' name='Header Logo Area' showaddelement='true'>
+
+                <b:widget id='Header1' locked='false' title='Job WAVE' type='Header' version='2' visible='true'>
+                    <b:includable id='main'>
+                        <a expr:href='data:blog.homepageUrl' class="logo flex">
+                            <b:if cond='data:useImage'>
+                                <img expr:alt='data:title' expr:src='data:image'
+                                    style='max-height: 50px; width: auto;' />
+                                <b:else />
+                                <img alt='Job Wave Logo'
+                                    src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
+                                    style='max-height: 50px; width: auto;' />
+                                JOB <span>WAVE</span>
+                            </b:if>
+                        </a>
+                    </b:includable>
+                </b:widget>
+
+            </b:section>
 
             <ul class="nav-menu flex">
-                <li><a href="#" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="#" class="nav-link">Categories <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a></li>
-                <li><a href="#" class="nav-link">Companies <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a></li>
-                <li><a href="#" class="nav-link">Remote Job <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a></li>
-                <li><a href="#" class="nav-link">Canada <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a></li>
-                <li><a href="#" class="nav-link">Courses</a></li>
+                <li><a href="/" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Categories <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Administration%20/%20Office" class="dropdown-link">Administration /
+                                Office</a></li>
+                        <li><a href="/search/label/Academic%20/%20Library" class="dropdown-link">Academic / Library</a>
+                        </li>
+                        <li><a href="/search/label/Apparel%20/%20Cosmetics" class="dropdown-link">Apparel /
+                                Cosmetics</a></li>
+                        <li><a href="/search/label/Airline%20/%20Marine" class="dropdown-link">Airline / Marine</a></li>
+                        <li><a href="/search/label/Banking%20/%20Finance" class="dropdown-link">Banking / Finance</a>
+                        </li>
+                        <li><a href="/search/label/Design%20/%20Graphics" class="dropdown-link">Design / Graphics</a>
+                        </li>
+                        <li><a href="/search/label/Directors%20/%20Manager" class="dropdown-link">Directors /
+                                Manager</a></li>
+                        <li><a href="/search/label/Civil%20Eng%20/%20Architecture" class="dropdown-link">Civil Eng /
+                                Architecture</a></li>
+                        <li><a href="/search/label/Driving%20/%20Transport" class="dropdown-link">Driving /
+                                Transport</a></li>
+                        <li><a href="/search/label/Electrical%20/%20Electronics" class="dropdown-link">Electrical /
+                                Electronics</a></li>
+                        <li><a href="/search/label/Engineering" class="dropdown-link">Engineering</a></li>
+                        <li><a href="/search/label/Hospital%20/%20Healthcare" class="dropdown-link">Hospital /
+                                Healthcare</a></li>
+                        <li><a href="/search/label/Hotels%20/%20Restaurant" class="dropdown-link">Hotels /
+                                Restaurant</a></li>
+                        <li><a href="/search/label/Hardware%20/%20Software" class="dropdown-link">Hardware / Software <i
+                                    class="fa-solid fa-chevron-right"
+                                    style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
+                        <li><a href="/search/label/Internship" class="dropdown-link">Internship <i
+                                    class="fa-solid fa-chevron-right"
+                                    style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Companies <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Google" class="dropdown-link"><i class="fa-brands fa-google"></i>
+                                Google</a></li>
+                        <li><a href="/search/label/Microsoft" class="dropdown-link"><i
+                                    class="fa-brands fa-microsoft"></i> Microsoft</a></li>
+                        <li><a href="/search/label/Amazon" class="dropdown-link"><i class="fa-brands fa-amazon"></i>
+                                Amazon</a></li>
+                        <li><a href="/search/label/Meta" class="dropdown-link"><i class="fa-brands fa-meta"></i> Meta
+                                (Facebook)</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Job Type <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Remote" class="dropdown-link"><i
+                                    class="fa-solid fa-house-laptop"></i> Remote Jobs</a></li>
+                        <li><a href="/search/label/Full%20Time" class="dropdown-link"><i
+                                    class="fa-solid fa-briefcase"></i> Full Time</a></li>
+                        <li><a href="/search/label/Part%20Time" class="dropdown-link"><i class="fa-solid fa-clock"></i>
+                                Part Time</a></li>
+                        <li><a href="/search/label/Internship" class="dropdown-link"><i
+                                    class="fa-solid fa-user-graduate"></i> Internship</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Location <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Canada" class="dropdown-link"><i class="fa-solid fa-leaf"></i>
+                                Canada</a></li>
+                        <li><a href="/search/label/USA" class="dropdown-link"><i class="fa-solid fa-flag-usa"></i>
+                                USA</a></li>
+                        <li><a href="/search/label/UK" class="dropdown-link"><i class="fa-solid fa-gb"></i> UK</a></li>
+                        <li><a href="/search/label/Australia" class="dropdown-link"><i
+                                    class="fa-solid fa-earth-oceania"></i> Australia</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/search/label/Courses" class="nav-link">Courses</a></li>
             </ul>
 
             <div class="nav-actions flex">
-                <div class="theme-toggle"></div>
+                <div class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')"></div>
                 <div class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -661,155 +1210,478 @@
         <i class="fa-brands fa-facebook fixed-icon"></i>
         <i class="fa-brands fa-x-twitter fixed-icon"></i>
         <i class="fa-brands fa-whatsapp fixed-icon"></i>
-        <i class="fa-regular fa-paper-plane fixed-icon"></i>
-        <i class="fa-regular fa-copy fixed-icon"></i>
     </div>
 
     <!-- Main Content -->
     <div class="container main-layout">
-        
+
         <!-- Left Column -->
         <div class="content-col">
-            
-            <!-- JUST NOW Section -->
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="fa-solid fa-thumbtack"></i> JUST NOW
-                </div>
-                <i class="fa-solid fa-feather" style="color: #74b9ff;"></i>
-            </div>
+            <b:section id='main-posts' name='Blog Posts' showaddelement='false'>
+                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                    <b:includable id='main'>
+                        <b:if cond='data:view.isMultipleItems'>
+                            <!-- Header Logic -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Latest Jobs</h2>
+                                    <div style="font-size: 14px; color: var(--text-muted);">New Opportunities</div>
+                                </div>
+                                <b:elseif cond='data:view.isLabelSearch' />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Jobs in "
+                                        <data:view.search.label />"
+                                    </h2>
+                                </div>
+                                <b:else />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">
+                                        <b:if cond='data:view.isSearch'>Search Results
+                                            <b:else />Old Posts
+                                        </b:if>
+                                    </h2>
+                                    <b:if cond='data:view.isPage'>
+                                        <div style="font-size: 14px; color: var(--text-muted);">Page
+                                            <data:view.pageNumber />
+                                        </div>
+                                    </b:if>
+                                </div>
+                            </b:if>
 
-            <!-- Job Card Featured 1 -->
-            <div class="job-card job-card-featured">
-                <div class="card-left">
-                    <div class="card-left-curve-overlay"></div>
-                    <div class="company-logo-large">
-                        <i class="fa-brands fa-slack fa-3x" style="color: #2d3436;"></i>
-                    </div>
-                    <div class="job-title-large">Associate Machine Learning Engineer</div>
-                    <div class="company-name-large">Silverline IT</div>
-                </div>
-                <div class="card-right">
-                    <div class="watermark-j">j</div>
-                    <div class="card-meta">
-                        <div class="admin-avatar"><i class="fa-solid fa-user-shield"></i></div>
-                        <span>Admin in Associate Machine Learning Engineer</span>
-                    </div>
-                    <h2 class="job-header">Associate Machine Learning Engineer</h2>
-                    <p class="job-excerpt">Duties & Responsibilities Develop, fine-tune, and deploy large language models (LLMs) and NLP solutions using APIs...</p>
-                    <div class="tags-container">
-                        <div class="tag"><i class="fa-solid fa-circle-down"></i> DevOps engineer training</div>
-                    </div>
-                    <div class="card-footer">
-                        <span>December 21, 2025</span>
-                        <span>0 <i class="fa-regular fa-comment"></i></span>
-                    </div>
-                </div>
-            </div>
+                            <!-- Latest Jobs (First 5) - Only split on Home Page 1 -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post' index='i'>
+                                        <b:if cond='data:i &lt; 5'>
+                                            <a expr:href='data:post.url' class="job-list-card">
+                                                <div class="list-card-img">
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img expr:src='data:post.featuredImage' />
+                                                        <b:else />
+                                                        <div
+                                                            style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                            <i class="fa-solid fa-briefcase fa-2x"
+                                                                style="color: #dfe6e9;"></i></div>
+                                                    </b:if>
+                                                </div>
+                                                <div class="list-card-info">
+                                                    <h3 class="list-card-title">
+                                                        <data:post.title />
+                                                    </h3>
+                                                    <div class="list-card-company">
+                                                        <data:post.author.name />
+                                                    </div>
+                                                    <div class="list-card-meta">
+                                                        <b:loop values='data:post.labels' var='label' index='j'>
+                                                            <b:if cond='data:j &lt; 2'>
+                                                                <span class="list-meta-item"><i
+                                                                        class="fa-solid fa-tag"></i>
+                                                                    <data:label.name />
+                                                                </span>
+                                                            </b:if>
+                                                        </b:loop>
+                                                    </div>
+                                                </div>
+                                                <div class="list-card-right">
+                                                    <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                        <data:post.date />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </b:if>
+                                    </b:loop>
+                                </div>
 
-             <!-- READ MORE Section -->
-             <div class="section-header" style="margin-top: 50px;">
-                <div class="section-title read-more">
-                    <i class="fa-solid fa-bookmark"></i> READ MORE
-                </div>
-                <div style="font-size: 12px; color: #636e72;">Grid <i class="fa-solid fa-border-all" style="color: #74b9ff;"></i></div>
-            </div>
+                                <!-- Old Posts (6th onwards) -->
+                                <b:if cond='data:posts.size &gt; 5'>
+                                    <div class="main-section-header" style="margin-top: 50px;">
+                                        <h2 class="main-section-title">Old Posts</h2>
+                                    </div>
+                                    <div class="job-list-container">
+                                        <b:loop values='data:posts' var='post' index='i'>
+                                            <b:if cond='data:i &gt;= 5'>
+                                                <a expr:href='data:post.url' class="job-list-card">
+                                                    <div class="list-card-img">
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:src='data:post.featuredImage' />
+                                                            <b:else />
+                                                            <div
+                                                                style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                                <i class="fa-solid fa-briefcase fa-2x"
+                                                                    style="color: #dfe6e9;"></i></div>
+                                                        </b:if>
+                                                    </div>
+                                                    <div class="list-card-info">
+                                                        <h3 class="list-card-title" style="color: var(--text-color);">
+                                                            <data:post.title />
+                                                        </h3>
+                                                        <div class="list-card-company">
+                                                            <data:post.author.name />
+                                                        </div>
+                                                        <div class="list-card-meta">
+                                                            <b:loop values='data:post.labels' var='label' index='j'>
+                                                                <b:if cond='data:j &lt; 2'>
+                                                                    <span class="list-meta-item"><i
+                                                                            class="fa-solid fa-tag"></i>
+                                                                        <data:label.name />
+                                                                    </span>
+                                                                </b:if>
+                                                            </b:loop>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-card-right">
+                                                        <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                            <data:post.date />
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </b:if>
+                                        </b:loop>
+                                    </div>
+                                </b:if>
 
-            <div class="job-grid">
-                <!-- Job Card Grid 1 -->
-                <div class="job-card" style="display: block;">
-                    <div style="background: #2d3436; height: 120px; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px 12px 0 0; overflow: hidden;">
-                        
-                        <!-- Curve Graphic -->
-                         <div style="position: absolute; right: 0; bottom: 0; top: 0; width: 60px; background: var(--primary-color); border-top-left-radius: 100px;"></div>
+                                <b:else />
+                                <!-- Non-Home or Next Pages -->
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post'>
+                                        <a expr:href='data:post.url' class="job-list-card">
+                                            <div class="list-card-img">
+                                                <b:if cond='data:post.featuredImage'>
+                                                    <img expr:src='data:post.featuredImage' />
+                                                    <b:else />
+                                                    <div
+                                                        style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                        <i class="fa-solid fa-briefcase fa-2x"
+                                                            style="color: #dfe6e9;"></i></div>
+                                                </b:if>
+                                            </div>
+                                            <div class="list-card-info">
+                                                <h3 class="list-card-title">
+                                                    <data:post.title />
+                                                </h3>
+                                                <div class="list-card-company">
+                                                    <data:post.author.name />
+                                                </div>
+                                                <div class="list-card-meta">
+                                                    <b:loop values='data:post.labels' var='label' index='j'>
+                                                        <b:if cond='data:j &lt; 2'>
+                                                            <span class="list-meta-item"><i class="fa-solid fa-tag"></i>
+                                                                <data:label.name />
+                                                            </span>
+                                                        </b:if>
+                                                    </b:loop>
+                                                </div>
+                                            </div>
+                                            <div class="list-card-right">
+                                                <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                    <data:post.date />
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </b:loop>
+                                </div>
+                            </b:if>
 
-                        <div style="text-align: center; z-index: 2; color: white;">
-                             <p style="font-size: 13px; margin-bottom: 5px;">Associate Machine Learning Engineer</p>
-                             <div style="background: white; width: 40px; height: 40px; margin: 0 auto; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fa-brands fa-slack fa-lg" style="color: black;"></i>
-                             </div>
-                             <p style="font-size: 11px; margin-top: 5px; color: #b2bec3;">Silverline IT</p>
+                            <b:if cond='data:posts.empty'>
+                                <div
+                                    style="text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;">
+                                    <i class="fa-solid fa-magnifying-glass fa-3x"
+                                        style="color: var(--border-color); margin-bottom: 20px;"></i>
+                                    <h2 style="color: var(--text-color);">No jobs found</h2>
+                                    <p style="color: var(--text-muted);">Try a different category or check back later!
+                                    </p>
+                                    <a href="/" class="btn btn-primary" style="margin-top: 20px;">Back to Home</a>
+                                </div>
+                            </b:if>
+
+                            <!-- Custom Numbered Pagination -->
+                            <div class="pagination-bar" id="custom-pagination">
+                                <b:if cond='data:newerPageUrl'>
+                                    <a class="pagination-btn prev" expr:href='data:newerPageUrl'><i
+                                            class="fa-solid fa-chevron-left"></i></a>
+                                </b:if>
+
+                                <!-- Current simulated page active -->
+                                <span class="pagination-btn active">1</span>
+
+                                <b:if cond='data:olderPageUrl'>
+                                    <a class="pagination-btn" expr:href='data:olderPageUrl'>2</a>
+                                    <a class="pagination-btn next" expr:href='data:olderPageUrl'><i
+                                            class="fa-solid fa-chevron-right"></i></a>
+                                </b:if>
+                            </div>
+
+                            <script>
+                                // Simple Numbered Pagination Logic
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Detect Page Number from URL or defaults
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    // Is this a search/label page? 
+                                    // Blogger pagination URLs are usually /search?updated-max=...
+
+                                    // This is a visual trick because we can't get strict page numbers easily in XML
+                                    const olderLink = document.querySelector('.pagination-btn.next');
+                                    const newerLink = document.querySelector('.pagination-btn.prev');
+                                    const activeSpan = document.querySelector('.pagination-btn.active');
+                                    const nextNumBtn = document.querySelector('.pagination-btn[href*="older"]'); // The '2' button
+
+                                    let currentPage = 1;
+
+                                    // If we have a newer link, we are at least on page 2.
+                                    // Sadly exact page tracking in Blogger without a complex script is hard.
+                                    // We will default to a simple Prev [Current] Next flow.
+
+                                    if (newerLink) {
+                                        currentPage = 2; // Assuming we are on page 2 if back exists.
+                                        // You could make this logic more complex with localStorage if needed.
+                                        activeSpan.textContent = currentPage;
+                                        if (nextNumBtn) nextNumBtn.textContent = currentPage + 1;
+                                    }
+                                });
+                            </script>
+
+                            <style>
+                                .pagination-bar {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 8px;
+                                    margin-top: 40px;
+                                }
+
+                                .pagination-btn {
+                                    width: 40px;
+                                    height: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 8px;
+                                    background: #fff;
+                                    border: 1px solid #dfe6e9;
+                                    color: #2d3436;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    transition: 0.3s;
+                                    text-decoration: none;
+                                }
+
+                                .pagination-btn.active {
+                                    background: var(--primary-color);
+                                    color: #fff;
+                                    border-color: var(--primary-color);
+                                }
+
+                                .pagination-btn:hover:not(.active) {
+                                    background: #f1f2f6;
+                                    border-color: #b2bec3;
+                                }
+                            </style>
+
+                            </b:else />
+                            <b:loop values='data:posts' var='post'>
+                                <b:if cond='data:view.isPost'>
+                                    <div class="post-hero">
+                                        <div class="post-header-top">
+                                            <div class="post-company-info">
+                                                <b:if cond='data:view.isPost'>
+                                                    <div class="post-company-logo">
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:src='data:post.featuredImage'
+                                                                style='width: 40px;' />
+                                                            <b:else />
+                                                            <i class="fa-solid fa-briefcase fa-xl"></i>
+                                                        </b:if>
+                                                    </div>
+                                                </b:if>
+                                                <b:if cond='data:view.isPost'>
+                                                    <div class="post-title-group">
+                                                        <h1>
+                                                            <data:post.title />
+                                                        </h1>
+
+                                                        <div style="font-size: 14px; color: var(--text-muted);">
+                                                            <span
+                                                                style="color: var(--primary-color); font-weight: 600;">
+                                                                <data:post.author.name />
+                                                            </span> •
+                                                            <data:post.date />
+                                                        </div>
+
+                                                    </div>
+                                                </b:if>
+                                            </div>
+
+                                            <b:if cond='data:view.isPost'>
+                                                <div class="post-actions" id="apply-section">
+                                                    <div id="wait-msg"
+                                                        style="color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;">
+                                                        <i class="fa-regular fa-clock"></i> Apply button appears in
+                                                        <span id="timer">15</span>s
+                                                    </div>
+                                                    <a href="#" id="dynamic-apply-btn" class="apply-btn-large"
+                                                        style="display:none;">
+                                                        Apply Now <i class="fa-solid fa-paper-plane"
+                                                            style="margin-left: 5px;"></i>
+                                                    </a>
+                                                </div>
+                                            </b:if>
+                                        </div>
+
+
+                                        <b:if cond='data:view.isPost'>
+                                            <div class="post-meta-badges" id="post-tags">
+                                                <b:loop values='data:post.labels' var='label'>
+                                                    <a expr:href='data:label.url' class="meta-badge"
+                                                        expr:data-name='data:label.name'>
+                                                        <i class="fa-solid fa-tag"></i>
+                                                        <data:label.name />
+                                                    </a>
+                                                </b:loop>
+                                            </div>
+                                        </b:if>
+                                    </div>
+                                </b:if>
+
+                                <div class="post-content">
+                                    <div class="post-body">
+                                        <data:post.body />
+                                    </div>
+
+                                    <div class="post-share-box">
+                                        <div style="font-weight: 700;">Share this job:</div>
+                                        <div class="flex" style="gap: 10px;">
+                                            <a class="social-item fb"
+                                                expr:href='"https://www.facebook.com/sharer.php?u=" + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;"><i
+                                                    class="fa-brands fa-facebook-f"></i></a>
+                                            <a class="social-item wa"
+                                                expr:href='"https://api.whatsapp.com/send?text=" + data:post.title + " " + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;"><i
+                                                    class="fa-brands fa-whatsapp"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:loop>
+                        </b:if>
+
+                        <b:if cond='!data:view.isMultipleItems'>
+                            <b:include name='postPagination' />
+                        </b:if>
+                    </b:includable>
+                    <b:includable id='postPagination'>
+                        <div class='blog-pager container' id='blog-pager'>
+                            <b:include cond='data:newerPageUrl' name='previousPageLink' />
+                            <b:include cond='data:olderPageUrl' name='nextPageLink' />
                         </div>
-                    </div>
-                    <div style="padding: 20px; background: white;">
-                        <div class="card-meta">
-                             <div class="admin-avatar" style="width: 16px; height: 16px; font-size: 8px;">A</div>
-                             <span style="font-size: 11px;">Admin in Machine Learning</span>
-                        </div>
-                        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">Associate Machine Learning Engineer</h3>
-                        <div class="card-footer" style="margin-top: 15px;">
-                            <span style="font-size: 11px;">December 21, 2025</span>
-                            <span style="font-size: 11px;">0 <i class="fa-regular fa-comment"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job Card Grid 2 -->
-                <div class="job-card" style="display: block;">
-                    <div style="background: #2d3436; height: 120px; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px 12px 0 0; overflow: hidden;">
-                        
-                         <div style="position: absolute; right: 0; bottom: 0; top: 0; width: 60px; background: var(--primary-color); border-top-left-radius: 100px;"></div>
-
-                        <div style="text-align: center; z-index: 2; color: white;">
-                             <p style="font-size: 13px; margin-bottom: 5px;">Senior Software Developer</p>
-                             <div style="background: white; width: 40px; height: 40px; margin: 0 auto; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                <span style="color: black; font-weight: bold; font-size: 10px;">Champs</span>
-                             </div>
-                             <p style="font-size: 11px; margin-top: 5px; color: #b2bec3;">ChampSoft</p>
-                        </div>
-                    </div>
-                    <div style="padding: 20px; background: white;">
-                        <div class="card-meta">
-                             <div class="admin-avatar" style="width: 16px; height: 16px; font-size: 8px;">A</div>
-                             <span style="font-size: 11px;">Admin in Development</span>
-                        </div>
-                        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 10px;">Senior Software Developer</h3>
-                        <div class="card-footer" style="margin-top: 15px;">
-                            <span style="font-size: 11px;">December 21, 2025</span>
-                            <span style="font-size: 11px;">0 <i class="fa-regular fa-comment"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+                    </b:includable>
+                    <b:includable id='previousPageLink'>
+                        <a class='btn btn-outline' expr:href='data:newerPageUrl'>Newer Posts</a>
+                    </b:includable>
+                    <b:includable id='nextPageLink'>
+                        <a class='btn btn-outline' expr:href='data:olderPageUrl'>Older Posts</a>
+                    </b:includable>
+                    <b:includable id='aboutPostAuthor' />
+                    <b:includable id='addComments' />
+                    <b:includable id='commentAuthorAvatar' />
+                    <b:includable id='commentDeleteIcon' var='comment' />
+                    <b:includable id='commentForm' var='post' />
+                    <b:includable id='commentFormIframeSrc' var='post' />
+                    <b:includable id='commentItem' var='comment' />
+                    <b:includable id='commentList' var='comments' />
+                    <b:includable id='commentPicker' var='post' />
+                    <b:includable id='comments' var='post' />
+                    <b:includable id='commentsTitle' />
+                    <b:includable id='feedLinks' />
+                    <b:includable id='feedLinksBody' var='links' />
+                    <b:includable id='homePageLink' />
+                    <b:includable id='iframeComments' var='post' />
+                    <b:includable id='inlineAd' var='post' />
+                    <b:includable id='post' var='post' />
+                    <b:includable id='postBody' var='post' />
+                    <b:includable id='postBodySnippet' var='post' />
+                    <b:includable id='postCommentsAndAd' var='post' />
+                    <b:includable id='postCommentsLink' />
+                    <b:includable id='postFooter' var='post' />
+                    <b:includable id='postFooterAuthorProfile' var='post' />
+                    <b:includable id='postHeader' var='post' />
+                    <b:includable id='postMeta' var='post' />
+                    <b:includable id='postTitle' var='post' />
+                    <b:includable id='threadedCommentForm' var='post' />
+                    <b:includable id='threadedCommentJs' var='post' />
+                    <b:includable id='threadedComments' var='post' />
+                </b:widget>
+            </b:section>
         </div>
 
         <!-- Sidebar -->
         <div class="sidebar">
-            
-            <!-- WhatsApp Widget -->
-            <div class="widget-box whatsapp-widget">
-                <div class="whatsapp-header">
-                    <i class="fa-brands fa-whatsapp fa-xl" style="color: #25D366;"></i>
-                    <div style="text-align: left;">
-                        <div style="font-size: 12px; color: #2d3436;">Follow Job Hub</div>
-                        <div style="font-size: 14px; font-weight: 800;">WhatsApp Channel</div>
-                    </div>
-                    <span style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto;">CLICK HERE</span>
-                </div>
-                <div style="font-size: 11px; background: #25D366; color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Latest Techjobs and Internship Updates 24/7</div>
-                <div class="qr-code">
-                    <i class="fa-solid fa-qrcode fa-4x" style="color: #2d3436;"></i>
-                </div>
-                <div class="scan-me-btn">Scan Me</div>
-            </div>
+            <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
+                <!-- WhatsApp Widget (Custom HTML) -->
+                <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                        <b:widget-setting name='content'>
+                            <![CDATA[
+                            <div class="whatsapp-header">
+                                <i class="fa-brands fa-whatsapp fa-xl" style="color: #25D366;"></i>
+                                <div style="text-align: left;">
+                                    <div style="font-size: 12px; color: #2d3436;">Follow Job Wave</div>
+                                    <div style="font-size: 14px; font-weight: 800;">WhatsApp Channel</div>
+                                </div>
+                                <span style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto;">CLICK HERE</span>
+                            </div>
+                            <div style="font-size: 11px; background: #25D366; color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Latest Techjobs and Internship Updates 24/7</div>
+                            <div class="qr-code">
+                                <i class="fa-solid fa-qrcode fa-4x" style="color: #2d3436;"></i>
+                            </div>
+                            <div class="scan-me-btn">Scan Me</div>
+                        ]]>
+                        </b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                        <div class="widget-box whatsapp-widget">
+                            <data:content />
+                        </div>
+                    </b:includable>
+                </b:widget>
 
-            <!-- Connect With Us -->
-            <div class="widget-box">
-                <div class="section-header-side">CONNECT WITH US</div>
-                <div class="social-grid">
-                    <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
-                    <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
-                    <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
-                    <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
-                    <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
-                    <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
-                </div>
-            </div>
+                <!-- Facebook/Social Widget (Custom HTML) -->
+                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                        <b:widget-setting name='content'>
+                            <![CDATA[
+                            <div class="section-header-side">CONNECT WITH US</div>
+                            <div class="social-grid">
+                                <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
+                                <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
+                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
+                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
+                                <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
+                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
+                            </div>
+                        ]]>
+                        </b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                        <div class="widget-box">
+                            <data:content />
+                        </div>
+                    </b:includable>
+                </b:widget>
 
+                <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='true'>
+                    <b:includable id='main'>
+                        <div class='widget-box'>
+                            <div class="section-header-side">
+                                <data:title />
+                            </div>
+                            <data:actionUrl />
+                        </div>
+                    </b:includable>
+                </b:widget>
+            </b:section>
         </div>
-
     </div>
 
     <!-- Footer -->
@@ -817,27 +1689,18 @@
         <div class="container">
             <div class="footer-cols">
                 <div class="footer-brand">
-                    <h2><i class="fa-solid fa-j" style="color: var(--primary-color);"></i> JOB HUB</h2>
+                    <h2><i class="fa-solid fa-j" style="color: var(--primary-color);"></i> JOB WAVE</h2>
                     <p class="footer-desc">
-                        <i class="fa-regular fa-paper-plane"></i> jobhub is an online platform built to make the hiring and skill acquisition process easier...
+                        <i class="fa-regular fa-paper-plane"></i> jobhub is an online platform built to make the hiring
+                        and skill acquisition process easier...
                     </p>
-                    <div class="tags-container">
-                        <div class="tag" style="background: #0984e3;"><i class="fa-solid fa-info-circle"></i> DevOps engineer training</div>
-                    </div>
-                    <div class="footer-socials">
-                        <a href="#" class="footer-social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="footer-social-circle"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="footer-social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="footer-social-circle"><i class="fa-brands fa-pinterest"></i></a>
-                    </div>
                 </div>
                 <div class="footer-link-col">
-                    <h3 class="footer-title">Resources</h3>
+                    <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Twinz Digital</a></li>
-                        <li><a href="#">Group Study</a></li>
-                        <li><a href="#">Kinniyan Times</a></li>
-                        <li><a href="#">Wallpapers</a></li>
+                        <li><a href="/p/about.html">About Us</a></li>
+                        <li><a href="/p/contact-us.html">Contact Us</a></li>
+                        <li><a href="/p/privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-link-col">
@@ -846,26 +1709,81 @@
                         <li><a href="#">Post a Job</a></li>
                         <li><a href="#">WordPress Design</a></li>
                         <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Advertisement</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="copyright-bar">
-                <div>Design By <a href="#" style="color: #0984e3;">jobhub Designers</a> | Copyright ©2025. All Rights Reserved <a href="#" style="color: #0984e3;">Job Hub</a></div>
-                <div style="display: flex; gap: 15px;">
-                    <a href="#">About</a>
-                    <a href="#">Sitemap</a>
-                    <a href="#">Contact us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Term and Condition</a>
-                </div>
+                <div>Design By <a href="#" style="color: var(--primary-color);">jobwave Designers</a> | Copyright ©2025.
+                    All Rights Reserved</div>
             </div>
         </div>
     </footer>
 
-    <!-- dev sherul -->
-     <!-- helloooooooooooooooooooooooooo -->
+    <script>
+        //<![CDATA[
+        document.addEventListener("DOMContentLoaded", function () {
+            const applyBtn = document.getElementById('dynamic-apply-btn');
+            const waitMsg = document.getElementById('wait-msg');
+            const timerSpan = document.getElementById('timer');
 
+            if (applyBtn && waitMsg) {
+                const postBody = document.querySelector('.post-body');
+                if (postBody) {
+                    // Logic to find the application link inside the post
+                    let targetLink = postBody.querySelector('a[href*="linkedin.com"], a[href*="forms.gle"], a[href^="mailto:"]');
+
+                    if (!targetLink) {
+                        const allLinks = postBody.querySelectorAll('a');
+                        for (let link of allLinks) {
+                            if (link.textContent.toLowerCase().includes('apply')) {
+                                targetLink = link;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (targetLink) {
+                        if (targetLink.href.startsWith('mailto:')) {
+                            const emailAddress = targetLink.href.replace('mailto:', '');
+                            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                            applyBtn.href = isMobile ? 'mailto:' + emailAddress : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
+                        } else {
+                            applyBtn.href = targetLink.href;
+                            applyBtn.setAttribute('target', '_blank');
+                        }
+                        // Hide the original link to keep content clean
+                        targetLink.style.display = 'none';
+                    }
+                }
+
+                // 15 Second Countdown
+                let count = 15;
+                const interval = setInterval(() => {
+                    count--;
+                    if (timerSpan) timerSpan.textContent = count;
+                    if (count <= 0) {
+                        clearInterval(interval);
+                        waitMsg.style.display = 'none';
+                        applyBtn.style.display = 'inline-block';
+                    }
+                }, 1000);
+            }
+
+            // Mobile Dropdown Toggles
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            });
+        });
+        //]]>
+    </script>
 </body>
+
 </html>

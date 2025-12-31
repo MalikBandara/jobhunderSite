@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='modern-indie.xml' b:templateVersion='2.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-  
-  <head>
-    <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:view.title.escaped/></title>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='modern-indie.xml'
+    b:templateVersion='2.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
+    xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
+    xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <title>
+        <data:view.title.escaped />
+    </title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <b:include data='blog' name='all-head-content'/>
 
-    <b:skin version='2.0.0'><![CDATA[
+    <b:include data='blog' name='all-head-content' />
+
+    <b:skin version='2.0.0'>
+        <![CDATA[
         /* JOB WAVE CUSTOM CSS */
         :root {
             --primary-color: #0984e3;
@@ -1073,98 +1080,132 @@
                 margin-top: 30px;
             }
         }
-    ]]></b:skin>
-  </head>
+    ]]>
+    </b:skin>
+</head>
 
-  <body>
+<body>
     <!-- Header -->
     <header>
-    <div class="container header-content flex">
-        <b:section id='header-layout' name='Header Logo Area' showaddelement='true'>
-            
-            <b:widget id='Header1' locked='false' title='Job WAVE' type='Header' version='2' visible='true'>
-                <b:includable id='main'>
-                    <a expr:href='data:blog.homepageUrl' class="logo flex">
-                        <b:if cond='data:useImage'>
-                            <img expr:alt='data:title' expr:src='data:image' style='max-height: 50px; width: auto;'/>
-                        <b:else/>
-                            <img alt='Job Wave Logo' src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122' style='max-height: 50px; width: auto;'/>
-                            JOB <span>WAVE</span>
-                        </b:if>
-                    </a>
-                </b:includable>
-            </b:widget>
-            
-        </b:section>
+        <div class="container header-content flex">
+            <b:section id='header-layout' name='Header Logo Area' showaddelement='true'>
 
-        <ul class="nav-menu flex">
-            <li><a href="/" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
-            
-            <li class="nav-item">
-                <a href="#" class="nav-link">Categories <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/search/label/Administration%20/%20Office" class="dropdown-link">Administration / Office</a></li>
-                    <li><a href="/search/label/Academic%20/%20Library" class="dropdown-link">Academic / Library</a></li>
-                    <li><a href="/search/label/Apparel%20/%20Cosmetics" class="dropdown-link">Apparel / Cosmetics</a></li>
-                    <li><a href="/search/label/Airline%20/%20Marine" class="dropdown-link">Airline / Marine</a></li>
-                    <li><a href="/search/label/Banking%20/%20Finance" class="dropdown-link">Banking / Finance</a></li>
-                    <li><a href="/search/label/Design%20/%20Graphics" class="dropdown-link">Design / Graphics</a></li>
-                    <li><a href="/search/label/Directors%20/%20Manager" class="dropdown-link">Directors / Manager</a></li>
-                    <li><a href="/search/label/Civil%20Eng%20/%20Architecture" class="dropdown-link">Civil Eng / Architecture</a></li>
-                    <li><a href="/search/label/Driving%20/%20Transport" class="dropdown-link">Driving / Transport</a></li>
-                    <li><a href="/search/label/Electrical%20/%20Electronics" class="dropdown-link">Electrical / Electronics</a></li>
-                    <li><a href="/search/label/Engineering" class="dropdown-link">Engineering</a></li>
-                    <li><a href="/search/label/Hospital%20/%20Healthcare" class="dropdown-link">Hospital / Healthcare</a></li>
-                    <li><a href="/search/label/Hotels%20/%20Restaurant" class="dropdown-link">Hotels / Restaurant</a></li>
-                    <li><a href="/search/label/Hardware%20/%20Software" class="dropdown-link">Hardware / Software <i class="fa-solid fa-chevron-right" style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
-                    <li><a href="/search/label/Internship" class="dropdown-link">Internship <i class="fa-solid fa-chevron-right" style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
-                </ul>
-            </li>
+                <b:widget id='Header1' locked='false' title='Job WAVE' type='Header' version='2' visible='true'>
+                    <b:includable id='main'>
+                        <a expr:href='data:blog.homepageUrl' class="logo flex">
+                            <b:if cond='data:useImage'>
+                                <img expr:alt='data:title' expr:src='data:image'
+                                    style='max-height: 50px; width: auto;' />
+                                <b:else />
+                                <img alt='Job Wave Logo'
+                                    src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
+                                    style='max-height: 50px; width: auto;' />
+                                JOB <span>WAVE</span>
+                            </b:if>
+                        </a>
+                    </b:includable>
+                </b:widget>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">Companies <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/search/label/Google" class="dropdown-link"><i class="fa-brands fa-google"></i> Google</a></li>
-                    <li><a href="/search/label/Microsoft" class="dropdown-link"><i class="fa-brands fa-microsoft"></i> Microsoft</a></li>
-                    <li><a href="/search/label/Amazon" class="dropdown-link"><i class="fa-brands fa-amazon"></i> Amazon</a></li>
-                    <li><a href="/search/label/Meta" class="dropdown-link"><i class="fa-brands fa-meta"></i> Meta (Facebook)</a></li>
-                </ul>
-            </li>
+            </b:section>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">Job Type <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/search/label/Remote" class="dropdown-link"><i class="fa-solid fa-house-laptop"></i> Remote Jobs</a></li>
-                    <li><a href="/search/label/Full%20Time" class="dropdown-link"><i class="fa-solid fa-briefcase"></i> Full Time</a></li>
-                    <li><a href="/search/label/Part%20Time" class="dropdown-link"><i class="fa-solid fa-clock"></i> Part Time</a></li>
-                    <li><a href="/search/label/Internship" class="dropdown-link"><i class="fa-solid fa-user-graduate"></i> Internship</a></li>
-                </ul>
-            </li>
+            <ul class="nav-menu flex">
+                <li><a href="/" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">Location <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/search/label/Canada" class="dropdown-link"><i class="fa-solid fa-leaf"></i> Canada</a></li>
-                    <li><a href="/search/label/USA" class="dropdown-link"><i class="fa-solid fa-flag-usa"></i> USA</a></li>
-                    <li><a href="/search/label/UK" class="dropdown-link"><i class="fa-solid fa-gb"></i> UK</a></li>
-                    <li><a href="/search/label/Australia" class="dropdown-link"><i class="fa-solid fa-earth-oceania"></i> Australia</a></li>
-                </ul>
-            </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Categories <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Administration%20/%20Office" class="dropdown-link">Administration /
+                                Office</a></li>
+                        <li><a href="/search/label/Academic%20/%20Library" class="dropdown-link">Academic / Library</a>
+                        </li>
+                        <li><a href="/search/label/Apparel%20/%20Cosmetics" class="dropdown-link">Apparel /
+                                Cosmetics</a></li>
+                        <li><a href="/search/label/Airline%20/%20Marine" class="dropdown-link">Airline / Marine</a></li>
+                        <li><a href="/search/label/Banking%20/%20Finance" class="dropdown-link">Banking / Finance</a>
+                        </li>
+                        <li><a href="/search/label/Design%20/%20Graphics" class="dropdown-link">Design / Graphics</a>
+                        </li>
+                        <li><a href="/search/label/Directors%20/%20Manager" class="dropdown-link">Directors /
+                                Manager</a></li>
+                        <li><a href="/search/label/Civil%20Eng%20/%20Architecture" class="dropdown-link">Civil Eng /
+                                Architecture</a></li>
+                        <li><a href="/search/label/Driving%20/%20Transport" class="dropdown-link">Driving /
+                                Transport</a></li>
+                        <li><a href="/search/label/Electrical%20/%20Electronics" class="dropdown-link">Electrical /
+                                Electronics</a></li>
+                        <li><a href="/search/label/Engineering" class="dropdown-link">Engineering</a></li>
+                        <li><a href="/search/label/Hospital%20/%20Healthcare" class="dropdown-link">Hospital /
+                                Healthcare</a></li>
+                        <li><a href="/search/label/Hotels%20/%20Restaurant" class="dropdown-link">Hotels /
+                                Restaurant</a></li>
+                        <li><a href="/search/label/Hardware%20/%20Software" class="dropdown-link">Hardware / Software <i
+                                    class="fa-solid fa-chevron-right"
+                                    style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
+                        <li><a href="/search/label/Internship" class="dropdown-link">Internship <i
+                                    class="fa-solid fa-chevron-right"
+                                    style="margin-left: auto; font-size: 12px; color: #b2bec3;"></i></a></li>
+                    </ul>
+                </li>
 
-            <li><a href="/search/label/Courses" class="nav-link">Courses</a></li>
-        </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Companies <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Google" class="dropdown-link"><i class="fa-brands fa-google"></i>
+                                Google</a></li>
+                        <li><a href="/search/label/Microsoft" class="dropdown-link"><i
+                                    class="fa-brands fa-microsoft"></i> Microsoft</a></li>
+                        <li><a href="/search/label/Amazon" class="dropdown-link"><i class="fa-brands fa-amazon"></i>
+                                Amazon</a></li>
+                        <li><a href="/search/label/Meta" class="dropdown-link"><i class="fa-brands fa-meta"></i> Meta
+                                (Facebook)</a></li>
+                    </ul>
+                </li>
 
-        <div class="nav-actions flex">
-            <div class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')"></div>
-            <div class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('active')">
-                <i class="fa-solid fa-bars"></i>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Job Type <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Remote" class="dropdown-link"><i
+                                    class="fa-solid fa-house-laptop"></i> Remote Jobs</a></li>
+                        <li><a href="/search/label/Full%20Time" class="dropdown-link"><i
+                                    class="fa-solid fa-briefcase"></i> Full Time</a></li>
+                        <li><a href="/search/label/Part%20Time" class="dropdown-link"><i class="fa-solid fa-clock"></i>
+                                Part Time</a></li>
+                        <li><a href="/search/label/Internship" class="dropdown-link"><i
+                                    class="fa-solid fa-user-graduate"></i> Internship</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Location <i class="fa-solid fa-chevron-down"
+                            style="font-size: 10px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/search/label/Canada" class="dropdown-link"><i class="fa-solid fa-leaf"></i>
+                                Canada</a></li>
+                        <li><a href="/search/label/USA" class="dropdown-link"><i class="fa-solid fa-flag-usa"></i>
+                                USA</a></li>
+                        <li><a href="/search/label/UK" class="dropdown-link"><i class="fa-solid fa-gb"></i> UK</a></li>
+                        <li><a href="/search/label/Australia" class="dropdown-link"><i
+                                    class="fa-solid fa-earth-oceania"></i> Australia</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/search/label/Courses" class="nav-link">Courses</a></li>
+            </ul>
+
+            <div class="nav-actions flex">
+                <div class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')"></div>
+                <div class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="menu-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('active')">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-     <!-- Fixed Socials -->
+    <!-- Fixed Socials -->
     <div class="fixed-socials">
         <i class="fa-brands fa-facebook fixed-icon"></i>
         <i class="fa-brands fa-x-twitter fixed-icon"></i>
@@ -1173,260 +1214,415 @@
 
     <!-- Main Content -->
     <div class="container main-layout">
-        
+
         <!-- Left Column -->
         <div class="content-col">
-             <b:section id='main-posts' name='Blog Posts' showaddelement='false'>
+            <b:section id='main-posts' name='Blog Posts' showaddelement='false'>
                 <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
                     <b:includable id='main'>
-  <b:if cond='data:view.isMultipleItems'>
-    <!-- Header Logic -->
-    <b:if cond='data:view.isHomepage and !data:view.isPage'>
-      <div class="main-section-header">
-        <h2 class="main-section-title">Latest Jobs</h2>
-        <div style="font-size: 14px; color: var(--text-muted);">New Opportunities</div>
-      </div>
-    <b:elseif cond='data:view.isLabelSearch'/>
-      <div class="main-section-header">
-        <h2 class="main-section-title">Jobs in "<data:view.search.label/>"</h2>
-      </div>
-    <b:else/>
-      <div class="main-section-header">
-        <h2 class="main-section-title"><b:if cond='data:view.isSearch'>Search Results<b:else/>Old Posts</b:if></h2>
-        <b:if cond='data:view.isPage'><div style="font-size: 14px; color: var(--text-muted);">Page <data:view.pageNumber/></div></b:if>
-      </div>
-    </b:if>
+                        <b:if cond='data:view.isMultipleItems'>
+                            <!-- Header Logic -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Latest Jobs</h2>
+                                    <div style="font-size: 14px; color: var(--text-muted);">New Opportunities</div>
+                                </div>
+                                <b:elseif cond='data:view.isLabelSearch' />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">Jobs in "
+                                        <data:view.search.label />"
+                                    </h2>
+                                </div>
+                                <b:else />
+                                <div class="main-section-header">
+                                    <h2 class="main-section-title">
+                                        <b:if cond='data:view.isSearch'>Search Results
+                                            <b:else />Old Posts
+                                        </b:if>
+                                    </h2>
+                                    <b:if cond='data:view.isPage'>
+                                        <div style="font-size: 14px; color: var(--text-muted);">Page
+                                            <data:view.pageNumber />
+                                        </div>
+                                    </b:if>
+                                </div>
+                            </b:if>
 
-    <!-- Latest Jobs (First 5) - Only split on Home Page 1 -->
-    <b:if cond='data:view.isHomepage and !data:view.isPage'>
-      <div class="job-list-container">
-        <b:loop values='data:posts' var='post' index='i'>
-          <b:if cond='data:i &lt; 5'>
-            <a expr:href='data:post.url' class="job-list-card">
-              <div class="list-card-img">
-                <b:if cond='data:post.featuredImage'>
-                  <img expr:src='data:post.featuredImage' />
-                <b:else/>
-                  <div style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-briefcase fa-2x" style="color: #dfe6e9;"></i></div>
-                </b:if>
-              </div>
-              <div class="list-card-info">
-                <h3 class="list-card-title"><data:post.title/></h3>
-                <div class="list-card-company"><data:post.author.name/></div>
-                <div class="list-card-meta">
-                  <b:loop values='data:post.labels' var='label' index='j'>
-                    <b:if cond='data:j &lt; 2'>
-                      <span class="list-meta-item"><i class="fa-solid fa-tag"></i> <data:label.name/></span>
-                    </b:if>
-                  </b:loop>
-                </div>
-              </div>
-              <div class="list-card-right">
-                <div class="list-card-time"><i class="fa-regular fa-clock"></i> <data:post.date/></div>
-              </div>
-            </a>
-          </b:if>
-        </b:loop>
-      </div>
+                            <!-- Latest Jobs (First 5) - Only split on Home Page 1 -->
+                            <b:if cond='data:view.isHomepage and !data:view.isPage'>
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post' index='i'>
+                                        <b:if cond='data:i &lt; 5'>
+                                            <a expr:href='data:post.url' class="job-list-card">
+                                                <div class="list-card-img">
+                                                    <b:if cond='data:post.featuredImage'>
+                                                        <img expr:src='data:post.featuredImage' />
+                                                        <b:else />
+                                                        <div
+                                                            style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                            <i class="fa-solid fa-briefcase fa-2x"
+                                                                style="color: #dfe6e9;"></i></div>
+                                                    </b:if>
+                                                </div>
+                                                <div class="list-card-info">
+                                                    <h3 class="list-card-title">
+                                                        <data:post.title />
+                                                    </h3>
+                                                    <div class="list-card-company">
+                                                        <data:post.author.name />
+                                                    </div>
+                                                    <div class="list-card-meta">
+                                                        <b:loop values='data:post.labels' var='label' index='j'>
+                                                            <b:if cond='data:j &lt; 2'>
+                                                                <span class="list-meta-item"><i
+                                                                        class="fa-solid fa-tag"></i>
+                                                                    <data:label.name />
+                                                                </span>
+                                                            </b:if>
+                                                        </b:loop>
+                                                    </div>
+                                                </div>
+                                                <div class="list-card-right">
+                                                    <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                        <data:post.date />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </b:if>
+                                    </b:loop>
+                                </div>
 
-      <!-- Old Posts (6th onwards) -->
-      <b:if cond='data:posts.size &gt; 5'>
-        <div class="main-section-header" style="margin-top: 50px;">
-          <h2 class="main-section-title">Old Posts</h2>
-        </div>
-        <div class="job-list-container">
-          <b:loop values='data:posts' var='post' index='i'>
-            <b:if cond='data:i &gt;= 5'>
-              <a expr:href='data:post.url' class="job-list-card">
-                <div class="list-card-img">
-                  <b:if cond='data:post.featuredImage'>
-                    <img expr:src='data:post.featuredImage' />
-                  <b:else/>
-                    <div style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-briefcase fa-2x" style="color: #dfe6e9;"></i></div>
-                  </b:if>
-                </div>
-                <div class="list-card-info">
-                  <h3 class="list-card-title" style="color: var(--text-color);"><data:post.title/></h3>
-                  <div class="list-card-company"><data:post.author.name/></div>
-                  <div class="list-card-meta">
-                    <b:loop values='data:post.labels' var='label' index='j'>
-                      <b:if cond='data:j &lt; 2'>
-                        <span class="list-meta-item"><i class="fa-solid fa-tag"></i> <data:label.name/></span>
-                      </b:if>
-                    </b:loop>
-                  </div>
-                </div>
-                <div class="list-card-right">
-                  <div class="list-card-time"><i class="fa-regular fa-clock"></i> <data:post.date/></div>
-                </div>
-              </a>
-            </b:if>
-          </b:loop>
-        </div>
-      </b:if>
+                                <!-- Old Posts (6th onwards) -->
+                                <b:if cond='data:posts.size &gt; 5'>
+                                    <div class="main-section-header" style="margin-top: 50px;">
+                                        <h2 class="main-section-title">Old Posts</h2>
+                                    </div>
+                                    <div class="job-list-container">
+                                        <b:loop values='data:posts' var='post' index='i'>
+                                            <b:if cond='data:i &gt;= 5'>
+                                                <a expr:href='data:post.url' class="job-list-card">
+                                                    <div class="list-card-img">
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:src='data:post.featuredImage' />
+                                                            <b:else />
+                                                            <div
+                                                                style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                                <i class="fa-solid fa-briefcase fa-2x"
+                                                                    style="color: #dfe6e9;"></i></div>
+                                                        </b:if>
+                                                    </div>
+                                                    <div class="list-card-info">
+                                                        <h3 class="list-card-title" style="color: var(--text-color);">
+                                                            <data:post.title />
+                                                        </h3>
+                                                        <div class="list-card-company">
+                                                            <data:post.author.name />
+                                                        </div>
+                                                        <div class="list-card-meta">
+                                                            <b:loop values='data:post.labels' var='label' index='j'>
+                                                                <b:if cond='data:j &lt; 2'>
+                                                                    <span class="list-meta-item"><i
+                                                                            class="fa-solid fa-tag"></i>
+                                                                        <data:label.name />
+                                                                    </span>
+                                                                </b:if>
+                                                            </b:loop>
+                                                        </div>
+                                                    </div>
+                                                    <div class="list-card-right">
+                                                        <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                            <data:post.date />
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </b:if>
+                                        </b:loop>
+                                    </div>
+                                </b:if>
 
-    <b:else/>
-      <!-- Non-Home or Next Pages -->
-      <div class="job-list-container">
-        <b:loop values='data:posts' var='post'>
-          <a expr:href='data:post.url' class="job-list-card">
-            <div class="list-card-img">
-              <b:if cond='data:post.featuredImage'>
-                <img expr:src='data:post.featuredImage' />
-              <b:else/>
-                <div style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-briefcase fa-2x" style="color: #dfe6e9;"></i></div>
-              </b:if>
-            </div>
-            <div class="list-card-info">
-              <h3 class="list-card-title"><data:post.title/></h3>
-              <div class="list-card-company"><data:post.author.name/></div>
-              <div class="list-card-meta">
-                <b:loop values='data:post.labels' var='label' index='j'>
-                  <b:if cond='data:j &lt; 2'>
-                    <span class="list-meta-item"><i class="fa-solid fa-tag"></i> <data:label.name/></span>
-                  </b:if>
-                </b:loop>
-              </div>
-            </div>
-            <div class="list-card-right">
-              <div class="list-card-time"><i class="fa-regular fa-clock"></i> <data:post.date/></div>
-            </div>
-          </a>
-        </b:loop>
-      </div>
-    </b:if>
+                                <b:else />
+                                <!-- Non-Home or Next Pages -->
+                                <div class="job-list-container">
+                                    <b:loop values='data:posts' var='post'>
+                                        <a expr:href='data:post.url' class="job-list-card">
+                                            <div class="list-card-img">
+                                                <b:if cond='data:post.featuredImage'>
+                                                    <img expr:src='data:post.featuredImage' />
+                                                    <b:else />
+                                                    <div
+                                                        style="background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                        <i class="fa-solid fa-briefcase fa-2x"
+                                                            style="color: #dfe6e9;"></i></div>
+                                                </b:if>
+                                            </div>
+                                            <div class="list-card-info">
+                                                <h3 class="list-card-title">
+                                                    <data:post.title />
+                                                </h3>
+                                                <div class="list-card-company">
+                                                    <data:post.author.name />
+                                                </div>
+                                                <div class="list-card-meta">
+                                                    <b:loop values='data:post.labels' var='label' index='j'>
+                                                        <b:if cond='data:j &lt; 2'>
+                                                            <span class="list-meta-item"><i class="fa-solid fa-tag"></i>
+                                                                <data:label.name />
+                                                            </span>
+                                                        </b:if>
+                                                    </b:loop>
+                                                </div>
+                                            </div>
+                                            <div class="list-card-right">
+                                                <div class="list-card-time"><i class="fa-regular fa-clock"></i>
+                                                    <data:post.date />
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </b:loop>
+                                </div>
+                            </b:if>
 
-    <b:if cond='data:posts.empty'>
-      <div style="text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;">
-        <i class="fa-solid fa-magnifying-glass fa-3x" style="color: var(--border-color); margin-bottom: 20px;"></i>
-        <h2 style="color: var(--text-color);">No jobs found</h2>
-        <p style="color: var(--text-muted);">Try a different category or check back later!</p>
-        <a href="/" class="btn btn-primary" style="margin-top: 20px;">Back to Home</a>
-      </div>
-    </b:if>
-<!-- single post view -->
-  <b:else/>
-    <b:loop values='data:posts' var='post'>
-    <b:if cond='data:view.isPost'>
-    <div class="post-hero">
-        <div class="post-header-top">
-          <div class="post-company-info">
-            <b:if cond='data:view.isPost'>
-              <div class="post-company-logo">
-                <b:if cond='data:post.featuredImage'>
-                  <img expr:src='data:post.featuredImage' style='width: 40px;'/>
-                <b:else/>
-                  <i class="fa-solid fa-briefcase fa-xl"></i>
-                </b:if>
-              </div>
-            </b:if>
-            <b:if cond='data:view.isPost'>
-            <div class="post-title-group">
-              <h1><data:post.title/></h1>
-              
-                <div style="font-size: 14px; color: var(--text-muted);">
-                  <span style="color: var(--primary-color); font-weight: 600;"><data:post.author.name/></span> • <data:post.date/>
-                </div>
-              
-            </div>
-            </b:if>
-          </div>
-          
-          <b:if cond='data:view.isPost'>
-            <div class="post-actions" id="apply-section">
-              <div id="wait-msg" style="color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;">
-                <i class="fa-regular fa-clock"></i> Apply button appears in <span id="timer">15</span>s
-              </div>
-              <a href="#" id="dynamic-apply-btn" class="apply-btn-large" style="display:none;">
-                Apply Now <i class="fa-solid fa-paper-plane" style="margin-left: 5px;"></i>
-              </a>
-            </div>
-          </b:if>
-        </div>
-        
+                            <b:if cond='data:posts.empty'>
+                                <div
+                                    style="text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;">
+                                    <i class="fa-solid fa-magnifying-glass fa-3x"
+                                        style="color: var(--border-color); margin-bottom: 20px;"></i>
+                                    <h2 style="color: var(--text-color);">No jobs found</h2>
+                                    <p style="color: var(--text-muted);">Try a different category or check back later!
+                                    </p>
+                                    <a href="/" class="btn btn-primary" style="margin-top: 20px;">Back to Home</a>
+                                </div>
+                            </b:if>
 
-        <b:if cond='data:view.isPost'>
-          <div class="post-meta-badges" id="post-tags">
-            <b:loop values='data:post.labels' var='label'>
-              <a expr:href='data:label.url' class="meta-badge" expr:data-name='data:label.name'>
-                <i class="fa-solid fa-tag"></i> <data:label.name/>
-              </a>
-            </b:loop>
-          </div>
-        </b:if>
-      </div>
-      </b:if>
+                            <!-- Custom Numbered Pagination -->
+                            <div class="pagination-bar" id="custom-pagination">
+                                <b:if cond='data:newerPageUrl'>
+                                    <a class="pagination-btn prev" expr:href='data:newerPageUrl'><i
+                                            class="fa-solid fa-chevron-left"></i></a>
+                                </b:if>
 
-      <div class="post-content">
-        <div class="post-body">
-          <data:post.body/>
-        </div>
-        
-        <div class="post-share-box">
-          <div style="font-weight: 700;">Share this job:</div>
-          <div class="flex" style="gap: 10px;">
-             <a class="social-item fb" expr:href='"https://www.facebook.com/sharer.php?u=" + data:post.url' target='_blank' style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;"><i class="fa-brands fa-facebook-f"></i></a>
-             <a class="social-item wa" expr:href='"https://api.whatsapp.com/send?text=" + data:post.title + " " + data:post.url' target='_blank' style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;"><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
-        </div>
-      </div>
-    </b:loop>
-  </b:if>
+                                <!-- Current simulated page active -->
+                                <span class="pagination-btn active">1</span>
 
-  <b:include name='postPagination'/>
-</b:includable>
-                     <b:includable id='postPagination'>
+                                <b:if cond='data:olderPageUrl'>
+                                    <a class="pagination-btn" expr:href='data:olderPageUrl'>2</a>
+                                    <a class="pagination-btn next" expr:href='data:olderPageUrl'><i
+                                            class="fa-solid fa-chevron-right"></i></a>
+                                </b:if>
+                            </div>
+
+                            <script>
+                                // Simple Numbered Pagination Logic
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Detect Page Number from URL or defaults
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    // Is this a search/label page? 
+                                    // Blogger pagination URLs are usually /search?updated-max=...
+
+                                    // This is a visual trick because we can't get strict page numbers easily in XML
+                                    const olderLink = document.querySelector('.pagination-btn.next');
+                                    const newerLink = document.querySelector('.pagination-btn.prev');
+                                    const activeSpan = document.querySelector('.pagination-btn.active');
+                                    const nextNumBtn = document.querySelector('.pagination-btn[href*="older"]'); // The '2' button
+
+                                    let currentPage = 1;
+
+                                    // If we have a newer link, we are at least on page 2.
+                                    // Sadly exact page tracking in Blogger without a complex script is hard.
+                                    // We will default to a simple Prev [Current] Next flow.
+
+                                    if (newerLink) {
+                                        currentPage = 2; // Assuming we are on page 2 if back exists.
+                                        // You could make this logic more complex with localStorage if needed.
+                                        activeSpan.textContent = currentPage;
+                                        if (nextNumBtn) nextNumBtn.textContent = currentPage + 1;
+                                    }
+                                });
+                            </script>
+
+                            <style>
+                                .pagination-bar {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 8px;
+                                    margin-top: 40px;
+                                }
+
+                                .pagination-btn {
+                                    width: 40px;
+                                    height: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border-radius: 8px;
+                                    background: #fff;
+                                    border: 1px solid #dfe6e9;
+                                    color: #2d3436;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    transition: 0.3s;
+                                    text-decoration: none;
+                                }
+
+                                .pagination-btn.active {
+                                    background: var(--primary-color);
+                                    color: #fff;
+                                    border-color: var(--primary-color);
+                                }
+
+                                .pagination-btn:hover:not(.active) {
+                                    background: #f1f2f6;
+                                    border-color: #b2bec3;
+                                }
+                            </style>
+
+                            <b:else/>
+                            <b:loop values='data:posts' var='post'>
+                                <b:if cond='data:view.isPost'>
+                                    <div class="post-hero">
+                                        <div class="post-header-top">
+                                            <div class="post-company-info">
+                                                <b:if cond='data:view.isPost'>
+                                                    <div class="post-company-logo">
+                                                        <b:if cond='data:post.featuredImage'>
+                                                            <img expr:src='data:post.featuredImage'
+                                                                style='width: 40px;' />
+                                                            <b:else />
+                                                            <i class="fa-solid fa-briefcase fa-xl"></i>
+                                                        </b:if>
+                                                    </div>
+                                                </b:if>
+                                                <b:if cond='data:view.isPost'>
+                                                    <div class="post-title-group">
+                                                        <h1>
+                                                            <data:post.title />
+                                                        </h1>
+
+                                                        <div style="font-size: 14px; color: var(--text-muted);">
+                                                            <span
+                                                                style="color: var(--primary-color); font-weight: 600;">
+                                                                <data:post.author.name />
+                                                            </span> •
+                                                            <data:post.date />
+                                                        </div>
+
+                                                    </div>
+                                                </b:if>
+                                            </div>
+
+                                            <b:if cond='data:view.isPost'>
+                                                <div class="post-actions" id="apply-section">
+                                                    <div id="wait-msg"
+                                                        style="color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;">
+                                                        <i class="fa-regular fa-clock"></i> Apply button appears in
+                                                        <span id="timer">15</span>s
+                                                    </div>
+                                                    <a href="#" id="dynamic-apply-btn" class="apply-btn-large"
+                                                        style="display:none;">
+                                                        Apply Now <i class="fa-solid fa-paper-plane"
+                                                            style="margin-left: 5px;"></i>
+                                                    </a>
+                                                </div>
+                                            </b:if>
+                                        </div>
+
+
+                                        <b:if cond='data:view.isPost'>
+                                            <div class="post-meta-badges" id="post-tags">
+                                                <b:loop values='data:post.labels' var='label'>
+                                                    <a expr:href='data:label.url' class="meta-badge"
+                                                        expr:data-name='data:label.name'>
+                                                        <i class="fa-solid fa-tag"></i>
+                                                        <data:label.name />
+                                                    </a>
+                                                </b:loop>
+                                            </div>
+                                        </b:if>
+                                    </div>
+                                </b:if>
+
+                                <div class="post-content">
+                                    <div class="post-body">
+                                        <data:post.body />
+                                    </div>
+
+                                    <div class="post-share-box">
+                                        <div style="font-weight: 700;">Share this job:</div>
+                                        <div class="flex" style="gap: 10px;">
+                                            <a class="social-item fb"
+                                                expr:href='"https://www.facebook.com/sharer.php?u=" + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;"><i
+                                                    class="fa-brands fa-facebook-f"></i></a>
+                                            <a class="social-item wa"
+                                                expr:href='"https://api.whatsapp.com/send?text=" + data:post.title + " " + data:post.url'
+                                                target='_blank'
+                                                style="width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;"><i
+                                                    class="fa-brands fa-whatsapp"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:loop>
+                        </b:if>
+
+                        <b:if cond='!data:view.isMultipleItems'>
+                            <b:include name='postPagination' />
+                        </b:if>
+                    </b:includable>
+                    <b:includable id='postPagination'>
                         <div class='blog-pager container' id='blog-pager'>
-                            <b:include cond='data:newerPageUrl' name='previousPageLink'/>
-                            <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+                            <b:include cond='data:newerPageUrl' name='previousPageLink' />
+                            <b:include cond='data:olderPageUrl' name='nextPageLink' />
                         </div>
-                     </b:includable>
-                     <b:includable id='previousPageLink'>
+                    </b:includable>
+                    <b:includable id='previousPageLink'>
                         <a class='btn btn-outline' expr:href='data:newerPageUrl'>Newer Posts</a>
-                     </b:includable>
-                     <b:includable id='nextPageLink'>
+                    </b:includable>
+                    <b:includable id='nextPageLink'>
                         <a class='btn btn-outline' expr:href='data:olderPageUrl'>Older Posts</a>
-                     </b:includable>
-                     <b:includable id='aboutPostAuthor'/>
-                     <b:includable id='addComments'/>
-                     <b:includable id='commentAuthorAvatar'/>
-                     <b:includable id='commentDeleteIcon' var='comment'/>
-                     <b:includable id='commentForm' var='post'/>
-                     <b:includable id='commentFormIframeSrc' var='post'/>
-                     <b:includable id='commentItem' var='comment'/>
-                     <b:includable id='commentList' var='comments'/>
-                     <b:includable id='commentPicker' var='post'/>
-                     <b:includable id='comments' var='post'/>
-                     <b:includable id='commentsTitle'/>
-                     <b:includable id='feedLinks'/>
-                     <b:includable id='feedLinksBody' var='links'/>
-                     <b:includable id='homePageLink'/>
-                     <b:includable id='iframeComments' var='post'/>
-                     <b:includable id='inlineAd' var='post'/>
-                     <b:includable id='post' var='post'/>
-                     <b:includable id='postBody' var='post'/>
-                     <b:includable id='postBodySnippet' var='post'/>
-                     <b:includable id='postCommentsAndAd' var='post'/>
-                     <b:includable id='postCommentsLink'/>
-                     <b:includable id='postFooter' var='post'/>
-                     <b:includable id='postFooterAuthorProfile' var='post'/>
-                     <b:includable id='postHeader' var='post'/>
-                     <b:includable id='postMeta' var='post'/>
-                     <b:includable id='postTitle' var='post'/>
-                     <b:includable id='threadedCommentForm' var='post'/>
-                     <b:includable id='threadedCommentJs' var='post'/>
-                     <b:includable id='threadedComments' var='post'/>
+                    </b:includable>
+                    <b:includable id='aboutPostAuthor' />
+                    <b:includable id='addComments' />
+                    <b:includable id='commentAuthorAvatar' />
+                    <b:includable id='commentDeleteIcon' var='comment' />
+                    <b:includable id='commentForm' var='post' />
+                    <b:includable id='commentFormIframeSrc' var='post' />
+                    <b:includable id='commentItem' var='comment' />
+                    <b:includable id='commentList' var='comments' />
+                    <b:includable id='commentPicker' var='post' />
+                    <b:includable id='comments' var='post' />
+                    <b:includable id='commentsTitle' />
+                    <b:includable id='feedLinks' />
+                    <b:includable id='feedLinksBody' var='links' />
+                    <b:includable id='homePageLink' />
+                    <b:includable id='iframeComments' var='post' />
+                    <b:includable id='inlineAd' var='post' />
+                    <b:includable id='post' var='post' />
+                    <b:includable id='postBody' var='post' />
+                    <b:includable id='postBodySnippet' var='post' />
+                    <b:includable id='postCommentsAndAd' var='post' />
+                    <b:includable id='postCommentsLink' />
+                    <b:includable id='postFooter' var='post' />
+                    <b:includable id='postFooterAuthorProfile' var='post' />
+                    <b:includable id='postHeader' var='post' />
+                    <b:includable id='postMeta' var='post' />
+                    <b:includable id='postTitle' var='post' />
+                    <b:includable id='threadedCommentForm' var='post' />
+                    <b:includable id='threadedCommentJs' var='post' />
+                    <b:includable id='threadedComments' var='post' />
                 </b:widget>
-             </b:section>
+            </b:section>
         </div>
 
         <!-- Sidebar -->
         <div class="sidebar">
-             <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
+            <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
                 <!-- WhatsApp Widget (Custom HTML) -->
                 <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
                     <b:widget-settings>
-                        <b:widget-setting name='content'><![CDATA[
+                        <b:widget-setting name='content'>
+                            <![CDATA[
                             <div class="whatsapp-header">
                                 <i class="fa-brands fa-whatsapp fa-xl" style="color: #25D366;"></i>
                                 <div style="text-align: left;">
@@ -1440,19 +1636,21 @@
                                 <i class="fa-solid fa-qrcode fa-4x" style="color: #2d3436;"></i>
                             </div>
                             <div class="scan-me-btn">Scan Me</div>
-                        ]]></b:widget-setting>
+                        ]]>
+                        </b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main'>
                         <div class="widget-box whatsapp-widget">
-                            <data:content/>
+                            <data:content />
                         </div>
                     </b:includable>
                 </b:widget>
 
                 <!-- Facebook/Social Widget (Custom HTML) -->
-                 <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
+                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
                     <b:widget-settings>
-                        <b:widget-setting name='content'><![CDATA[
+                        <b:widget-setting name='content'>
+                            <![CDATA[
                             <div class="section-header-side">CONNECT WITH US</div>
                             <div class="social-grid">
                                 <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
@@ -1462,24 +1660,27 @@
                                 <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
                                 <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
                             </div>
-                        ]]></b:widget-setting>
+                        ]]>
+                        </b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main'>
                         <div class="widget-box">
-                            <data:content/>
+                            <data:content />
                         </div>
                     </b:includable>
                 </b:widget>
 
                 <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='true'>
-                     <b:includable id='main'>
+                    <b:includable id='main'>
                         <div class='widget-box'>
-                            <div class="section-header-side"><data:title/></div>
-                            <data:actionUrl/>
+                            <div class="section-header-side">
+                                <data:title />
+                            </div>
+                            <data:actionUrl />
                         </div>
-                     </b:includable>
+                    </b:includable>
                 </b:widget>
-             </b:section>
+            </b:section>
         </div>
     </div>
 
@@ -1490,7 +1691,8 @@
                 <div class="footer-brand">
                     <h2><i class="fa-solid fa-j" style="color: var(--primary-color);"></i> JOB WAVE</h2>
                     <p class="footer-desc">
-                        <i class="fa-regular fa-paper-plane"></i> jobhub is an online platform built to make the hiring and skill acquisition process easier...
+                        <i class="fa-regular fa-paper-plane"></i> jobhub is an online platform built to make the hiring
+                        and skill acquisition process easier...
                     </p>
                 </div>
                 <div class="footer-link-col">
@@ -1512,76 +1714,76 @@
             </div>
 
             <div class="copyright-bar">
-                <div>Design By <a href="#" style="color: var(--primary-color);">jobwave Designers</a> | Copyright ©2025. All Rights Reserved</div>
+                <div>Design By <a href="#" style="color: var(--primary-color);">jobwave Designers</a> | Copyright ©2025.
+                    All Rights Reserved</div>
             </div>
         </div>
     </footer>
 
     <script>
-//<![CDATA[
-document.addEventListener("DOMContentLoaded", function() {
-    const applyBtn = document.getElementById('dynamic-apply-btn');
-    const waitMsg = document.getElementById('wait-msg');
-    const timerSpan = document.getElementById('timer');
-    
-    if(applyBtn && waitMsg) {
-        const postBody = document.querySelector('.post-body');
-        if(postBody) {
-            // Logic to find the application link inside the post
-            let targetLink = postBody.querySelector('a[href*="linkedin.com"], a[href*="forms.gle"], a[href^="mailto:"]');
+        //<![CDATA[
+        document.addEventListener("DOMContentLoaded", function () {
+            const applyBtn = document.getElementById('dynamic-apply-btn');
+            const waitMsg = document.getElementById('wait-msg');
+            const timerSpan = document.getElementById('timer');
 
-            if(!targetLink) {
-                const allLinks = postBody.querySelectorAll('a');
-                for(let link of allLinks) {
-                    if(link.textContent.toLowerCase().includes('apply')) {
-                        targetLink = link;
-                        break;
+            if (applyBtn && waitMsg) {
+                const postBody = document.querySelector('.post-body');
+                if (postBody) {
+                    // Logic to find the application link inside the post
+                    let targetLink = postBody.querySelector('a[href*="linkedin.com"], a[href*="forms.gle"], a[href^="mailto:"]');
+
+                    if (!targetLink) {
+                        const allLinks = postBody.querySelectorAll('a');
+                        for (let link of allLinks) {
+                            if (link.textContent.toLowerCase().includes('apply')) {
+                                targetLink = link;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (targetLink) {
+                        if (targetLink.href.startsWith('mailto:')) {
+                            const emailAddress = targetLink.href.replace('mailto:', '');
+                            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                            applyBtn.href = isMobile ? 'mailto:' + emailAddress : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
+                        } else {
+                            applyBtn.href = targetLink.href;
+                            applyBtn.setAttribute('target', '_blank');
+                        }
+                        // Hide the original link to keep content clean
+                        targetLink.style.display = 'none';
                     }
                 }
+
+                // 15 Second Countdown
+                let count = 15;
+                const interval = setInterval(() => {
+                    count--;
+                    if (timerSpan) timerSpan.textContent = count;
+                    if (count <= 0) {
+                        clearInterval(interval);
+                        waitMsg.style.display = 'none';
+                        applyBtn.style.display = 'inline-block';
+                    }
+                }, 1000);
             }
 
-            if(targetLink) {
-                if(targetLink.href.startsWith('mailto:')) {
-                    const emailAddress = targetLink.href.replace('mailto:', '');
-                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    applyBtn.href = isMobile ? 'mailto:' + emailAddress : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
-                } else {
-                    applyBtn.href = targetLink.href;
-                    applyBtn.setAttribute('target', '_blank');
-                }
-                // Hide the original link to keep content clean
-                targetLink.style.display = 'none';
-            }
-        }
-
-        // 15 Second Countdown
-        let count = 15;
-        const interval = setInterval(() => {
-            count--;
-            if(timerSpan) timerSpan.textContent = count;
-            if(count <= 0) {
-                clearInterval(interval);
-                waitMsg.style.display = 'none';
-                applyBtn.style.display = 'inline-block';
-            }
-        }, 1000);
-    }
-
-    // Mobile Dropdown Toggles
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        const link = item.querySelector('.nav-link');
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 900) {
-                e.preventDefault();
-                item.classList.toggle('active');
-            }
+            // Mobile Dropdown Toggles
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                link.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            });
         });
-    });
-});
-//]]>
-</script>
-  </body>
+        //]]>
+    </script>
+</body>
+
 </html>
-
-
