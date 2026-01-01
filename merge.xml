@@ -401,13 +401,13 @@
 
         /* Mobile Dropdown Fix */
         @media (max-width: 900px) {
-            /* Hide the "Categories" parent link on mobile */
-            .nav-item > .nav-link {
+            /* Hide ONLY the "Categories" parent link on mobile */
+            .categories-dropdown > .nav-link {
                 display: none;
             }
 
-            /* Show dropdown menu directly */
-            .nav-item > .dropdown-menu {
+            /* Show Categories dropdown menu directly (without parent) */
+            .categories-dropdown > .dropdown-menu {
                 position: static;
                 opacity: 1;
                 visibility: visible;
@@ -418,6 +418,88 @@
                 display: block;
                 min-width: 100%;
                 background: transparent;
+            }
+
+            /* For other dropdowns (Companies, Job Type, Location), keep normal behavior */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                background: #f8f9fa;
+                display: block !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu {
+                opacity: 1 !important;
+                visibility: visible !important;
+                max-height: 400px !important;
+                padding: 10px 0 !important;
+                overflow-y: auto !important;
+            }
+
+            /* Override grid-menu on mobile */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu.grid-menu {
+                display: block !important;
+                grid-template-columns: 1fr !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu.grid-menu {
+                padding: 10px 0 !important;
+                max-height: 400px !important;
+                overflow-y: auto !important;
+            }
+
+            /* Custom scrollbar for mobile dropdowns */
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 3px;
+            }
+
+            /* Override grid-menu on mobile */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu.grid-menu {
+                display: block !important;
+                grid-template-columns: 1fr !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu.grid-menu {
+                padding: 10px 0 !important;
+            }
+
+            /* Rotate arrow for regular dropdowns */
+            .nav-item:not(.categories-dropdown).active > .nav-link i {
+                transform: rotate(180deg);
+            }
+
+            .nav-item:not(.categories-dropdown) > .nav-link i {
+                transition: transform 0.3s ease;
+            }
+
+            /* Style dropdown items on mobile */
+            .nav-item:not(.categories-dropdown) .dropdown-link {
+                padding: 12px 20px;
+                font-size: 14px;
+                display: block;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
             }
 
             /* Main category items styling */
@@ -1354,7 +1436,7 @@
             <ul class='nav-menu flex'>
                 <li><a class='nav-link' href='/'><i class='fa-solid fa-house' /> Home</a></li>
 
-                <li class='nav-item'>
+                <li class='nav-item categories-dropdown'>
                     <a class='nav-link' href='#'>Categories <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
                     <ul class='dropdown-menu'>
@@ -2226,6 +2308,26 @@
         <!-- Sidebar -->
         <div class='sidebar'>
             <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
+                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                        <b:widget-setting name='content'>
+                            <![CDATA[<div class="section-header-side">CONNECT WITH US</div>
+                            <div class="social-grid">
+                                <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
+                                <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
+                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
+                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
+                                <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
+                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
+                            </div>]]>
+                        </b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                        <div class='widget-box'>
+                            <data:content />
+                        </div>
+                    </b:includable>
+                </b:widget>
                 <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
                     <b:widget-settings>
                         <b:widget-setting name='content'>
@@ -2250,26 +2352,7 @@
                         </div>
                     </b:includable>
                 </b:widget>
-                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='content'>
-                            <![CDATA[<div class="section-header-side">CONNECT WITH US</div>
-                            <div class="social-grid">
-                                <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
-                                <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
-                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
-                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
-                                <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
-                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
-                            </div>]]>
-                        </b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
-                        <div class='widget-box'>
-                            <data:content />
-                        </div>
-                    </b:includable>
-                </b:widget>
+
                 <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='true'>
                     <b:widget-settings>
                         <b:widget-setting name='showaboutme'>true</b:widget-setting>
@@ -2380,12 +2463,12 @@
         <div class='container'>
             <div class='footer-cols'>
                 <div class='footer-brand'>
-                    
+
                     <h2 style='margin-bottom: 20px;'><img alt='Job Wave Logo'
-                        src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
-                        style='max-height: 25px; width: auto; position: relative; top: 5px;'/> JOB WAVE</h2>
+                            src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
+                            style='max-height: 25px; width: auto; position: relative; top: 5px;' /> JOB WAVE</h2>
                     <p class='footer-desc'>
-                        We are dedicated to providing you the very best of career opportunities, 
+                        We are dedicated to providing you the very best of career opportunities,
                         and skill acquisition process easier...
                     </p>
                 </div>
@@ -2397,7 +2480,7 @@
                         <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
                     </ul>
                 </div>
-                
+
             </div>
 
             <div class='copyright-bar'>
@@ -2540,6 +2623,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Only run on mobile
             if (window.innerWidth <= 900) {
+                // Handle nested submenus (Categories -> Software Engineering, etc.)
                 var submenuItems = document.querySelectorAll('.has-submenu > .dropdown-link');
 
                 submenuItems.forEach(function (item) {
@@ -2561,6 +2645,61 @@
                             parent.classList.remove('active');
                         } else {
                             parent.classList.add('active');
+                        }
+                    });
+                });
+
+                // Handle regular dropdowns (Companies, Job Type, Location)
+                var navItems = document.querySelectorAll('.nav-item:not(.categories-dropdown) > .nav-link');
+
+                console.log('Found ' + navItems.length + ' mobile dropdown headers');
+
+                navItems.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        var parent = this.parentElement;
+                        var dropdown = parent.querySelector('.dropdown-menu');
+                        
+                        // Use data attribute for more reliable state tracking
+                        var wasOpen = parent.getAttribute('data-dropdown-open') === 'true';
+
+                        console.log('Clicked:', this.textContent.trim(), 'Was open:', wasOpen, 'Has active class:', parent.classList.contains('active'));
+
+                        // Close all other nav-item dropdowns first
+                        document.querySelectorAll('.nav-item:not(.categories-dropdown)').forEach(function (el) {
+                            if (el !== parent) {
+                                el.classList.remove('active');
+                                el.setAttribute('data-dropdown-open', 'false');
+                                var otherDropdown = el.querySelector('.dropdown-menu');
+                                if (otherDropdown) {
+                                    otherDropdown.style.maxHeight = '0';
+                                    otherDropdown.style.opacity = '0';
+                                    otherDropdown.style.visibility = 'hidden';
+                                    otherDropdown.style.padding = '0';
+                                    otherDropdown.style.overflowY = 'hidden';
+                                }
+                            }
+                        });
+
+                        // Toggle current dropdown based on previous state
+                        if (wasOpen) {
+                            // It was open, so close it
+                            parent.classList.remove('active');
+                            parent.setAttribute('data-dropdown-open', 'false');
+                            if (dropdown) {
+                                dropdown.style.cssText = 'max-height: 0 !important; opacity: 0 !important; visibility: hidden !important; padding: 0 !important; overflow-y: hidden !important;';
+                            }
+                            console.log('✓ Closed dropdown');
+                        } else {
+                            // It was closed, so open it
+                            parent.classList.add('active');
+                            parent.setAttribute('data-dropdown-open', 'true');
+                            if (dropdown) {
+                                dropdown.style.cssText = 'max-height: 400px !important; opacity: 1 !important; visibility: visible !important; padding: 10px 0 !important; overflow-y: auto !important;';
+                            }
+                            console.log('✓ Opened dropdown');
                         }
                     });
                 });
