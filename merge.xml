@@ -229,33 +229,101 @@
         .blog-pager {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
             margin: 50px 0;
             padding: 0;
             width: 100%;
+            flex-wrap: wrap;
         }
 
-        .blog-pager a {
+        .pagination-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #page-numbers-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            min-width: 40px;
+            height: 40px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 25px;
-            background: #ffffff;
-            border: 1.5px solid #0984e3;
-            border-radius: 50px; /* Pill shape like image */
-            color: #0984e3;
-            font-weight: 700;
-            transition: 0.3s;
-            text-decoration: none;
+            padding: 0 12px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            color: #333;
+            font-weight: 600;
             font-size: 14px;
-            box-shadow: 0 4px 10px rgba(9, 132, 227, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        .blog-pager a:hover {
+        .pagination-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .pagination-btn.active {
             background: #0984e3;
             color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(9, 132, 227, 0.2);
+            box-shadow: 0 4px 10px rgba(9, 132, 227, 0.3);
+        }
+
+        .pagination-btn i {
+            font-size: 12px;
+        }
+
+        .pagination-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 30px;
+            height: 40px;
+            color: #999;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        /* Mobile Responsive Pagination */
+        @media (max-width: 768px) {
+            .pagination-btn {
+                min-width: 36px;
+                height: 36px;
+                font-size: 13px;
+                padding: 0 10px;
+            }
+
+            .pagination-dots {
+                min-width: 25px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .blog-pager {
+                gap: 6px;
+                margin: 30px 0;
+            }
+
+            .pagination-bar {
+                gap: 6px;
+            }
+
+            #page-numbers-container {
+                gap: 6px;
+            }
         }
 
 
@@ -1479,7 +1547,7 @@
                                 <strong>Post Titles:</strong><br/>
                                 <div style='text-align: left; max-width: 600px; margin: 10px auto; font-size: 11px;'>
                                     <b:loop index='debugIdx' values='data:posts' var='debugPost'>
-                                        <div><data:debugIdx + 1/>. <data:debugPost.title/></div>
+                                        <div><b:eval expr='data:debugIdx + 1'/>. <data:debugPost.title/></div>
                                     </b:loop>
                                 </div>
                             </div>
@@ -1500,16 +1568,21 @@
                             <b:if cond='data:newerPageUrl or data:olderPageUrl'>
                                 <div class='blog-pager' id='blog-pager'>
                                     <div class='pagination-bar'>
+                                        <!-- Previous Button -->
                                         <b:if cond='data:newerPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:newerPageUrl' title='Previous'>
+                                            <a class='pagination-btn' expr:href='data:newerPageUrl' title='Previous' id='prev-btn'>
                                                 <i class='fa-solid fa-chevron-left'/>
                                             </a>
                                         </b:if>
                                         
-                                        <span class='pagination-btn active' id='current-page'>1</span>
+                                        <!-- Page Numbers Container (will be populated by JavaScript) -->
+                                        <div id='page-numbers-container' style='display: flex; gap: 8px;'>
+                                            <span class='pagination-btn active' id='current-page'>1</span>
+                                        </div>
                                         
+                                        <!-- Next Button -->
                                         <b:if cond='data:olderPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:olderPageUrl' title='Next'>
+                                            <a class='pagination-btn' expr:href='data:olderPageUrl' title='Next' id='next-btn'>
                                                 <i class='fa-solid fa-chevron-right'/>
                                             </a>
                                         </b:if>
@@ -2173,57 +2246,124 @@
 
     <script>
         //<![CDATA[
-        // Better page number tracking using localStorage
+        // Smart Numbered Pagination with Dots
         document.addEventListener('DOMContentLoaded', function() {
-            var currentPageSpan = document.getElementById('current-page');
-            if (!currentPageSpan) return;
+            var container = document.getElementById('page-numbers-container');
+            if (!container) return;
             
             var url = window.location.href;
-            var pageNum = 1;
+            var currentPage = 1;
             
-            // Check if we're on homepage without pagination params
+            // Determine current page based on URL
             if (url === window.location.origin + '/' || url.indexOf('updated-max=') === -1) {
-                // We're on page 1
-                pageNum = 1;
+                currentPage = 1;
                 localStorage.setItem('blogCurrentPage', '1');
             } else {
-                // We have pagination params - try to get from localStorage or estimate
                 var storedPage = localStorage.getItem('blogCurrentPage');
                 if (storedPage) {
-                    pageNum = parseInt(storedPage, 10);
+                    currentPage = parseInt(storedPage, 10);
                 } else {
-                    pageNum = 2; // Default to 2 if we have params but no stored value
+                    currentPage = 2;
                 }
             }
             
-            currentPageSpan.textContent = pageNum;
+            // Calculate total pages
+            var totalPosts = 16; // Update this when you add/remove posts
+            var postsPerPage = 4;
+            var totalPages = Math.ceil(totalPosts / postsPerPage);
             
-            // Update localStorage when clicking pagination buttons
-            var paginationBtns = document.querySelectorAll('.pagination-btn');
-            paginationBtns.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    if (this.classList.contains('active')) return;
+            // Generate smart pagination with dots
+            function generatePagination(current, total) {
+                var pages = [];
+                var delta = 1; // Number of pages to show on each side of current page
+                
+                // Always show first page
+                pages.push(1);
+                
+                // Calculate range around current page
+                for (var i = current - delta; i <= current + delta; i++) {
+                    if (i > 1 && i < total) {
+                        pages.push(i);
+                    }
+                }
+                
+                // Always show last page
+                if (total > 1) {
+                    pages.push(total);
+                }
+                
+                // Remove duplicates and sort
+                pages = pages.filter(function(value, index, self) {
+                    return self.indexOf(value) === index;
+                }).sort(function(a, b) { return a - b; });
+                
+                // Build HTML with dots
+                var html = '';
+                var prev = 0;
+                
+                pages.forEach(function(page) {
+                    // Add dots if there's a gap
+                    if (page - prev > 1) {
+                        html += '<span class="pagination-dots">...</span>';
+                    }
                     
-                    var href = this.getAttribute('href');
-                    if (href) {
-                        // If going to homepage, set page 1
-                        if (href === '/' || href.indexOf('updated-max=') === -1) {
-                            localStorage.setItem('blogCurrentPage', '1');
-                        } else {
-                            // Going forward
-                            var nextPage = pageNum + 1;
-                            localStorage.setItem('blogCurrentPage', nextPage.toString());
+                    // Add page number
+                    if (page === current) {
+                        html += '<span class="pagination-btn active">' + page + '</span>';
+                    } else {
+                        html += '<a href="#" class="pagination-btn page-num-btn" data-page="' + page + '">' + page + '</a>';
+                    }
+                    
+                    prev = page;
+                });
+                
+                return html;
+            }
+            
+            container.innerHTML = generatePagination(currentPage, totalPages);
+            
+            // Handle page number clicks
+            var pageNumBtns = document.querySelectorAll('.page-num-btn');
+            pageNumBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var targetPage = parseInt(this.getAttribute('data-page'), 10);
+                    localStorage.setItem('blogCurrentPage', targetPage.toString());
+                    
+                    // Navigate based on page number
+                    if (targetPage === 1) {
+                        window.location.href = '/';
+                    } else if (targetPage > currentPage) {
+                        // Going forward - use Next button
+                        var nextBtn = document.getElementById('next-btn');
+                        if (nextBtn) {
+                            window.location.href = nextBtn.href;
+                        }
+                    } else {
+                        // Going backward - use Previous button
+                        var prevBtn = document.getElementById('prev-btn');
+                        if (prevBtn) {
+                            window.location.href = prevBtn.href;
                         }
                     }
                 });
             });
             
-            // Handle back button clicks
-            var prevBtn = document.querySelector('.pagination-btn[title="Previous"]');
+            // Update localStorage on Previous/Next clicks
+            var prevBtn = document.getElementById('prev-btn');
+            var nextBtn = document.getElementById('next-btn');
+            
             if (prevBtn) {
-                prevBtn.addEventListener('click', function(e) {
-                    var prevPage = Math.max(1, pageNum - 1);
+                prevBtn.addEventListener('click', function() {
+                    var prevPage = Math.max(1, currentPage - 1);
                     localStorage.setItem('blogCurrentPage', prevPage.toString());
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    var nextPage = Math.min(totalPages, currentPage + 1);
+                    localStorage.setItem('blogCurrentPage', nextPage.toString());
                 });
             }
         });
