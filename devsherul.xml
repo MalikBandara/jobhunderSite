@@ -224,6 +224,78 @@
             transform: translateY(0);
         }
 
+        /* Grid Menu for Companies Dropdown */
+        .grid-menu {
+            min-width: 600px;
+            max-width: 650px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            padding: 10px;
+        }
+
+        .grid-menu li {
+            list-style: none;
+        }
+
+        .grid-menu .dropdown-link {
+            padding: 10px 15px;
+            font-size: 13px;
+            border-bottom: none;
+            border-radius: 6px;
+            margin: 2px;
+        }
+
+        /* Custom Scrollbar for Grid Menu */
+        .grid-menu::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .grid-menu::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .grid-menu::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+
+        .grid-menu::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* Nested Submenu Styles */
+        .has-submenu {
+            position: relative;
+        }
+
+        .submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 250px;
+            padding: 5px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-10px);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1002;
+            border: 1px solid rgba(0,0,0,0.05);
+            margin-left: 5px;
+        }
+
+        .has-submenu:hover > .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
 
         /* Pagination Styling */
         .blog-pager {
@@ -329,20 +401,155 @@
 
         /* Mobile Dropdown Fix */
         @media (max-width: 900px) {
-            .dropdown-menu {
+            /* Hide ONLY the "Categories" parent link on mobile */
+            .categories-dropdown > .nav-link {
+                display: none;
+            }
+
+            /* Show Categories dropdown menu directly (without parent) */
+            .categories-dropdown > .dropdown-menu {
                 position: static;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
                 box-shadow: none;
                 border: none;
-                padding-left: 20px;
-                display: none; /* Toggle this via JS if needed, or keep hidden */
-                min-width: 100%;
-            }
-            
-            .nav-item.active .dropdown-menu {
+                padding-left: 0;
                 display: block;
+                min-width: 100%;
+                background: transparent;
+            }
+
+            /* For other dropdowns (Companies, Job Type, Location), keep normal behavior */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                background: #f8f9fa;
+                display: block !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu {
+                opacity: 1 !important;
+                visibility: visible !important;
+                max-height: 400px !important;
+                padding: 10px 0 !important;
+                overflow-y: auto !important;
+            }
+
+            /* Override grid-menu on mobile */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu.grid-menu {
+                display: block !important;
+                grid-template-columns: 1fr !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu.grid-menu {
+                padding: 10px 0 !important;
+                max-height: 400px !important;
+                overflow-y: auto !important;
+            }
+
+            /* Custom scrollbar for mobile dropdowns */
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            .nav-item:not(.categories-dropdown) .dropdown-menu::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 3px;
+            }
+
+            /* Override grid-menu on mobile */
+            .nav-item:not(.categories-dropdown) > .dropdown-menu.grid-menu {
+                display: block !important;
+                grid-template-columns: 1fr !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .nav-item:not(.categories-dropdown).active > .dropdown-menu.grid-menu {
+                padding: 10px 0 !important;
+            }
+
+            /* Rotate arrow for regular dropdowns */
+            .nav-item:not(.categories-dropdown).active > .nav-link i {
+                transform: rotate(180deg);
+            }
+
+            .nav-item:not(.categories-dropdown) > .nav-link i {
+                transition: transform 0.3s ease;
+            }
+
+            /* Style dropdown items on mobile */
+            .nav-item:not(.categories-dropdown) .dropdown-link {
+                padding: 12px 20px;
+                font-size: 14px;
+                display: block;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            /* Main category items styling */
+            .has-submenu {
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+
+            .has-submenu > .dropdown-link {
+                padding: 15px 20px;
+                font-weight: 600;
+                color: var(--text-color);
+                background: var(--card-bg);
+            }
+
+            /* Submenu opens downward */
+            .submenu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                max-height: 0;
+                overflow: hidden;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                margin-left: 0;
+                padding: 0;
+                background: #f8f9fa;
+                transition: all 0.3s ease;
+            }
+
+            /* Active state shows submenu */
+            .has-submenu.active > .submenu {
+                opacity: 1;
+                visibility: visible;
+                max-height: 600px;
+                padding: 10px 0;
+            }
+
+            .submenu .dropdown-link {
+                padding: 12px 20px 12px 40px;
+                font-size: 14px;
+            }
+
+            /* Rotate arrow when open */
+            .has-submenu.active > .dropdown-link i {
+                transform: rotate(90deg);
+            }
+
+            .has-submenu > .dropdown-link i {
+                transition: transform 0.3s;
             }
         }
 
@@ -1229,55 +1436,116 @@
             <ul class='nav-menu flex'>
                 <li><a class='nav-link' href='/'><i class='fa-solid fa-house' /> Home</a></li>
 
-                <li class='nav-item'>
+                <li class='nav-item categories-dropdown'>
                     <a class='nav-link' href='#'>Categories <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/search/label/Administration%20/%20Office'>Administration /
-                                Office</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Academic%20/%20Library'>Academic / Library</a>
-                        </li>
-                        <li><a class='dropdown-link' href='/search/label/Apparel%20/%20Cosmetics'>Apparel /
-                                Cosmetics</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Airline%20/%20Marine'>Airline / Marine</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Banking%20/%20Finance'>Banking / Finance</a>
-                        </li>
-                        <li><a class='dropdown-link' href='/search/label/Design%20/%20Graphics'>Design / Graphics</a>
-                        </li>
-                        <li><a class='dropdown-link' href='/search/label/Directors%20/%20Manager'>Directors /
-                                Manager</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Civil%20Eng%20/%20Architecture'>Civil Eng /
-                                Architecture</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Driving%20/%20Transport'>Driving /
-                                Transport</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Electrical%20/%20Electronics'>Electrical /
-                                Electronics</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Engineering'>Engineering</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Hospital%20/%20Healthcare'>Hospital /
-                                Healthcare</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Hotels%20/%20Restaurant'>Hotels /
-                                Restaurant</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Hardware%20/%20Software'>Hardware / Software <i
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Software-Engineering'>Software Engineering <i
                                     class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a></li>
-                        <li><a class='dropdown-link' href='/search/label/Internship'>Internship <i
+                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Internship'>Internship</a></li>
+                                <li><a class='dropdown-link' href='/search/label/UI-UX'>UI / UX Design</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Full-Stack'>Full Stack Development</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/Backend'>Backend Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Frontend'>Frontend Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Mobile-Development'>Mobile App
+                                        Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/QA-Automation'>QA &amp; Automation</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/DevOps'>DevOps &amp; Cloud</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Cyber-Security'>Cyber Security</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Web-Development'>Web Development</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/AI-Data-Science'>AI &amp; Data <i
                                     class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a></li>
+                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Data-Engineer'>Data Engineer</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Data-Science'>Data Science</a></li>
+                                <li><a class='dropdown-link' href='/search/label/ML-Engineer'>ML Engineer</a></li>
+                                <li><a class='dropdown-link' href='/search/label/AI-Prompt-Engineer'>AI Prompt
+                                        Engineer</a></li>
+                            </ul>
+                        </li>
+
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Digital-Marketing'>Digital Marketing &amp;
+                                E-Commerce <i class='fa-solid fa-chevron-right'
+                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/SEO-Specialist'>SEO Specialist</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Social-Media'>Social Media Manager</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/Content-Strategy'>Content Strategy</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/Ecom-Operations'>E-Commerce
+                                        Operations</a></li>
+                            </ul>
+                        </li>
+
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Hardware-Networking'>Hardware &amp; Networking
+                                <i class='fa-solid fa-chevron-right'
+                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Network-Engineer'>Network Engineer</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/System-Admin'>Systems Administrator</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/IT-Support'>IT Support Technical</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Electrical-Engineering'>Electrical &amp;
+                                Electronic Engineering <i class='fa-solid fa-chevron-right'
+                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Embedded-Systems'>Embedded Systems</a>
+                                </li>
+                                <li><a class='dropdown-link' href='/search/label/Electrical-Design'>Electrical
+                                        Design</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Renewable-Energy'>Renewable Energy
+                                        Tech</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
                 <li class='nav-item'>
                     <a class='nav-link' href='#'>Companies <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
-                    <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/search/label/Google'><i class='fa-brands fa-google' />
-                                Google</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Microsoft'><i class='fa-brands fa-microsoft' />
-                                Microsoft</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Amazon'><i class='fa-brands fa-amazon' />
-                                Amazon</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Meta'><i class='fa-brands fa-meta' /> Meta
-                                (Facebook)</a></li>
+                    <ul class='dropdown-menu grid-menu'>
+                        <li><a class='dropdown-link' href='/search/label/IFS'>IFS R&amp;D</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Virtusa'>Virtusa</a></li>
+                        <li><a class='dropdown-link' href='/search/label/WSO2'>WSO2</a></li>
+                        <li><a class='dropdown-link' href='/search/label/99x'>99x</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Sysco-LABS'>Sysco LABS</a></li>
+                        <li><a class='dropdown-link' href='/search/label/LSEG'>LSEG Technology</a></li>
+                        <li><a class='dropdown-link' href='/search/label/CodeGen'>CodeGen</a></li>
+
+                        <li><a class='dropdown-link' href='/search/label/Dialog-Axiata'>Dialog Axiata</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Commercial-Bank'>Commercial Bank</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Sampath-Bank'>Sampath Bank</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Cargills-Bank'>Cargills Bank</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Epic-Lanka'>Epic Lanka</a></li>
+                        <li><a class='dropdown-link' href='/search/label/JKIT'>John Keells IT</a></li>
+
+                        <li><a class='dropdown-link' href='/search/label/Hayleys'>Hayleys Group</a></li>
+                        <li><a class='dropdown-link' href='/search/label/MAS-Holdings'>MAS Holdings</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Brandix'>Brandix</a></li>
+                        <li><a class='dropdown-link' href='/search/label/MillenniumIT'>MillenniumIT</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Zone24x7'>Zone24x7</a></li>
+                        <li><a class='dropdown-link' href='/search/label/hSenid'>hSenid</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Calcey'>Calcey Technologies</a></li>
                     </ul>
                 </li>
 
@@ -1285,14 +1553,10 @@
                     <a class='nav-link' href='#'>Job Type <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/search/label/Remote'><i class='fa-solid fa-house-laptop' />
-                                Remote Jobs</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Full%20Time'><i
-                                    class='fa-solid fa-briefcase' /> Full Time</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Part%20Time'><i class='fa-solid fa-clock' />
-                                Part Time</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Internship'><i
-                                    class='fa-solid fa-user-graduate' /> Internship</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Remote'>Remote Jobs</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Full%20Time'> Full Time</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Part%20Time'>Part Time</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Internship'>Internship</a></li>
                     </ul>
                 </li>
 
@@ -1300,17 +1564,16 @@
                     <a class='nav-link' href='#'>Location <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/search/label/Canada'><i class='fa-solid fa-leaf' />
+                        <li><a class='dropdown-link' href='/search/label/Canada'>
                                 Canada</a></li>
-                        <li><a class='dropdown-link' href='/search/label/USA'><i class='fa-solid fa-flag-usa' />
+                        <li><a class='dropdown-link' href='/search/label/USA'>
                                 USA</a></li>
-                        <li><a class='dropdown-link' href='/search/label/UK'><i class='fa-solid fa-gb' /> UK</a></li>
-                        <li><a class='dropdown-link' href='/search/label/Australia'><i
-                                    class='fa-solid fa-earth-oceania' /> Australia</a></li>
+                        <li><a class='dropdown-link' href='/search/label/UK'>UK</a></li>
+                        <li><a class='dropdown-link' href='/search/label/Australia'>Australia</a></li>
                     </ul>
                 </li>
 
-                <li><a class='nav-link' href='/search/label/Courses'>Courses</a></li>
+
             </ul>
 
             <div class='nav-actions flex'>
@@ -1385,7 +1648,8 @@
                                 <b:else />
                                 <div class='main-section-header'>
                                     <h2 class='main-section-title'>All Posts</h2>
-                                    <div style='font-size: 14px; color: var(--text-muted);'>Browse all opportunities</div>
+                                    <div style='font-size: 14px; color: var(--text-muted);'>Browse all opportunities
+                                    </div>
                                 </div>
                             </b:if>
 
@@ -1416,8 +1680,7 @@
                                                 <div class='list-card-meta'>
                                                     <b:loop index='j' values='data:post.labels' var='label'>
                                                         <b:if cond='data:j &lt; 2'>
-                                                            <span class='list-meta-item'><i
-                                                                    class='fa-solid fa-tag' />
+                                                            <span class='list-meta-item'><i class='fa-solid fa-tag' />
                                                                 <data:label.name />
                                                             </span>
                                                         </b:if>
@@ -1434,7 +1697,8 @@
                                 </div>
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
-                                    Showing <data:posts.size/> posts on this page
+                                    Showing
+                                    <data:posts.size /> posts on this page
                                 </div>
 
                                 <!-- Page 2+ (Pagination via /search?updated-max=) OR Label/Search Pages -->
@@ -1481,7 +1745,8 @@
                                 </div>
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
-                                    Showing <data:posts.size/> posts | Pagination Page
+                                    Showing
+                                    <data:posts.size /> posts | Pagination Page
                                 </div>
 
                                 <b:else />
@@ -1527,30 +1792,13 @@
                                 </div>
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
-                                    Showing <data:posts.size/> posts on this page
+                                    Showing
+                                    <data:posts.size /> posts on this page
                                 </div>
                             </b:if>
-                            
-                            <!-- Universal Debug Info - Shows on ALL pages -->
-                            <div style='text-align: center; margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; font-size: 12px; color: #666; border: 2px dashed #ddd;'>
-                                <strong style='color: #333;'>🔍 Debug Info:</strong><br/>
-                                <strong>Total posts on this page:</strong> <data:posts.size/><br/>
-                                <b:if cond='data:view.isHomepage'><strong>View:</strong> Homepage | </b:if>
-                                <b:if cond='!data:view.isHomepage'><strong>View:</strong> Not Homepage | </b:if>
-                                <b:if cond='data:view.isPage'><strong>Paginated:</strong> Yes (Page 2+)</b:if>
-                                <b:if cond='!data:view.isPage'><strong>Paginated:</strong> No (Page 1)</b:if>
-                                <br/>
-                                <b:if cond='data:view.isSearch'><strong>Search:</strong> Yes | </b:if>
-                                <b:if cond='data:view.search.query'><strong>Query:</strong> "<data:view.search.query/>"</b:if>
-                                <b:if cond='!data:view.search.query'><strong>Query:</strong> None (Pagination)</b:if>
-                                <br/>
-                                <strong>Post Titles:</strong><br/>
-                                <div style='text-align: left; max-width: 600px; margin: 10px auto; font-size: 11px;'>
-                                    <b:loop index='debugIdx' values='data:posts' var='debugPost'>
-                                        <div><b:eval expr='data:debugIdx + 1'/>. <data:debugPost.title/></div>
-                                    </b:loop>
-                                </div>
-                            </div>
+
+
+
 
                             <b:if cond='data:posts.empty'>
                                 <div
@@ -1570,20 +1818,22 @@
                                     <div class='pagination-bar'>
                                         <!-- Previous Button -->
                                         <b:if cond='data:newerPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:newerPageUrl' title='Previous' id='prev-btn'>
-                                                <i class='fa-solid fa-chevron-left'/>
+                                            <a class='pagination-btn' expr:href='data:newerPageUrl' title='Previous'
+                                                id='prev-btn'>
+                                                <i class='fa-solid fa-chevron-left' />
                                             </a>
                                         </b:if>
-                                        
+
                                         <!-- Page Numbers Container (will be populated by JavaScript) -->
                                         <div id='page-numbers-container' style='display: flex; gap: 8px;'>
                                             <span class='pagination-btn active' id='current-page'>1</span>
                                         </div>
-                                        
+
                                         <!-- Next Button -->
                                         <b:if cond='data:olderPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:olderPageUrl' title='Next' id='next-btn'>
-                                                <i class='fa-solid fa-chevron-right'/>
+                                            <a class='pagination-btn' expr:href='data:olderPageUrl' title='Next'
+                                                id='next-btn'>
+                                                <i class='fa-solid fa-chevron-right' />
                                             </a>
                                         </b:if>
                                     </div>
@@ -2058,6 +2308,26 @@
         <!-- Sidebar -->
         <div class='sidebar'>
             <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
+                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
+                    <b:widget-settings>
+                        <b:widget-setting name='content'>
+                            <![CDATA[<div class="section-header-side">CONNECT WITH US</div>
+                            <div class="social-grid">
+                                <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
+                                <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
+                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
+                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
+                                <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
+                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
+                            </div>]]>
+                        </b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+                        <div class='widget-box'>
+                            <data:content />
+                        </div>
+                    </b:includable>
+                </b:widget>
                 <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
                     <b:widget-settings>
                         <b:widget-setting name='content'>
@@ -2082,26 +2352,7 @@
                         </div>
                     </b:includable>
                 </b:widget>
-                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='content'>
-                            <![CDATA[<div class="section-header-side">CONNECT WITH US</div>
-                            <div class="social-grid">
-                                <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
-                                <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
-                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
-                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
-                                <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
-                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
-                            </div>]]>
-                        </b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
-                        <div class='widget-box'>
-                            <data:content />
-                        </div>
-                    </b:includable>
-                </b:widget>
+
                 <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='true'>
                     <b:widget-settings>
                         <b:widget-setting name='showaboutme'>true</b:widget-setting>
@@ -2212,28 +2463,24 @@
         <div class='container'>
             <div class='footer-cols'>
                 <div class='footer-brand'>
-                    <h2><i class='fa-solid fa-j' style='color: var(--primary-color);' /> JOB WAVE</h2>
+
+                    <h2 style='margin-bottom: 20px;'><img alt='Job Wave Logo'
+                            src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
+                            style='max-height: 25px; width: auto; position: relative; top: 5px;' /> JOB WAVE</h2>
                     <p class='footer-desc'>
-                        <i class='fa-regular fa-paper-plane' /> jobhub is an online platform built to make the hiring
+                        We are dedicated to providing you the very best of career opportunities,
                         and skill acquisition process easier...
                     </p>
                 </div>
                 <div class='footer-link-col'>
                     <h3 class='footer-title'>Quick Links</h3>
                     <ul class='footer-links'>
-                        <li><a href='/p/about.html'>About Us</a></li>
-                        <li><a href='/p/contact-us.html'>Contact Us</a></li>
+                        <li><a href='/p/about.html'>About </a></li>
+                        <li><a href='/p/contact-us.html'>Contact</a></li>
                         <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class='footer-link-col'>
-                    <h3 class='footer-title'>Services</h3>
-                    <ul class='footer-links'>
-                        <li><a href='#'>Post a Job</a></li>
-                        <li><a href='#'>WordPress Design</a></li>
-                        <li><a href='#'>Digital Marketing</a></li>
-                    </ul>
-                </div>
+
             </div>
 
             <div class='copyright-bar'>
@@ -2247,13 +2494,13 @@
     <script>
         //<![CDATA[
         // Smart Numbered Pagination with Dots
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var container = document.getElementById('page-numbers-container');
             if (!container) return;
-            
+
             var url = window.location.href;
             var currentPage = 1;
-            
+
             // Determine current page based on URL
             if (url === window.location.origin + '/' || url.indexOf('updated-max=') === -1) {
                 currentPage = 1;
@@ -2266,70 +2513,70 @@
                     currentPage = 2;
                 }
             }
-            
+
             // Calculate total pages
             var totalPosts = 16; // Update this when you add/remove posts
             var postsPerPage = 4;
             var totalPages = Math.ceil(totalPosts / postsPerPage);
-            
+
             // Generate smart pagination with dots
             function generatePagination(current, total) {
                 var pages = [];
                 var delta = 1; // Number of pages to show on each side of current page
-                
+
                 // Always show first page
                 pages.push(1);
-                
+
                 // Calculate range around current page
                 for (var i = current - delta; i <= current + delta; i++) {
                     if (i > 1 && i < total) {
                         pages.push(i);
                     }
                 }
-                
+
                 // Always show last page
                 if (total > 1) {
                     pages.push(total);
                 }
-                
+
                 // Remove duplicates and sort
-                pages = pages.filter(function(value, index, self) {
+                pages = pages.filter(function (value, index, self) {
                     return self.indexOf(value) === index;
-                }).sort(function(a, b) { return a - b; });
-                
+                }).sort(function (a, b) { return a - b; });
+
                 // Build HTML with dots
                 var html = '';
                 var prev = 0;
-                
-                pages.forEach(function(page) {
+
+                pages.forEach(function (page) {
                     // Add dots if there's a gap
                     if (page - prev > 1) {
                         html += '<span class="pagination-dots">...</span>';
                     }
-                    
+
                     // Add page number
                     if (page === current) {
                         html += '<span class="pagination-btn active">' + page + '</span>';
                     } else {
                         html += '<a href="#" class="pagination-btn page-num-btn" data-page="' + page + '">' + page + '</a>';
                     }
-                    
+
                     prev = page;
                 });
-                
+
                 return html;
             }
-            
+
             container.innerHTML = generatePagination(currentPage, totalPages);
-            
+
             // Handle page number clicks
             var pageNumBtns = document.querySelectorAll('.page-num-btn');
-            pageNumBtns.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
+            pageNumBtns.forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     var targetPage = parseInt(this.getAttribute('data-page'), 10);
                     localStorage.setItem('blogCurrentPage', targetPage.toString());
-                    
+
                     // Navigate based on page number
                     if (targetPage === 1) {
                         window.location.href = '/';
@@ -2348,22 +2595,113 @@
                     }
                 });
             });
-            
+
             // Update localStorage on Previous/Next clicks
             var prevBtn = document.getElementById('prev-btn');
             var nextBtn = document.getElementById('next-btn');
-            
+
             if (prevBtn) {
-                prevBtn.addEventListener('click', function() {
+                prevBtn.addEventListener('click', function () {
                     var prevPage = Math.max(1, currentPage - 1);
                     localStorage.setItem('blogCurrentPage', prevPage.toString());
                 });
             }
-            
+
             if (nextBtn) {
-                nextBtn.addEventListener('click', function() {
+                nextBtn.addEventListener('click', function () {
                     var nextPage = Math.min(totalPages, currentPage + 1);
                     localStorage.setItem('blogCurrentPage', nextPage.toString());
+                });
+            }
+        });
+        //]]>
+    </script>
+
+    <script>
+        //<![CDATA[
+        // Mobile Submenu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            // Only run on mobile
+            if (window.innerWidth <= 900) {
+                // Handle nested submenus (Categories -> Software Engineering, etc.)
+                var submenuItems = document.querySelectorAll('.has-submenu > .dropdown-link');
+
+                submenuItems.forEach(function (item) {
+                    item.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        var parent = this.parentElement;
+                        var isActive = parent.classList.contains('active');
+
+                        // Close all other submenus
+                        document.querySelectorAll('.has-submenu.active').forEach(function (el) {
+                            if (el !== parent) {
+                                el.classList.remove('active');
+                            }
+                        });
+
+                        // Toggle current submenu
+                        if (isActive) {
+                            parent.classList.remove('active');
+                        } else {
+                            parent.classList.add('active');
+                        }
+                    });
+                });
+
+                // Handle regular dropdowns (Companies, Job Type, Location)
+                var navItems = document.querySelectorAll('.nav-item:not(.categories-dropdown) > .nav-link');
+
+                console.log('Found ' + navItems.length + ' mobile dropdown headers');
+
+                navItems.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        var parent = this.parentElement;
+                        var dropdown = parent.querySelector('.dropdown-menu');
+                        
+                        // Use data attribute for more reliable state tracking
+                        var wasOpen = parent.getAttribute('data-dropdown-open') === 'true';
+
+                        console.log('Clicked:', this.textContent.trim(), 'Was open:', wasOpen, 'Has active class:', parent.classList.contains('active'));
+
+                        // Close all other nav-item dropdowns first
+                        document.querySelectorAll('.nav-item:not(.categories-dropdown)').forEach(function (el) {
+                            if (el !== parent) {
+                                el.classList.remove('active');
+                                el.setAttribute('data-dropdown-open', 'false');
+                                var otherDropdown = el.querySelector('.dropdown-menu');
+                                if (otherDropdown) {
+                                    otherDropdown.style.maxHeight = '0';
+                                    otherDropdown.style.opacity = '0';
+                                    otherDropdown.style.visibility = 'hidden';
+                                    otherDropdown.style.padding = '0';
+                                    otherDropdown.style.overflowY = 'hidden';
+                                }
+                            }
+                        });
+
+                        // Toggle current dropdown based on previous state
+                        if (wasOpen) {
+                            // It was open, so close it
+                            parent.classList.remove('active');
+                            parent.setAttribute('data-dropdown-open', 'false');
+                            if (dropdown) {
+                                dropdown.style.cssText = 'max-height: 0 !important; opacity: 0 !important; visibility: hidden !important; padding: 0 !important; overflow-y: hidden !important;';
+                            }
+                            console.log('✓ Closed dropdown');
+                        } else {
+                            // It was closed, so open it
+                            parent.classList.add('active');
+                            parent.setAttribute('data-dropdown-open', 'true');
+                            if (dropdown) {
+                                dropdown.style.cssText = 'max-height: 400px !important; opacity: 1 !important; visibility: visible !important; padding: 10px 0 !important; overflow-y: auto !important;';
+                            }
+                            console.log('✓ Opened dropdown');
+                        }
+                    });
                 });
             }
         });
