@@ -1179,85 +1179,85 @@
         }
 
         .post-hero {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 16px;
-    margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-.post-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.post-company-info {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-.post-company-logo {
-    width: 60px;
-    height: 60px;
-    background: #f1f2f6;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-color);
-}
-.post-title-group h1 {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 5px;
-    color: var(--secondary-color);
-}
-.post-meta-badges {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-.meta-badge {
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    background: #eef1f6;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-.meta-badge i { margin-right: 5px; }
-.apply-btn-large {
-    background: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: 0.3s;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
-}
-.apply-btn-large:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(9, 132, 227, 0.4);
-}
-.post-content {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    line-height: 1.8;
-}
-.post-share-box {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .post-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .post-company-info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .post-company-logo {
+            width: 60px;
+            height: 60px;
+            background: #f1f2f6;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+        }
+        .post-title-group h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        .post-meta-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .meta-badge {
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #eef1f6;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .meta-badge i { margin-right: 5px; }
+        .apply-btn-large {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
+        }
+        .apply-btn-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(9, 132, 227, 0.4);
+        }
+        .post-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            line-height: 1.8;
+        }
+        .post-share-box {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         /* Global Responsive Fixes */
         img {
@@ -1874,7 +1874,7 @@
                                                 </b:if>
                                             </div>
 
-                                            <b:if cond='data:view.isPost'>
+                                            <!-- <b:if cond='data:view.isPost'>
                                                 <div class='post-actions' id='apply-section'>
                                                     <div id='wait-msg'
                                                         style='color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;'>
@@ -1887,7 +1887,7 @@
                                                             style='margin-left: 5px;' />
                                                     </a>
                                                 </div>
-                                            </b:if>
+                                            </b:if> -->
                                         </div>
 
 
@@ -1908,6 +1908,21 @@
                                 <div class='post-content'>
                                     <div class='post-body'>
                                         <data:post.body />
+
+                                        <b:if cond='data:view.isPost'>
+                                            <div class='post-actions' id='apply-section'>
+                                                <div id='wait-msg'
+                                                    style='color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;'>
+                                                    <i class='fa-regular fa-clock' /> Apply button appears in
+                                                    <span id='timer'>15</span>s
+                                                </div>
+                                                <a class='apply-btn-large' href='#' id='dynamic-apply-btn'
+                                                    style='display:none;'>
+                                                    Apply Now <i class='fa-solid fa-paper-plane'
+                                                        style='margin-left: 5px;' />
+                                                </a>
+                                            </div>
+                                        </b:if>
                                     </div>
 
                                     <div class='post-share-box'>
@@ -2661,7 +2676,7 @@
 
                         var parent = this.parentElement;
                         var dropdown = parent.querySelector('.dropdown-menu');
-                        
+
                         // Use data attribute for more reliable state tracking
                         var wasOpen = parent.getAttribute('data-dropdown-open') === 'true';
 
@@ -2721,10 +2736,30 @@
                     // Logic to find the application link inside the post
                     let targetLink = postBody.querySelector('a[href*="linkedin.com"], a[href*="forms.gle"], a[href^="mailto:"]');
 
+                    // If no specific link found, look for any link with "apply" in text or any http/https link
                     if (!targetLink) {
                         const allLinks = postBody.querySelectorAll('a');
+
                         for (let link of allLinks) {
-                            if (link.textContent.toLowerCase().includes('apply')) {
+                            // Skip if link contains an image (Blogger wraps images in <a> tags)
+                            if (link.querySelector('img')) {
+                                continue;
+                            }
+
+                            // Skip Blogger CDN URLs
+                            if (link.href.includes('blogger.googleusercontent.com') ||
+                                link.href.includes('blogspot.com')) {
+                                continue;
+                            }
+
+                            const linkText = link.textContent.toLowerCase().trim();
+                            const linkHref = link.href.toLowerCase();
+
+                            // Check if link text contains "apply", "website", "career" or if it's an external http/https link
+                            if (linkText.includes('apply') ||
+                                linkText.includes('website') ||
+                                linkText.includes('career') ||
+                                (link.href.startsWith('http') && !link.href.includes(window.location.hostname))) {
                                 targetLink = link;
                                 break;
                             }
@@ -2740,8 +2775,11 @@
                             applyBtn.href = targetLink.href;
                             applyBtn.setAttribute('target', '_blank');
                         }
-                        // Hide the original link to keep content clean
-                        targetLink.style.display = 'none';
+
+                        // Only hide the link if it doesn't contain an image
+                        if (!targetLink.querySelector('img')) {
+                            targetLink.style.display = 'none';
+                        }
                     }
                 }
 
