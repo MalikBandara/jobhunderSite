@@ -154,9 +154,58 @@
             color: var(--primary-color);
         }
 
+        /* Mobile Menu Toggle Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--secondary-color);
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Close Button */
+        .mobile-menu-close {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1003;
+        }
+
         .nav-menu {
             gap: 25px;
             display: flex;
+        }
+
+        /* Hide mobile-only job categories section on desktop */
+        .job-categories-mobile {
+            display: none;
         }
 
         .nav-link {
@@ -431,7 +480,7 @@
                 box-shadow: none;
                 border: none;
                 padding: 0;
-                background: #f8f9fa;
+                background: rgba(0,0,0,0.2); /* Dark background like job categories */
                 display: block !important;
             }
 
@@ -499,7 +548,13 @@
                 padding: 12px 20px;
                 font-size: 14px;
                 display: block;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
+                border-bottom: 1px solid rgba(255,255,255,0.1); /* Lighter border for dark bg */
+                color: rgba(255,255,255,0.9) !important; /* White text */
+            }
+
+            .nav-item:not(.categories-dropdown) .dropdown-link:hover {
+                background: rgba(255,255,255,0.1);
+                color: #fff !important;
             }
 
             /* Main category items styling */
@@ -1282,26 +1337,171 @@
 
         @media (max-width: 900px) {
             header { height: auto; padding: 10px 0; } 
-            .header-content { flex-wrap: wrap; }
+            .header-content { flex-wrap: nowrap; justify-content: space-between; }
             
-            .menu-toggle {
+            /* Show mobile menu toggle */
+            .mobile-menu-toggle {
                 display: block;
-                font-size: 22px;
-                color: var(--text-color);
-                cursor: pointer;
+                order: -1; /* Move to left side */
             }
 
+            /* Show overlay when menu is active */
+            .mobile-menu-overlay {
+                display: block;
+            }
+
+            /* Mobile Menu - Slide in from left */
             .nav-menu { 
-                display: none;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100vh;
                 flex-direction: column;
-                background: var(--card-bg);
-                margin-top: 10px;
-                border-top: 1px solid var(--border-color);
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                padding: 80px 15px 20px 15px; /* Added horizontal padding */
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1001;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.3);
             }
             
             .nav-menu.active {
+                left: 0;
                 display: flex;
+            }
+
+            /* Show close button in mobile menu */
+            .nav-menu.active .mobile-menu-close {
+                display: block;
+            }
+
+            /* Hide desktop Categories dropdown on mobile */
+            .categories-dropdown {
+                display: none !important;
+            }
+
+            /* Show Job Categories section on mobile */
+            .job-categories-mobile {
+                display: block;
+            }
+
+            /* Mobile menu links */
+            .nav-menu li { 
+                width: 100%; 
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .nav-link { 
+                padding: 15px 10px; /* Reduced horizontal padding since menu has padding */
+                color: #fff;
+                font-size: 16px;
+                border-bottom: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-link:hover {
+                background: rgba(255,255,255,0.1);
+                color: #fff;
+            }
+
+            /* Job Categories Collapsible Section */
+            .nav-item.job-categories-mobile {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-item.job-categories-mobile > .nav-link {
+                font-weight: 600;
+                font-size: 17px;
+            }
+
+            .nav-item.job-categories-mobile > .nav-link i {
+                transition: transform 0.3s;
+            }
+
+            .nav-item.job-categories-mobile.active > .nav-link i {
+                transform: rotate(90deg);
+            }
+
+            /* Job categories submenu */
+            .job-categories-list {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                background: rgba(0,0,0,0.2);
+            }
+
+            .job-categories-list.active {
+                max-height: 1200px !important; /* Much larger for all nested items */
+                overflow-y: auto !important;
+            }
+
+            .job-categories-list > li {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .job-categories-list .dropdown-link {
+                padding: 12px 10px 12px 25px; /* Adjusted for menu padding */
+                color: rgba(255,255,255,0.9);
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .job-categories-list .dropdown-link:hover {
+                background: rgba(255,255,255,0.1);
+                color: #fff;
+            }
+
+            /* Nested subcategories in job categories */
+            .has-submenu-mobile {
+                position: relative;
+            }
+
+            .has-submenu-mobile > .dropdown-link i {
+                transition: transform 0.3s;
+                font-size: 12px;
+            }
+
+            .has-submenu-mobile.active > .dropdown-link i {
+                transform: rotate(90deg);
+            }
+
+            .submenu-mobile {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                background: rgba(0,0,0,0.3);
+                display: block !important;
+            }
+
+            .submenu-mobile.active {
+                max-height: 600px !important;
+                overflow-y: auto !important;
+            }
+
+            .submenu-mobile li {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .submenu-mobile .dropdown-link {
+                padding: 10px 10px 10px 45px; /* Extra indent for subcategories, adjusted for menu padding */
+                font-size: 13px;
+                color: rgba(255,255,255,0.95) !important; /* Ensure white text is visible */
+                display: block !important;
+            }
+
+            .submenu-mobile .dropdown-link:hover {
+                background: rgba(255,255,255,0.15);
+                color: #fff !important;
             }
             
             .nav-menu li { width: 100%; }
@@ -1369,7 +1569,15 @@
 <body>
     <!-- Header -->
     <header>
+        <!-- Mobile Menu Overlay -->
+        <div class='mobile-menu-overlay' id='mobile-overlay'></div>
+        
         <div class='container header-content flex'>
+            <!-- Mobile Menu Toggle Button (Hamburger) -->
+            <button class='mobile-menu-toggle' id='mobile-menu-btn' aria-label='Toggle Menu'>
+                <i class='fa-solid fa-bars'></i>
+            </button>
+            
             <b:section id='header-layout' name='Header Logo Area' showaddelement='true'>
                 <b:widget id='Header1' locked='false' title='Job Wave SL (Header)' type='Header' version='2'
                     visible='true'>
@@ -1434,8 +1642,14 @@
             </b:section>
 
             <ul class='nav-menu flex'>
+                <!-- Close Button for Mobile Menu -->
+                <button class='mobile-menu-close' id='mobile-close-btn' aria-label='Close Menu'>
+                    <i class='fa-solid fa-times'></i>
+                </button>
+                
                 <li><a class='nav-link' href='/'><i class='fa-solid fa-house' /> Home</a></li>
 
+                <!-- Desktop: Categories Dropdown | Mobile: Hidden (shown in Job Categories section below) -->
                 <li class='nav-item categories-dropdown'>
                     <a class='nav-link' href='#'>Categories <i class='fa-solid fa-chevron-down'
                             style='font-size: 10px;' /></a>
@@ -1515,6 +1729,87 @@
                                         Design</a></li>
                                 <li><a class='dropdown-link' href='/search/label/Renewable-Energy'>Renewable Energy
                                         Tech</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Mobile Only: Job Categories Collapsible Section -->
+                <li class='nav-item job-categories-mobile'>
+                    <a class='nav-link' href='#' id='job-categories-toggle'>
+                        Job Categories 
+                        <i class='fa-solid fa-chevron-right'></i>
+                    </a>
+                    <ul class='job-categories-list' id='job-categories-list'>
+                        <!-- Software Engineering with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Software Engineering 
+                                <i class='fa-solid fa-chevron-right'></i>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Internship'>Internship</a></li>
+                                <li><a class='dropdown-link' href='/search/label/UI-UX'>UI / UX Design</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Full-Stack'>Full Stack Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Backend'>Backend Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Frontend'>Frontend Development</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Mobile-Development'>Mobile App Development</a></li>
+                                <!-- <li><a class='dropdown-link' href='/search/label/QA-Automation'>QA &amp; Automation</a></li>
+                                <li><a class='dropdown-link' href='/search/label/DevOps'>DevOps &amp; Cloud</a></li> -->
+                            </ul>
+                        </li>
+                        
+                        <!-- AI & Data Science with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                AI &amp; Data Science 
+                                <i class='fa-solid fa-chevron-right'></i>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Machine-Learning'>Machine Learning</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Data-Science'>Data Science</a></li>
+                                <li><a class='dropdown-link' href='/search/label/AI'>Artificial Intelligence</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Digital Marketing with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Digital Marketing &amp; E-Commerce 
+                                <i class='fa-solid fa-chevron-right'></i>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/SEO'>SEO</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Social-Media'>Social Media Marketing</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Content-Marketing'>Content Marketing</a></li>
+                                <li><a class='dropdown-link' href='/search/label/E-Commerce'>E-Commerce</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Hardware & Networking with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Hardware &amp; Networking 
+                                <i class='fa-solid fa-chevron-right'></i>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Network-Engineer'>Network Engineering</a></li>
+                                <li><a class='dropdown-link' href='/search/label/System-Admin'>System Administration</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Hardware'>Hardware Support</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Electrical Engineering with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Electrical &amp; Electronic Engineering 
+                                <i class='fa-solid fa-chevron-right'></i>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Power-Systems'>Power Systems</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Electronics'>Electronics</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Embedded-Systems'>Embedded Systems</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Automation'>Automation</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -2804,6 +3099,87 @@
                     if (window.innerWidth <= 900) {
                         e.preventDefault();
                         item.classList.toggle('active');
+                    }
+                });
+            });
+        });
+        //]]>
+    </script>
+
+    <script>
+        //<![CDATA[
+        // Mobile Menu Toggle & Job Categories Collapse
+        document.addEventListener('DOMContentLoaded', function () {
+            var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            var mobileCloseBtn = document.getElementById('mobile-close-btn');
+            var mobileOverlay = document.getElementById('mobile-overlay');
+            var navMenu = document.querySelector('.nav-menu');
+            var jobCategoriesToggle = document.getElementById('job-categories-toggle');
+            var jobCategoriesList = document.getElementById('job-categories-list');
+            var jobCategoriesMobile = document.querySelector('.job-categories-mobile');
+
+            // Open mobile menu
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    navMenu.classList.add('active');
+                    mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Close mobile menu
+            function closeMobileMenu() {
+                navMenu.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileCloseBtn) {
+                mobileCloseBtn.addEventListener('click', closeMobileMenu);
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMobileMenu);
+            }
+
+            // Toggle Job Categories
+            if (jobCategoriesToggle) {
+                jobCategoriesToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    jobCategoriesMobile.classList.toggle('active');
+                    jobCategoriesList.classList.toggle('active');
+                });
+            }
+
+            // Handle nested subcategories in job categories
+            var nestedItems = document.querySelectorAll('.has-submenu-mobile > .dropdown-link');
+            nestedItems.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    var parent = this.parentElement;
+                    var submenu = parent.querySelector('.submenu-mobile');
+                    var isActive = parent.classList.contains('active');
+                    
+                    // Close all other nested submenus
+                    document.querySelectorAll('.has-submenu-mobile.active').forEach(function (el) {
+                        if (el !== parent) {
+                            el.classList.remove('active');
+                            var otherSubmenu = el.querySelector('.submenu-mobile');
+                            if (otherSubmenu) {
+                                otherSubmenu.classList.remove('active');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current submenu
+                    if (isActive) {
+                        parent.classList.remove('active');
+                        submenu.classList.remove('active');
+                    } else {
+                        parent.classList.add('active');
+                        submenu.classList.add('active');
                     }
                 });
             });
