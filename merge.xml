@@ -177,11 +177,15 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            visibility: hidden;
+            pointer-events: none; /* Don't block clicks when hidden */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .mobile-menu-overlay.active {
             opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable clicks when visible */
         }
 
         /* Mobile Menu Close Button */
@@ -196,6 +200,11 @@
             color: #fff;
             cursor: pointer;
             z-index: 1003;
+            pointer-events: none; /* Don't block clicks when hidden */
+        }
+
+        .nav-menu.active .mobile-menu-close {
+            pointer-events: auto; /* Enable clicks when visible */
         }
 
         .nav-menu {
