@@ -2715,7 +2715,11 @@ body.dark-mode .job-header a {
                                 <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
                                 <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
                                 <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
-                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
+                                <a href="https://t.me/JobWave_SRILANKA" target="_blank" class="social-item tg">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span class="social-name">Telegram</span>
+                </a>
+                
                                 <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
                                 <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
                             </div>]]>
