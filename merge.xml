@@ -644,9 +644,7 @@
             transition: transform 0.3s;
         }
 
-
-       
-        /* Dark Mode Styles - Optimized for Mobile & Content */
+        /* Dark Mode Styles - Updated with Footer & Content fixes */
 body.dark-mode {
     --bg-color: #1e1e1e;
     --card-bg: #2d2d2d;
@@ -654,6 +652,24 @@ body.dark-mode {
     --text-muted: #b2bec3;
     --border-color: #444;
     --secondary-color: #ffffff;
+}
+
+/* Footer පසුබිම සහ අකුරු Dark Mode කිරීම */
+body.dark-mode footer {
+    background-color: #1a1a1a !important; /* Footer එකේ පසුබිම කළු පැහැයට */
+    border-top: 1px solid #333;
+}
+
+body.dark-mode .footer-brand h2, 
+body.dark-mode .footer-title, 
+body.dark-mode .footer-links a, 
+body.dark-mode .footer-desc, 
+body.dark-mode .copyright-bar {
+    color: #dfe6e9 !important; /* Footer එකේ අකුරු ලා අළු පැහැයට */
+}
+
+body.dark-mode .footer-links a:hover {
+    color: var(--primary-color) !important;
 }
 
 /* පෝස්ට් එකේ අකුරු වල පසුබිම ඉවත් කිරීම */
@@ -695,6 +711,10 @@ body.dark-mode .job-header a {
         color: var(--text-color);
     }
 }
+       
+      
+
+
 
         .search-btn {
             color: var(--primary-color);
