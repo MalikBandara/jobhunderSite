@@ -644,37 +644,57 @@
             transition: transform 0.3s;
         }
 
+
        
-        /* Dark Mode Styles */
-        body.dark-mode {
-            --bg-color: #1e1e1e;
-            --card-bg: #2d2d2d;
-            --text-color: #dfe6e9;
-            --text-muted: #b2bec3;
-            --border-color: #444;
-            --secondary-color: #ffffff;
-        }
+        /* Dark Mode Styles - Optimized for Mobile & Content */
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --card-bg: #2d2d2d;
+    --text-color: #dfe6e9;
+    --text-muted: #b2bec3;
+    --border-color: #444;
+    --secondary-color: #ffffff;
+}
 
-        body.dark-mode .theme-toggle {
-            background: var(--primary-color);
-        }
+/* පෝස්ට් එකේ අකුරු වල පසුබිම ඉවත් කිරීම */
+body.dark-mode .post-body, 
+body.dark-mode .post-body *, 
+body.dark-mode .post-body span, 
+body.dark-mode .post-body p, 
+body.dark-mode .post-body div {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
 
-        body.dark-mode .theme-toggle::after {
-            transform: translateX(24px);
-        }
+body.dark-mode .theme-toggle {
+    background: var(--primary-color);
+}
 
-        body.dark-mode .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        body.dark-mode .company-logo-large {
-           background: #444;
-        }
-        
-        body.dark-mode .job-header a {
-           color: #dfe6e9;
-        }
+body.dark-mode .theme-toggle::after {
+    transform: translateX(24px);
+}
+
+body.dark-mode .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .company-logo-large {
+   background: #444;
+}
+
+body.dark-mode .job-header a {
+   color: #ffffff;
+}
+
+/* මොබයිල් මෙනුව සහ පෝස්ට් වල පසුබිම් නිවැරදි කිරීම */
+@media (max-width: 900px) {
+    body.dark-mode .post-content,
+    body.dark-mode .post-hero {
+        background: var(--card-bg);
+        color: var(--text-color);
+    }
+}
 
         .search-btn {
             color: var(--primary-color);
