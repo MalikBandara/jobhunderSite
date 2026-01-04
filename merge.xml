@@ -2714,7 +2714,7 @@ body.dark-mode .job-header a {
                             <div class="social-grid">
                                 <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
                                 <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
-                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
+                                <a href="https://www.linkedin.com/company/job-wave-sri-lanka/" target="_blank" class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></a>
                                 <a href="https://t.me/JobWave_SRILANKA" target="_blank" class="social-item tg">
                     <i class="fa-regular fa-paper-plane"></i>
                     <span class="social-name">Telegram</span>
