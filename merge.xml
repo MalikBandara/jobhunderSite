@@ -2742,9 +2742,9 @@ body.dark-mode .job-header a {
                                 </div>
                                 <span style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto;">CLICK HERE</span>
                             </div>
-                            <div style="font-size: 11px; background: #25D366; color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Latest Techjobs and Internship Updates 24/7</div>
+                            <div style="font-size: 11px; background: #25D366; color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Job Wave: The 24/7 Tech Radar</div>
                             <div class="qr-code">
-                                <i class="fa-solid fa-qrcode fa-4x" style="color: #2d3436;"></i>
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg68qihyphenhyphen1OFQ4IvL5SSXKwKYvahrnvv9EuKr0YtOt9JCthkFbSQJ3gepRSB3jq3uho9tqe5_vJf5nj6Kc2Ak5XCBTU7Mofm2yVvzzA00hnNXXeCyLqkGrDuIboPtO6-NcOakKmLN6vGQsm4Vn7cuneVQdo4QJDX1YeA1t_iHK6MBcbxcPfBx8RSXp3jO1ty/s993/photo_2026-01-04_09-10-45.jpg" alt="WhatsApp QR Code" style="width: 350px; height: 150px; margin: 0 auto; display: block;" />
                             </div>
                             <div class="scan-me-btn">Scan Me</div>]]>
                         </b:widget-setting>
