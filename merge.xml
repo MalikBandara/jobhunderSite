@@ -1439,7 +1439,7 @@ body.dark-mode .job-header a {
                 margin-top: 15px;
             }
             .apply-btn-small {
-                display: block !important; /* Override JS display none if needed for specific states, but usually JS controls this */
+                display: block;
                 text-align: center;
                 width: 100%;
             }
