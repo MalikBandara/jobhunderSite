@@ -2296,9 +2296,9 @@ body.dark-mode .job-header a {
                                         <b:if cond='data:view.isPost'>
                                             <div class='post-actions' id='apply-section'>
                                                 <div id='wait-msg'
-                                                    style='color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;'>
-                                                    <i class='fa-regular fa-clock' /> Apply button appears in
-                                                    <span id='timer'>15</span>s
+                                                    style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 12px 20px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9;'>
+                                                    <i class='fa-regular fa-clock' style='margin-right: 5px; color: var(--primary-color);'/> Apply link appears in
+                                                    <span id='timer' style='color: var(--primary-color); font-weight: 800;'>15</span>s
                                                 </div>
                                                 <a class='apply-btn-large' href='#' id='dynamic-apply-btn'
                                                     style='display:none;'>
