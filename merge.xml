@@ -1441,7 +1441,9 @@ body.dark-mode .job-header a {
             .apply-btn-small {
                 display: block;
                 text-align: center;
-                width: 100%;
+                width: auto;
+                max-width: 200px;
+                margin: 0 auto;
             }
         }
 
