@@ -2763,7 +2763,7 @@ body.dark-mode .job-header a {
                 </a>
                 
                                 <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
-                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
+                                <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></a>
                             </div>]]>
                         </b:widget-setting>
                     </b:widget-settings>
@@ -2782,7 +2782,7 @@ body.dark-mode .job-header a {
                                     <div style="font-size: 12px; color: #2d3436;">Follow Job Wave</div>
                                     <div style="font-size: 14px; font-weight: 800;">WhatsApp Channel</div>
                                 </div>
-                                <span style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto;">CLICK HERE</span>
+                                <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto; text-decoration: none;">CLICK HERE</a>
                             </div>
                             <div style="font-size: 11px; background: var(--primary-color); color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Job Wave: The 24/7 Tech Radar</div>
                             <div class="qr-code">
