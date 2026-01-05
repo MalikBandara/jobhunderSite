@@ -1221,7 +1221,7 @@ body.dark-mode .job-header a {
 
         .social-item i {
             font-size: 24px;
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
         
         .social-name {
@@ -1246,7 +1246,7 @@ body.dark-mode .job-header a {
 
         .footer-cols {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 40px;
         }
@@ -1263,6 +1263,7 @@ body.dark-mode .job-header a {
             line-height: 1.6;
             margin-top: 15px;
             max-width: 400px;
+            margin: auto
         }
 
         .footer-title {
@@ -1646,7 +1647,7 @@ body.dark-mode .job-header a {
 
         
 
-        .post-hero {
+        
             .logo { font-size: 20px; }
             
             /* Home Featured Card Mobile */
@@ -1666,6 +1667,7 @@ body.dark-mode .job-header a {
             
             .post-share-box { flex-direction: column; gap: 15px; text-align: center; }
             .footer-cols { grid-template-columns: 1fr; text-align: center; }
+            .footer-links {display: flex; flex-direction: column; align-items: center; justify-content: center; }
             
             .post-content { padding: 20px 15px; }
         .post-body {
@@ -2044,9 +2046,11 @@ body.dark-mode .job-header a {
 
     <!-- Fixed Socials -->
     <div class='fixed-socials'>
-        <i class='fa-brands fa-facebook fixed-icon' />
+       
+        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank">  <i class='fa-brands fa-facebook fixed-icon' /></a>
         <i class='fa-brands fa-x-twitter fixed-icon' />
-        <i class='fa-brands fa-whatsapp fixed-icon' />
+        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" > <i class='fa-brands fa-whatsapp fixed-icon' /></a>
+       
     </div>
 
     <!-- Main Content -->
@@ -2850,6 +2854,15 @@ body.dark-mode .job-header a {
                         <li><a href='/p/about.html'>About </a></li>
                         <li><a href='/p/contact-us.html'>Contact</a></li>
                         <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                 <div class='footer-link-col'>
+                    <h3 class='footer-title'>Quick Links</h3>
+                    <ul class='footer-links'>
+                        <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
+                        <li><a href='/p/terms-conditions.html'>Terms Conditions</a></li>
+                        <li><a href='/p/dmca-notice-takedown-policy.html'>DCMA </a></li>
                     </ul>
                 </div>
 

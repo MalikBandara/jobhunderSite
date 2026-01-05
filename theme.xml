@@ -644,37 +644,77 @@
             transition: transform 0.3s;
         }
 
+        /* Dark Mode Styles - Updated with Footer & Content fixes */
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --card-bg: #2d2d2d;
+    --text-color: #dfe6e9;
+    --text-muted: #b2bec3;
+    --border-color: #444;
+    --secondary-color: #ffffff;
+}
+
+/* Footer පසුබිම සහ අකුරු Dark Mode කිරීම */
+body.dark-mode footer {
+    background-color: #1a1a1a !important; /* Footer එකේ පසුබිම කළු පැහැයට */
+    border-top: 1px solid #333;
+}
+
+body.dark-mode .footer-brand h2, 
+body.dark-mode .footer-title, 
+body.dark-mode .footer-links a, 
+body.dark-mode .footer-desc, 
+body.dark-mode .copyright-bar {
+    color: #dfe6e9 !important; /* Footer එකේ අකුරු ලා අළු පැහැයට */
+}
+
+body.dark-mode .footer-links a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* පෝස්ට් එකේ අකුරු වල පසුබිම ඉවත් කිරීම */
+body.dark-mode .post-body, 
+body.dark-mode .post-body *, 
+body.dark-mode .post-body span, 
+body.dark-mode .post-body p, 
+body.dark-mode .post-body div {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+body.dark-mode .theme-toggle {
+    background: var(--primary-color);
+}
+
+body.dark-mode .theme-toggle::after {
+    transform: translateX(24px);
+}
+
+body.dark-mode .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .company-logo-large {
+   background: #444;
+}
+
+body.dark-mode .job-header a {
+   color: #ffffff;
+}
+
+/* මොබයිල් මෙනුව සහ පෝස්ට් වල පසුබිම් නිවැරදි කිරීම */
+@media (max-width: 900px) {
+    body.dark-mode .post-content,
+    body.dark-mode .post-hero {
+        background: var(--card-bg);
+        color: var(--text-color);
+    }
+}
        
-        /* Dark Mode Styles */
-        body.dark-mode {
-            --bg-color: #1e1e1e;
-            --card-bg: #2d2d2d;
-            --text-color: #dfe6e9;
-            --text-muted: #b2bec3;
-            --border-color: #444;
-            --secondary-color: #ffffff;
-        }
+      
 
-        body.dark-mode .theme-toggle {
-            background: var(--primary-color);
-        }
 
-        body.dark-mode .theme-toggle::after {
-            transform: translateX(24px);
-        }
-
-        body.dark-mode .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        body.dark-mode .company-logo-large {
-           background: #444;
-        }
-        
-        body.dark-mode .job-header a {
-           color: #dfe6e9;
-        }
 
         .search-btn {
             color: var(--primary-color);
@@ -1181,7 +1221,7 @@
 
         .social-item i {
             font-size: 24px;
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
         
         .social-name {
@@ -1198,26 +1238,65 @@
         
         /* Footer */
         footer {
-            background: white;
-            margin-top: 50px;
-            padding: 50px 0 20px 0;
+            background: #f8f9fa;
+            margin-top: 60px;
+            padding: 60px 0 30px 0;
             border-top: 1px solid var(--border-color);
-        }
-
-        .footer-title{
-            margin-bottom:20px;
         }
 
         .footer-cols {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
             margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--secondary-color);
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 15px;
+            max-width: 400px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            display: block;
-            margin-bottom: 10px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .copyright-bar {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
         }
         
         .fixed-socials {
@@ -1247,6 +1326,7 @@
             padding: 15px;
             border-radius: 16px;
             margin-bottom: 20px;
+            margin-top:20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .post-header-top {
@@ -1321,6 +1401,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+
+
+        .post-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .apply-btn-small {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .apply-btn-small:hover {
+            background-color: var(--primary-hover);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .post-header-top {
+                flex-direction: column;
+            }
+            .post-header-actions {
+                width: 100%;
+                margin-top: 15px;
+            }
+            .apply-btn-small {
+                display: block;
+                text-align: center;
+                width: auto;
+                max-width: 200px;
+                margin: 0 auto;
+            }
         }
 
         /* Global Responsive Fixes */
@@ -1522,7 +1646,7 @@
 
         
 
-        .post-hero {
+        
             .logo { font-size: 20px; }
             
             /* Home Featured Card Mobile */
@@ -1542,6 +1666,8 @@
             
             .post-share-box { flex-direction: column; gap: 15px; text-align: center; }
             .footer-cols { grid-template-columns: 1fr; text-align: center; }
+
+            .footer-links {display: flex; flex-direction: column; align-items: center; justify-content: center; }
             
             .post-content { padding: 20px 15px; }
         .post-body {
@@ -1893,9 +2019,11 @@
 
     <!-- Fixed Socials -->
     <div class='fixed-socials'>
-        <i class='fa-brands fa-facebook fixed-icon' />
+       
+        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank">  <i class='fa-brands fa-facebook fixed-icon' /></a>
         <i class='fa-brands fa-x-twitter fixed-icon' />
-        <i class='fa-brands fa-whatsapp fixed-icon' />
+        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" > <i class='fa-brands fa-whatsapp fixed-icon' /></a>
+       
     </div>
 
     <!-- Main Content -->
@@ -2177,21 +2305,19 @@
                                                     </div>
                                                 </b:if>
                                             </div>
-
-                                            <!-- <b:if cond='data:view.isPost'>
-                                                <div class='post-actions' id='apply-section'>
-                                                    <div id='wait-msg'
-                                                        style='color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;'>
-                                                        <i class='fa-regular fa-clock' /> Apply button appears in
-                                                        <span id='timer'>15</span>s
+                                            <b:if cond='data:view.isPost'>
+                                                <div class='post-header-actions'>
+                                                    <div class='wait-msg'
+                                                        style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 8px 12px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9; display: inline-block; margin-right: 10px; font-size: 13px;'>
+                                                        <i class='fa-regular fa-clock' style='margin-right: 5px; color: var(--primary-color);'/> Apply link appears in <span class='timer' style='color: var(--primary-color); font-weight: 800;'>15</span>s
                                                     </div>
-                                                    <a class='apply-btn-large' href='#' id='dynamic-apply-btn'
-                                                        style='display:none;'>
-                                                        Apply Now <i class='fa-solid fa-paper-plane'
-                                                            style='margin-left: 5px;' />
+                                                    <a class='apply-btn-small dynamic-apply-btn' href='#' style='display:none;'>
+                                                        Apply Now
                                                     </a>
                                                 </div>
-                                            </b:if> -->
+                                            </b:if>
+
+
                                         </div>
 
 
@@ -2215,12 +2341,12 @@
 
                                         <b:if cond='data:view.isPost'>
                                             <div class='post-actions' id='apply-section'>
-                                                <div id='wait-msg'
-                                                    style='color: #e17055; font-weight: 700; background: #ffeaa7; padding: 10px 20px; border-radius: 8px;'>
-                                                    <i class='fa-regular fa-clock' /> Apply button appears in
-                                                    <span id='timer'>15</span>s
+                                                <div class='wait-msg'
+                                                    style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 12px 20px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9;'>
+                                                    <i class='fa-regular fa-clock' style='margin-right: 5px; color: var(--primary-color);'/> Apply link appears in
+                                                    <span class='timer' style='color: var(--primary-color); font-weight: 800;'>15</span>s
                                                 </div>
-                                                <a class='apply-btn-large' href='#' id='dynamic-apply-btn'
+                                                <a class='apply-btn-large dynamic-apply-btn' href='#'
                                                     style='display:none;'>
                                                     Apply Now <i class='fa-solid fa-paper-plane'
                                                         style='margin-left: 5px;' />
@@ -2634,10 +2760,14 @@
                             <div class="social-grid">
                                 <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
                                 <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
-                                <div class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></div>
-                                <div class="social-item tg"><i class="fa-regular fa-paper-plane"></i><span class="social-name">Telegram</span></div>
+                                <a href="https://www.linkedin.com/company/job-wave-sri-lanka/" target="_blank" class="social-item in"><i class="fa-brands fa-linkedin-in"></i><span class="social-name">LinkedIn</span></a>
+                                <a href="https://t.me/JobWave_SRILANKA" target="_blank" class="social-item tg">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span class="social-name">Telegram</span>
+                </a>
+                
                                 <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
-                                <div class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></div>
+                                <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></a>
                             </div>]]>
                         </b:widget-setting>
                     </b:widget-settings>
@@ -2656,11 +2786,11 @@
                                     <div style="font-size: 12px; color: #2d3436;">Follow Job Wave</div>
                                     <div style="font-size: 14px; font-weight: 800;">WhatsApp Channel</div>
                                 </div>
-                                <span style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto;">CLICK HERE</span>
+                                <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" style="background: #f1c40f; color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; margin-left: auto; text-decoration: none;">CLICK HERE</a>
                             </div>
-                            <div style="font-size: 11px; background: #25D366; color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Latest Techjobs and Internship Updates 24/7</div>
+                            <div style="font-size: 11px; background: var(--primary-color); color: white; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px;">Job Wave: The 24/7 Tech Radar</div>
                             <div class="qr-code">
-                                <i class="fa-solid fa-qrcode fa-4x" style="color: #2d3436;"></i>
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg68qihyphenhyphen1OFQ4IvL5SSXKwKYvahrnvv9EuKr0YtOt9JCthkFbSQJ3gepRSB3jq3uho9tqe5_vJf5nj6Kc2Ak5XCBTU7Mofm2yVvzzA00hnNXXeCyLqkGrDuIboPtO6-NcOakKmLN6vGQsm4Vn7cuneVQdo4QJDX1YeA1t_iHK6MBcbxcPfBx8RSXp3jO1ty/s993/photo_2026-01-04_09-10-45.jpg" alt="WhatsApp QR Code" style="width: 350px; height: 150px; margin: 0 auto; display: block;" />
                             </div>
                             <div class="scan-me-btn">Scan Me</div>]]>
                         </b:widget-setting>
@@ -2672,107 +2802,7 @@
                     </b:includable>
                 </b:widget>
 
-                <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='showaboutme'>true</b:widget-setting>
-                        <b:widget-setting name='showlocation'>false</b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
-                        <div class='widget-box'>
-                            <div class='section-header-side'>
-                                <data:title />
-                            </div>
-                            <data:actionUrl />
-                        </div>
-                    </b:includable>
-                    <b:includable id='authorProfileImage'>
-                        <img class='profile-img' expr:alt='data:messages.myPhoto' expr:height='data:authorPhoto.height'
-                            expr:src='data:authorPhoto.image' expr:width='data:authorPhoto.width' />
-                    </b:includable>
-                    <b:includable id='content'>
-                        <b:if cond='data:team'>
-                            <div class='widget-content team'>
-                                <b:include name='teamProfile' />
-                            </div>
-                            <b:else />
-                            <div class='widget-content individual'>
-                                <b:include name='userProfile' />
-                            </div>
-                        </b:if>
-                    </b:includable>
-                    <b:includable id='defaultProfileImage'>
-                        <div class='default-avatar' />
-                    </b:includable>
-                    <b:includable id='profileImage'>
-                        <b:if cond='data:authorPhoto.image'>
-                            <b:include name='authorProfileImage' />
-                            <b:else />
-                            <b:include name='defaultProfileImage' />
-                        </b:if>
-                    </b:includable>
-                    <b:includable id='teamProfile'>
-                        <ul>
-                            <b:loop values='data:authors' var='author'>
-                                <li>
-                                    <div class='team-member'>
-                                        <b:include data='author' name='teamProfileLink' />
-                                    </div>
-                                </li>
-                            </b:loop>
-                        </ul>
-                    </b:includable>
-                    <b:includable id='teamProfileLink'>
-                        <a class='profile-link g-profile' expr:href='data:userUrl' rel='nofollow'>
-                            <b:include name='profileImage' />
-                            <span class='profile-name'><data:display-name /></span>
-                        </a>
-                    </b:includable>
-                    <b:includable id='userLocation'>
-                        <dd class='profile-data location'>
-                            <data:location />
-                        </dd>
-                    </b:includable>
-                    <b:includable id='userProfile'>
-                        <b:include name='userProfileImage' />
-                        <b:include name='userProfileInfo' />
-                    </b:includable>
-                    <b:includable id='userProfileData'>
-                        <dt class='profile-data'>
-                            <a class='profile-link g-profile' expr:href='data:userUrl' rel='author nofollow'>
-                                <data:displayname />
-                            </a>
-                        </dt>
-                    </b:includable>
-                    <b:includable id='userProfileImage'>
-                        <a expr:href='data:userUrl' rel='nofollow'>
-                            <b:include name='profileImage' />
-                        </a>
-                    </b:includable>
-                    <b:includable id='userProfileInfo'>
-                        <div class='profile-info'>
-                            <dl class='profile-datablock'>
-                                <b:class cond='data:showlocation and data:location != &quot;&quot;'
-                                    name='has-location' />
 
-                                <b:include name='userProfileData' />
-                                <b:include cond='data:showlocation and data:location != &quot;&quot;'
-                                    name='userLocation' />
-                                <b:include cond='data:aboutme != &quot;&quot;' name='userProfileText' />
-                            </dl>
-                            <b:include name='viewProfileLink' />
-                        </div>
-                    </b:includable>
-                    <b:includable id='userProfileText'>
-                        <dd class='profile-textblock'>
-                            <data:aboutme />
-                        </dd>
-                    </b:includable>
-                    <b:includable id='viewProfileLink'>
-                        <a class='profile-link' expr:href='data:userUrl' rel='author nofollow'>
-                            <data:messages.viewMyCompleteProfile />
-                        </a>
-                    </b:includable>
-                </b:widget>
             </b:section>
         </div>
     </div>
@@ -2797,6 +2827,15 @@
                         <li><a href='/p/about.html'>About </a></li>
                         <li><a href='/p/contact-us.html'>Contact</a></li>
                         <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class='footer-link-col'>
+                    <h3 class='footer-title'>Quick Links</h3>
+                    <ul class='footer-links'>
+                        <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
+                        <li><a href='/p/terms-conditions.html'>Terms Conditions</a></li>
+                        <li><a href='/p/dmca-notice-takedown-policy.html'>DCMA </a></li>
                     </ul>
                 </div>
 
@@ -3030,11 +3069,12 @@
     <script>
         //<![CDATA[
         document.addEventListener("DOMContentLoaded", function () {
-            const applyBtn = document.getElementById('dynamic-apply-btn');
-            const waitMsg = document.getElementById('wait-msg');
-            const timerSpan = document.getElementById('timer');
+            // Select all apply buttons, wait messages, and timers by class
+            const applyBtns = document.querySelectorAll('.dynamic-apply-btn');
+            const waitMsgs = document.querySelectorAll('.wait-msg'); 
+            const timers = document.querySelectorAll('.timer');
 
-            if (applyBtn && waitMsg) {
+            if (applyBtns.length > 0 && waitMsgs.length > 0) {
                 const postBody = document.querySelector('.post-body');
                 if (postBody) {
                     // Logic to find the application link inside the post
@@ -3071,14 +3111,23 @@
                     }
 
                     if (targetLink) {
+                        let finalHref = '';
+                        let targetAttr = '';
+
                         if (targetLink.href.startsWith('mailto:')) {
                             const emailAddress = targetLink.href.replace('mailto:', '');
                             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                            applyBtn.href = isMobile ? 'mailto:' + emailAddress : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
+                            finalHref = isMobile ? 'mailto:' + emailAddress : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + emailAddress;
                         } else {
-                            applyBtn.href = targetLink.href;
-                            applyBtn.setAttribute('target', '_blank');
+                            finalHref = targetLink.href;
+                            targetAttr = '_blank';
                         }
+
+                        // Update ALL apply buttons
+                        applyBtns.forEach(btn => {
+                            btn.href = finalHref;
+                            if (targetAttr) btn.setAttribute('target', targetAttr);
+                        });
 
                         // Only hide the link if it doesn't contain an image
                         if (!targetLink.querySelector('img')) {
@@ -3091,18 +3140,27 @@
                 let count = 15;
                 const interval = setInterval(() => {
                     count--;
-                    if (timerSpan) timerSpan.textContent = count;
+                    timers.forEach(t => { if (t) t.textContent = count; });
+                    
                     if (count <= 0) {
                         clearInterval(interval);
-                        waitMsg.style.display = 'none';
-                        applyBtn.style.display = 'inline-block';
+                        
+                        // Hide ALL wait messages
+                        waitMsgs.forEach(msg => {
+                            msg.style.display = 'none';
+                        });
+
+                        // Show ALL apply buttons
+                        applyBtns.forEach(btn => {
+                            btn.style.display = 'inline-block';
+                        });
                     }
                 }, 1000);
             }
 
             // Mobile Dropdown Toggles
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
+            const mobileNavItems = document.querySelectorAll('.nav-item');
+            mobileNavItems.forEach(item => {
                 const link = item.querySelector('.nav-link');
                 link.addEventListener('click', function (e) {
                     if (window.innerWidth <= 900) {
