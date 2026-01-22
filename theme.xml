@@ -1263,6 +1263,7 @@ body.dark-mode .job-header a {
             line-height: 1.6;
             margin-top: 15px;
             max-width: 400px;
+            margin: auto
         }
 
         .footer-title {
@@ -1666,7 +1667,6 @@ body.dark-mode .job-header a {
             
             .post-share-box { flex-direction: column; gap: 15px; text-align: center; }
             .footer-cols { grid-template-columns: 1fr; text-align: center; }
-
             .footer-links {display: flex; flex-direction: column; align-items: center; justify-content: center; }
             
             .post-content { padding: 20px 15px; }
@@ -1702,6 +1702,33 @@ body.dark-mode .job-header a {
 </head>
 
 <body>
+    <script>
+        //<![CDATA[
+        // Check for saved theme preference immediately to prevent flash
+        (function() {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+                document.body.classList.add('dark-mode');
+            }
+        })();
+
+        function toggleTheme() {
+            var body = document.body;
+            var html = document.documentElement;
+            body.classList.toggle('dark-mode');
+            
+            // Sync html class for completeness
+            if (body.classList.contains('dark-mode')) {
+                html.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        //]]>
+    </script>
     <!-- Header -->
     <header>
         <!-- Mobile Menu Overlay -->
@@ -2007,7 +2034,7 @@ body.dark-mode .job-header a {
             </ul>
 
             <div class='nav-actions flex'>
-                <div class='theme-toggle' onclick='document.body.classList.toggle(&apos;dark-mode&apos;)' />
+                <div class='theme-toggle' onclick='toggleTheme()' />
                 <div class='search-btn'><i class='fa-solid fa-magnifying-glass' /></div>
                 <div class='menu-toggle'
                     onclick='document.querySelector(&apos;.nav-menu&apos;).classList.toggle(&apos;active&apos;)'>
@@ -2830,7 +2857,7 @@ body.dark-mode .job-header a {
                     </ul>
                 </div>
 
-                <div class='footer-link-col'>
+                 <div class='footer-link-col'>
                     <h3 class='footer-title'>Quick Links</h3>
                     <ul class='footer-links'>
                         <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
