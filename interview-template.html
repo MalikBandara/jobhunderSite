@@ -1,0 +1,329 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <title>Job Wave Blog</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></link>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0066cc;
+            --text-color: #2d3436;
+            --text-muted: #636e72;
+            --border-color: #dfe6e9;
+            --card-bg: #ffffff;
+            --bg-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .blog-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        /* Main Layout */
+        .blog-layout {
+            width: 100%;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        /* Blog Card */
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 180px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card-image i {
+            font-size: 48px;
+            color: #adb5bd;
+        }
+
+        .blog-card-content {
+            padding: 20px;
+        }
+
+        .blog-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-excerpt {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background: #0052a3;
+        }
+
+        /* Responsive */
+        /* Large Desktop - 4 columns */
+        @media (max-width: 1400px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Desktop - 3 columns */
+        @media (max-width: 1200px) {
+            .blog-container {
+                padding: 30px 20px;
+            }
+
+            .blog-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Tablet - 2 columns */
+        @media (max-width: 900px) {
+            .blog-container {
+                padding: 25px 15px;
+            }
+
+            .blog-header {
+                margin-bottom: 35px;
+            }
+
+            .blog-header h1 {
+                font-size: 32px;
+            }
+
+            .blog-header p {
+                font-size: 16px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .blog-card-image {
+                height: 160px;
+            }
+        }
+
+        /* Mobile - 1 column */
+        @media (max-width: 600px) {
+            .blog-container {
+                padding: 20px 15px;
+            }
+
+            .blog-header {
+                margin-bottom: 30px;
+            }
+
+            .blog-header h1 {
+                font-size: 28px;
+            }
+
+            .blog-header p {
+                font-size: 15px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .blog-card-image {
+                height: 200px;
+            }
+
+            .blog-card-content {
+                padding: 18px;
+            }
+
+            .blog-card-title {
+                font-size: 17px;
+            }
+
+            .read-more-btn {
+                width: 100%;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-container">
+        <!-- Blog Header -->
+        <div class="blog-header">
+            <h1>BLOGS about Interview Preparation</h1>
+            <p>Prepare Smarter. Perform Better.</p>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="blog-layout">
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <a class="blog-card" href="https://sdftechblog.blogspot.com/p/interview-story-content.html">
+                    <div class="blog-card-image">
+                        <img alt="interview-stories" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiom2jgcfCUJv3l2l6PxMpd8ONamxZVvU9m3Wh31ff6Vans84I9pBXf12oFZCea86v-cgz2MJ6uTsNs1L_6e_3reje_u8Tga8IcVp6cV7Z3fWonRTveuiECK_yZcUasBFt6_koKpGf1Lr2z8lNRgPtXuMmigS711e-QG-oDFnJdpW_kV1iUHcV_Uzs7JVJI/s1024/Gemini_Generated_Image_y6e49ry6e49ry6e4.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Interview stroies</h3>
+                        <p class="blog-card-excerpt">Real Experiences. Real Lessons.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Card 2 -->
+                <a class="blog-card" href="https://sdftechblog.blogspot.com/p/interview-prepare-with-ai.html">
+                    <div class="blog-card-image">
+                        <img alt="interview-preapare-with-ai" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVpE3nmI7kSrV0XN8l7AksUm0upILYdX2k5ioS4B7S8nyjVat8uEilyqR-Eb1dR1W-QKVwo0aPF9EUMMoaivAz8BWfbTiChl0C-ABhQlWniDhQ4kjh5O0VZ9LCOT43-oV1hp6uJhGD15wuo0F16gq2MKRndkKFO_kmNtfSOC3D52ToyYUzyKsxppKCcWG-/s1024/Gemini_Generated_Image_csykgucsykgucsyk.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Interview prepare with AI</h3>
+                        <p class="blog-card-excerpt">Smarter Practice. Better Results.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+              
+              <!-- Blog Card 3 -->
+                <a class="blog-card" href="https://sdftechblog.blogspot.com/p/english-before-interview-content.html">
+                    <div class="blog-card-image">
+                        <img alt="english-before-interview" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7n638P3lIHrEA6tCgi8sPgpvxl_cpGHZPu0MXP5DIMKv3pEgi4MbexW5yKN5-yCCRPpb5TeAyTYmEva_YYZCU6cW0QiZmhGz6h9M9sZ7g2WY4JNEeBqJttjhUc_wu-rsU36QBbbVlKhQaoOf8tpcts8MomI5c21gEYZ67anm_cyMT8xJHCqWgFnHuckP0/s320/Gemini_Generated_Image_gkm1yfgkm1yfgkm1.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">English Before Interview</h3>
+                        <p class="blog-card-excerpt">Speak with Confidence, Get Hired.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+              
+               <!-- Blog Card 4 -->
+                <a class="blog-card" href="https://sdftechblog.blogspot.com/p/motivation-content.html">
+                    <div class="blog-card-image">
+                        <img alt="motivation" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOywj6KXPvlaD1SRxrb-GSae0fcTmLpQTQJhSz5pnLDGFcY-gvLPq35xT3ReDQTRk6JxiAp6MC07V7EwY8cRa-W-TcxO7I9JAqlyT6It2SUvlhjVViQqMr2RPxACy4RKr6z48Yq5prcFhmzOSKJ0KLvoxk52buHlEzsNacPqWjcehtKGWGUzanGSNXKNik/s320/Gemini_Generated_Image_3xr31d3xr31d3xr3.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Motivation(Dont give up)</h3>
+                        <p class="blog-card-excerpt">The Comeback is Always Stronger.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+
+                
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
