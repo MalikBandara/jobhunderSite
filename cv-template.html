@@ -1,0 +1,321 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <title>Job Wave Blog</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></link>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0066cc;
+            --text-color: #2d3436;
+            --text-muted: #636e72;
+            --border-color: #dfe6e9;
+            --card-bg: #ffffff;
+            --bg-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .blog-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        /* Main Layout */
+        .blog-layout {
+            width: 100%;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        /* Blog Card */
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 180px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card-image i {
+            font-size: 48px;
+            color: #adb5bd;
+        }
+
+        .blog-card-content {
+            padding: 20px;
+        }
+
+        .blog-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-excerpt {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background: #0052a3;
+        }
+      
+        .atag {
+            text-decoration: none;  /* Removes the underline */
+            color: inherit;         /* Makes the link use the button's text color */
+            outline: none;          /* Removes the dotted border when clicked */
+        }
+
+        /* Responsive */
+        /* Large Desktop - 4 columns */
+        @media (max-width: 1400px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Desktop - 3 columns */
+        @media (max-width: 1200px) {
+            .blog-container {
+                padding: 30px 20px;
+            }
+
+            .blog-header h1 {
+                font-size: 36px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Tablet - 2 columns */
+        @media (max-width: 900px) {
+            .blog-container {
+                padding: 25px 15px;
+            }
+
+            .blog-header {
+                margin-bottom: 35px;
+            }
+
+            .blog-header h1 {
+                font-size: 32px;
+            }
+
+            .blog-header p {
+                font-size: 16px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .blog-card-image {
+                height: 160px;
+            }
+        }
+
+        /* Mobile - 1 column */
+        @media (max-width: 600px) {
+            .blog-container {
+                padding: 20px 15px;
+            }
+
+            .blog-header {
+                margin-bottom: 30px;
+            }
+
+            .blog-header h1 {
+                font-size: 28px;
+            }
+
+            .blog-header p {
+                font-size: 15px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .blog-card-image {
+                height: 200px;
+            }
+
+            .blog-card-content {
+                padding: 18px;
+            }
+
+            .blog-card-title {
+                font-size: 17px;
+            }
+
+            .read-more-btn {
+                width: 100%;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-container">
+        <!-- Blog Header -->
+        <div class="blog-header">
+            <h1>BLOGS about CV</h1>
+            <p>Elevate Your CV, Secure Your Future.</p>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="blog-layout">
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <a class="blog-card" href="https://sdftechblog.blogspot.com/p/cv-story-content.html">
+                    <div class="blog-card-image">
+                        <img alt="ZERO TO HERO TO HIRED" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJTR13VVODh6Nm9vgNJoxWG2qFHWp9dmVpFkjPXkggeh_YVHUK4-taNTjm7LOtPz7atTjHXETmsxyYFVlyx-U-ge5YC8KIWSDxLlZbQ9aPKmRB-EsrGMYs3nb6_mqZXC9HvwMBls2YJBgVVn0gWuMpql_VXetDLeBOeajyXRM5Uki5HeiozTRYX7nZiMx_/s1024/Gemini_Generated_Image_xxrnaxxxrnaxxxrn.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">ZERO TO HERO TO HIRED</h3>
+                        <p class="blog-card-excerpt"><strong>Real stories</strong>about <strong>selected</strong>  and <strong>rejected</strong>  <strong>CV</strong> stories.</p>
+                        <div class="blog-card-footer">
+                          <button class="read-more-btn"> Read More</button> 
+                        </div>
+                    </div>
+                </a>
+              
+              	<!-- Blog Card 4 -->
+                <a class="blog-card" href="#">
+                    <div class="blog-card-image">
+                         <img alt="ZERO TO HERO TO HIRED" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiz_fYuRUPa8udPC8A_7maGx6uc_EHzKb6aE2fuKwxpqc9I3QoCq_SXLeq5SkNBQROrnNiJRtP_NCV0LWuyGq4ytvgPYL8UHTo_LAkJepMaDW_6EqoOkNXq-gcycY0I9fcEENq0I-UhvDP6Nd-ua6QgJU5We-tBuqQsaDcoBgLhzN_Smh8sYIQXdDwGdRIV/s320/Gemini_Generated_Image_12qu1h12qu1h12qu.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Crafting the Perfect CV</h3>
+                        <p class="blog-card-excerpt">Your Story. Professionally Written.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog Card 2 -->
+                <a class="blog-card" href="#">
+                    <div class="blog-card-image">
+                        <img alt="CV Making with AI" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLzm5nT0A_qKJVM90AI2Ut3T78T6d5hyjRUKg5npikveWDzKk0NE52UaXUlmehhO9h-SkUaXMRyFmXkWKgl1Qx1gmTvdzOg-3Saf9d4bmuXJug-acR3IroRPzYhDivhn26ghdOSubPBeZeZSuRh7CwctQenzd1gos2YqqM-k64mauAPdkVhw3i-ApkO8RR/s1024/Gemini_Generated_Image_2ivsya2ivsya2ivs.png" />
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">CV Making with AI</h3>
+                        <p class="blog-card-excerpt">Let AI Shape Your Best CV.</p>
+                        <div class="blog-card-footer">
+                            <button class="read-more-btn">Read More</button>
+                        </div>
+                    </div>
+                </a>
+
+                
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
