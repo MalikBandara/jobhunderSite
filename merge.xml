@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='modern-indie.xml'
-    b:templateVersion='2.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
-    xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
-    xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='modern-indie.xml' b:templateVersion='2.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
-    <meta charset='UTF-8' />
-    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title>
-        <data:view.title.escaped />
+        <data:view.title.escaped/>
     </title>
     <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap'
-        rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
     <!-- Font Awesome -->
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
 
-    <b:include data='blog' name='all-head-content' />
+    <b:include data='blog' name='all-head-content'/>
 
-    <b:skin version='2.0.0'>
-        <![CDATA[
+    <b:skin version='2.0.0'><![CDATA[
+        
         
         /* JOB WAVE CUSTOM CSS */
         :root {
@@ -1930,8 +1926,8 @@ body.dark-mode .fixed-socials  {
             }
         }
     
-    ]]>
-    </b:skin>
+    
+    ]]></b:skin>
 </head>
 
 <body>
@@ -1965,45 +1961,38 @@ body.dark-mode .fixed-socials  {
     <!-- Header -->
     <header>
         <!-- Mobile Menu Overlay -->
-        <div class='mobile-menu-overlay' id='mobile-overlay'></div>
+        <div class='mobile-menu-overlay' id='mobile-overlay'/>
         
         <div class='container header-content flex'>
             <!-- Mobile Menu Toggle Button (Hamburger) -->
-            <button class='mobile-menu-toggle' id='mobile-menu-btn' aria-label='Toggle Menu'>
-                <i class='fa-solid fa-bars'></i>
+            <button aria-label='Toggle Menu' class='mobile-menu-toggle' id='mobile-menu-btn'>
+                <i class='fa-solid fa-bars'/>
             </button>
             
             <b:section id='header-layout' name='Header Logo Area' showaddelement='true'>
-                <b:widget id='Header1' locked='false' title='Job Wave SL (Header)' type='Header' version='2'
-                    visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting
-                            name='displayUrl'>https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122</b:widget-setting>
-                        <b:widget-setting name='displayHeight'>122</b:widget-setting>
-                        <b:widget-setting name='sectionWidth'>150</b:widget-setting>
-                        <b:widget-setting name='useImage'>true</b:widget-setting>
-                        <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-                        <b:widget-setting name='imagePlacement'>REPLACE</b:widget-setting>
-                        <b:widget-setting name='displayWidth'>104</b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
+              <b:widget id='Header1' locked='false' title='Job Wave SL (Header)' type='Header' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122</b:widget-setting>
+                  <b:widget-setting name='displayHeight'>122</b:widget-setting>
+                  <b:widget-setting name='sectionWidth'>150</b:widget-setting>
+                  <b:widget-setting name='useImage'>true</b:widget-setting>
+                  <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                  <b:widget-setting name='imagePlacement'>REPLACE</b:widget-setting>
+                  <b:widget-setting name='displayWidth'>104</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
                         <a class='logo flex' expr:href='data:blog.homepageUrl'>
                             <b:if cond='data:useImage'>
-                                <img expr:alt='data:title' expr:src='data:image'
-                                    style='max-height: 50px; width: auto;' />
-                                <b:else />
-                                <img alt='Job Wave Logo'
-                                    src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
-                                    style='max-height: 50px; width: auto;' />
+                                <img expr:alt='data:title' expr:src='data:image' style='max-height: 50px; width: auto;'/>
+                                <b:else/>
+                                <img alt='Job Wave Logo' src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122' style='max-height: 50px; width: auto;'/>
                                 JOB <span>WAVE</span>
                             </b:if>
                         </a>
                     </b:includable>
-                    <b:includable id='behindImageStyle'>
+                <b:includable id='behindImageStyle'>
                         <b:if cond='data:sourceUrl'>
-                            <b:include cond='data:this.image'
-                                data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }'
-                                name='responsiveImageStyle' />
+                            <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
                             <style type='text/css'>
                                 .header-widget {
                                     background-position: <data:blog.locale.languageAlignment/>;
@@ -2013,46 +2002,40 @@ body.dark-mode .fixed-socials  {
                             </style>
                         </b:if>
                     </b:includable>
-                    <b:includable id='description'>
+                <b:includable id='description'>
                         <p>
-                            <data:this.description />
+                            <data:this.description/>
                         </p>
                     </b:includable>
-                    <b:includable id='image'>
+                <b:includable id='image'>
                         <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
-                            <b:include
-                                data='{                                                 image: data:image,                                                 altText: data:blog.title.escaped,                                                 originalWidth: data:width,                                                 originalHeight: data:height                                               }'
-                                name='responsiveImage' />
+                            <b:include data='{                                                 image: data:image,                                                 altText: data:blog.title.escaped,                                                 originalWidth: data:width,                                                 originalHeight: data:height                                               }' name='responsiveImage'/>
                         </a>
                     </b:includable>
-                    <b:includable id='title'>
+                <b:includable id='title'>
                         <h1>
-                            <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl'
-                                name='a'>
-                                <data:title />
+                            <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+                                <data:title/>
                             </b:tag>
                         </h1>
                     </b:includable>
-                </b:widget>
+              </b:widget>
             </b:section>
 
             <ul class='nav-menu flex'>
                 <!-- Close Button for Mobile Menu -->
-                <button class='mobile-menu-close' id='mobile-close-btn' aria-label='Close Menu'>
-                    <i class='fa-solid fa-times'></i>
+                <button aria-label='Close Menu' class='mobile-menu-close' id='mobile-close-btn'>
+                    <i class='fa-solid fa-times'/>
                 </button>
                 
-                <li><a class='nav-link' href='/'><i class='fa-solid fa-house' /> Home</a></li>
+                <li><a class='nav-link' href='/'><i class='fa-solid fa-house'/> Home</a></li>
 
                 <!-- Desktop: Categories Dropdown | Mobile: Hidden (shown in Job Categories section below) -->
                 <li class='nav-item categories-dropdown'>
-                    <a class='nav-link' href='#'>Categories <i class='fa-solid fa-chevron-down'
-                            style='font-size: 10px;' /></a>
+                    <a class='nav-link' href='#'>Categories <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
                         <li class='has-submenu'>
-                            <a class='dropdown-link' href='/search/label/Software-Engineering'>Software Engineering <i
-                                    class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <a class='dropdown-link' href='/search/label/Software-Engineering'>Software Engineering <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
                             <ul class='submenu'>
                                 <li><a class='dropdown-link' href='/search/label/Internship'>Internship</a></li>
                                 <li><a class='dropdown-link' href='/search/label/UI-UX'>UI / UX Design</a></li>
@@ -2072,9 +2055,7 @@ body.dark-mode .fixed-socials  {
                         </li>
 
                         <li class='has-submenu'>
-                            <a class='dropdown-link' href='/search/label/AI-Data-Science'>AI &amp; Data <i
-                                    class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                            <a class='dropdown-link' href='/search/label/AI-Data-Science'>AI &amp; Data <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
                             <ul class='submenu'>
                                 <li><a class='dropdown-link' href='/search/label/Data-Engineer'>Data Engineer</a></li>
                                 <li><a class='dropdown-link' href='/search/label/Data-Science'>Data Science</a></li>
@@ -2086,8 +2067,7 @@ body.dark-mode .fixed-socials  {
 
                         <li class='has-submenu'>
                             <a class='dropdown-link' href='/search/label/Digital-Marketing'>Digital Marketing &amp;
-                                E-Commerce <i class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                                E-Commerce <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
                             <ul class='submenu'>
                                 <li><a class='dropdown-link' href='/search/label/SEO-Specialist'>SEO Specialist</a></li>
                                 <li><a class='dropdown-link' href='/search/label/Social-Media'>Social Media Manager</a>
@@ -2101,8 +2081,7 @@ body.dark-mode .fixed-socials  {
 
                         <li class='has-submenu'>
                             <a class='dropdown-link' href='/search/label/Hardware-Networking'>Hardware &amp; Networking
-                                <i class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                                <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
                             <ul class='submenu'>
                                 <li><a class='dropdown-link' href='/search/label/Network-Engineer'>Network Engineer</a>
                                 </li>
@@ -2115,8 +2094,7 @@ body.dark-mode .fixed-socials  {
 
                         <li class='has-submenu'>
                             <a class='dropdown-link' href='/search/label/Electrical-Engineering'>Electrical &amp;
-                                Electronic Engineering <i class='fa-solid fa-chevron-right'
-                                    style='margin-left: auto; font-size: 12px; color: #b2bec3;' /></a>
+                                Electronic Engineering <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
                             <ul class='submenu'>
                                 <li><a class='dropdown-link' href='/search/label/Embedded-Systems'>Embedded Systems</a>
                                 </li>
@@ -2126,6 +2104,18 @@ body.dark-mode .fixed-socials  {
                                         Tech</a></li>
                             </ul>
                         </li>
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Government-Jobs'>Government Jobs <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Teaching'>Teaching</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Medical-Healthcare'>Medical &amp; Healthcare</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Administrative-Service'>Administrative Service</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Police-Security'>Police &amp; Security</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Management-Assistant'>Management Assistant</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Technical-Engineering'>Technical &amp; Engineering</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -2133,14 +2123,14 @@ body.dark-mode .fixed-socials  {
                 <li class='nav-item job-categories-mobile'>
                     <a class='nav-link' href='#' id='job-categories-toggle'>
                         Job Categories 
-                        <i class='fa-solid fa-chevron-right'></i>
+                        <i class='fa-solid fa-chevron-right'/>
                     </a>
                     <ul class='job-categories-list' id='job-categories-list'>
                         <!-- Software Engineering with subcategories -->
                         <li class='has-submenu-mobile'>
                             <a class='dropdown-link' href='#'>
                                 Software Engineering 
-                                <i class='fa-solid fa-chevron-right'></i>
+                                <i class='fa-solid fa-chevron-right'/>
                             </a>
                             <ul class='submenu-mobile'>
                                 <li><a class='dropdown-link' href='/search/label/Internship'>Internship</a></li>
@@ -2158,7 +2148,7 @@ body.dark-mode .fixed-socials  {
                         <li class='has-submenu-mobile'>
                             <a class='dropdown-link' href='#'>
                                 AI &amp; Data Science 
-                                <i class='fa-solid fa-chevron-right'></i>
+                                <i class='fa-solid fa-chevron-right'/>
                             </a>
                             <ul class='submenu-mobile'>
                                 <li><a class='dropdown-link' href='/search/label/Machine-Learning'>Machine Learning</a></li>
@@ -2171,7 +2161,7 @@ body.dark-mode .fixed-socials  {
                         <li class='has-submenu-mobile'>
                             <a class='dropdown-link' href='#'>
                                 Digital Marketing &amp; E-Commerce 
-                                <i class='fa-solid fa-chevron-right'></i>
+                                <i class='fa-solid fa-chevron-right'/>
                             </a>
                             <ul class='submenu-mobile'>
                                 <li><a class='dropdown-link' href='/search/label/SEO'>SEO</a></li>
@@ -2185,7 +2175,7 @@ body.dark-mode .fixed-socials  {
                         <li class='has-submenu-mobile'>
                             <a class='dropdown-link' href='#'>
                                 Hardware &amp; Networking 
-                                <i class='fa-solid fa-chevron-right'></i>
+                                <i class='fa-solid fa-chevron-right'/>
                             </a>
                             <ul class='submenu-mobile'>
                                 <li><a class='dropdown-link' href='/search/label/Network-Engineer'>Network Engineering</a></li>
@@ -2198,7 +2188,7 @@ body.dark-mode .fixed-socials  {
                         <li class='has-submenu-mobile'>
                             <a class='dropdown-link' href='#'>
                                 Electrical &amp; Electronic Engineering 
-                                <i class='fa-solid fa-chevron-right'></i>
+                                <i class='fa-solid fa-chevron-right'/>
                             </a>
                             <ul class='submenu-mobile'>
                                 <li><a class='dropdown-link' href='/search/label/Power-Systems'>Power Systems</a></li>
@@ -2207,12 +2197,27 @@ body.dark-mode .fixed-socials  {
                                 <li><a class='dropdown-link' href='/search/label/Automation'>Automation</a></li>
                             </ul>
                         </li>
+                        
+                        <!-- Government Jobs with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Government Jobs 
+                                <i class='fa-solid fa-chevron-right'/>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Teaching'>Teaching</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Medical-Healthcare'>Medical &amp; Healthcare</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Administrative-Service'>Administrative Service</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Police-Security'>Police &amp; Security</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Management-Assistant'>Management Assistant</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Technical-Engineering'>Technical &amp; Engineering</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='#'>Companies <i class='fa-solid fa-chevron-down'
-                            style='font-size: 10px;' /></a>
+                    <a class='nav-link' href='#'>Companies <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu grid-menu'>
                         <li><a class='dropdown-link' href='/search/label/IFS'>IFS R&amp;D</a></li>
                         <li><a class='dropdown-link' href='/search/label/Virtusa'>Virtusa</a></li>
@@ -2240,8 +2245,7 @@ body.dark-mode .fixed-socials  {
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='#'>Job Type <i class='fa-solid fa-chevron-down'
-                            style='font-size: 10px;' /></a>
+                    <a class='nav-link' href='#'>Job Type <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
                         <li><a class='dropdown-link' href='/search/label/Remote'>Remote Jobs</a></li>
                         <li><a class='dropdown-link' href='/search/label/Full%20Time'> Full Time</a></li>
@@ -2251,8 +2255,7 @@ body.dark-mode .fixed-socials  {
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='#'>Location <i class='fa-solid fa-chevron-down'
-                            style='font-size: 10px;' /></a>
+                    <a class='nav-link' href='#'>Location <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
                         <li><a class='dropdown-link' href='/search/label/Canada'>
                                 Canada</a></li>
@@ -2263,15 +2266,34 @@ body.dark-mode .fixed-socials  {
                     </ul>
                 </li>
 
+                <li class='nav-item'>
+                    <a class='nav-link' href='/p/cv.html'>Cv <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <ul class='dropdown-menu'>
+                        <li><a class='dropdown-link' href='/p/cv.html'>Cv stories</a></li>
+                        <li><a class='dropdown-link' href='/p/cv.html'>crafting the perfect cv</a></li>
+                        <li><a class='dropdown-link' href='/p/cv.html'>cv making with ai</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class='nav-item'>
+                    <a class='nav-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <ul class='dropdown-menu'>
+                        <li><a class='dropdown-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview stories</a></li>
+                        <li><a class='dropdown-link' href='/p/interview.html'>Interview prepare with AI</a></li>
+                        <li><a class='dropdown-link' href='/p/interview.html'>English before interview</a></li>
+                        <li><a class='dropdown-link' href='/p/interview.html'>Motivations</a></li>
+                        
+                    </ul>
+                </li>
 
             </ul>
 
             <div class='nav-actions flex'>
-                <div class='theme-toggle' onclick='toggleTheme()' />
-                <div class='search-btn'><i class='fa-solid fa-magnifying-glass' /></div>
-                <div class='menu-toggle'
-                    onclick='document.querySelector(&apos;.nav-menu&apos;).classList.toggle(&apos;active&apos;)'>
-                    <i class='fa-solid fa-bars' />
+                <div class='theme-toggle' onclick='toggleTheme()'/>
+                <div class='search-btn'><i class='fa-solid fa-magnifying-glass'/></div>
+                <div class='menu-toggle' onclick='document.querySelector(&apos;.nav-menu&apos;).classList.toggle(&apos;active&apos;)'>
+                    <i class='fa-solid fa-bars'/>
                 </div>
             </div>
         </div>
@@ -2281,21 +2303,21 @@ body.dark-mode .fixed-socials  {
     <div class='search-overlay' id='searchOverlay'>
         <div class='search-container'>
             <div class='search-box'>
-                <input type='text' class='search-input' id='searchInput' placeholder='Search jobs, companies, categories...' autocomplete='off' />
+                <input autocomplete='off' class='search-input' id='searchInput' placeholder='Search jobs, companies, categories...' type='text'/>
                 <button class='search-close' id='searchClose'>
-                    <i class='fa-solid fa-times'></i>
+                    <i class='fa-solid fa-times'/>
                 </button>
             </div>
-            <div class='search-suggestions' id='searchSuggestions'></div>
+            <div class='search-suggestions' id='searchSuggestions'/>
         </div>
     </div>
 
     <!-- Fixed Socials -->
     <div class='fixed-socials'>
        
-        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank">  <i class='fa-brands fa-facebook fixed-icon' /></a>
-        <i class='fa-brands fa-x-twitter fixed-icon' />
-        <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" > <i class='fa-brands fa-whatsapp fixed-icon' /></a>
+        <a href='https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8' target='_blank'>  <i class='fa-brands fa-facebook fixed-icon'/></a>
+        <i class='fa-brands fa-x-twitter fixed-icon'/>
+        <a href='https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8' target='_blank'> <i class='fa-brands fa-whatsapp fixed-icon'/></a>
        
     </div>
 
@@ -2305,34 +2327,34 @@ body.dark-mode .fixed-socials  {
         <!-- Left Column -->
         <div class='content-col'>
             <b:section id='main-posts' name='Blog Posts' showaddelement='false'>
-                <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                        <b:widget-setting name='commentLabel'>Comments</b:widget-setting>
-                        <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
-                        <b:widget-setting name='showShareButtons'>true</b:widget-setting>
-                        <b:widget-setting name='authorLabel'>by</b:widget-setting>
-                        <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                        <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
-                        <b:widget-setting name='showAuthor'>true</b:widget-setting>
-                        <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-                        <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                        <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-                        <b:widget-setting name='timestampLabel' />
-                        <b:widget-setting name='reactionsLabel' />
-                        <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
-                        <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                        <b:widget-setting name='showLabels'>true</b:widget-setting>
-                        <b:widget-setting name='showLocation'>false</b:widget-setting>
-                        <b:widget-setting name='postLabelsLabel'>Tags</b:widget-setting>
-                        <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                        <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-                        <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                        <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
-                        <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-                        <b:widget-setting name='showReactions'>false</b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
+              <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                  <b:widget-setting name='commentLabel'>Comments</b:widget-setting>
+                  <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                  <b:widget-setting name='authorLabel'>by</b:widget-setting>
+                  <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                  <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                  <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                  <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='timestampLabel'/>
+                  <b:widget-setting name='reactionsLabel'/>
+                  <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                  <b:widget-setting name='showLabels'>true</b:widget-setting>
+                  <b:widget-setting name='showLocation'>false</b:widget-setting>
+                  <b:widget-setting name='postLabelsLabel'>Tags</b:widget-setting>
+                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                  <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                  <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                  <b:widget-setting name='showReactions'>false</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
                         <b:if cond='data:view.isMultipleItems'>
                             <!-- Header Logic -->
                             <b:if cond='data:view.isHomepage and !data:view.isPage'>
@@ -2340,17 +2362,17 @@ body.dark-mode .fixed-socials  {
                                     <h2 class='main-section-title'>Latest Jobs</h2>
                                     <div style='font-size: 14px; color: var(--text-muted);'>New Opportunities</div>
                                 </div>
-                                <b:elseif cond='data:view.isLabelSearch' />
+                                <b:elseif cond='data:view.isLabelSearch'/>
                                 <div class='main-section-header'>
                                     <h2 class='main-section-title'>Jobs in &quot;
-                                        <data:view.search.label />&quot;
+                                        <data:view.search.label/>&quot;
                                     </h2>
                                 </div>
-                                <b:elseif cond='data:view.isSearch and data:view.search.query' />
+                                <b:elseif cond='data:view.isSearch and data:view.search.query'/>
                                 <div class='main-section-header'>
                                     <h2 class='main-section-title'>Search Results</h2>
                                 </div>
-                                <b:else />
+                                <b:else/>
                                 <div class='main-section-header'>
                                     <h2 class='main-section-title'>All Posts</h2>
                                     <div style='font-size: 14px; color: var(--text-muted);'>Browse all opportunities
@@ -2366,35 +2388,33 @@ body.dark-mode .fixed-socials  {
                                         <a class='job-list-card' expr:href='data:post.url'>
                                             <div class='list-card-img'>
                                                 <b:if cond='data:post.featuredImage'>
-                                                    <img expr:src='data:post.featuredImage' />
-                                                    <b:else />
-                                                    <div
-                                                        style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
-                                                        <i class='fa-solid fa-briefcase fa-2x'
-                                                            style='color: #838587;' />
+                                                    <img expr:src='data:post.featuredImage'/>
+                                                    <b:else/>
+                                                    <div style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
+                                                        <i class='fa-solid fa-briefcase fa-2x' style='color: #838587;'/>
                                                     </div>
                                                 </b:if>
                                             </div>
                                             <div class='list-card-info'>
                                                 <h3 class='list-card-title'>
-                                                    <data:post.title />
+                                                    <data:post.title/>
                                                 </h3>
                                                 <div class='list-card-company'>
-                                                    <data:post.author.name />
+                                                    <data:post.author.name/>
                                                 </div>
                                                 <div class='list-card-meta'>
                                                     <b:loop index='j' values='data:post.labels' var='label'>
                                                         <b:if cond='data:j &lt; 2'>
-                                                            <span class='list-meta-item'><i class='fa-solid fa-tag' />
-                                                                <data:label.name />
+                                                            <span class='list-meta-item'><i class='fa-solid fa-tag'/>
+                                                                <data:label.name/>
                                                             </span>
                                                         </b:if>
                                                     </b:loop>
                                                 </div>
                                             </div>
                                             <div class='list-card-right'>
-                                                <div class='list-card-time'><i class='fa-regular fa-clock' />
-                                                    <data:post.date />
+                                                <div class='list-card-time'><i class='fa-regular fa-clock'/>
+                                                    <data:post.date/>
                                                 </div>
                                             </div>
                                         </a>
@@ -2403,46 +2423,44 @@ body.dark-mode .fixed-socials  {
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
                                     Showing
-                                    <data:posts.size /> posts on this page
+                                    <data:posts.size/> posts on this page
                                 </div>
 
                                 <!-- Page 2+ (Pagination via /search?updated-max=) OR Label/Search Pages -->
-                                <b:elseif cond='data:view.isSearch and !data:view.search.query' />
+                                <b:elseif cond='data:view.isSearch and !data:view.search.query'/>
                                 <!-- This is a pagination page (has updated-max but no search query) -->
                                 <div class='job-list-container'>
                                     <b:loop values='data:posts' var='post'>
                                         <a class='job-list-card' expr:href='data:post.url'>
                                             <div class='list-card-img'>
                                                 <b:if cond='data:post.featuredImage'>
-                                                    <img expr:src='data:post.featuredImage' />
-                                                    <b:else />
-                                                    <div
-                                                        style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
-                                                        <i class='fa-solid fa-briefcase fa-2x'
-                                                            style='color: #dfe6e9;' />
+                                                    <img expr:src='data:post.featuredImage'/>
+                                                    <b:else/>
+                                                    <div style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
+                                                        <i class='fa-solid fa-briefcase fa-2x' style='color: #dfe6e9;'/>
                                                     </div>
                                                 </b:if>
                                             </div>
                                             <div class='list-card-info'>
                                                 <h3 class='list-card-title'>
-                                                    <data:post.title />
+                                                    <data:post.title/>
                                                 </h3>
                                                 <div class='list-card-company'>
-                                                    <data:post.author.name />
+                                                    <data:post.author.name/>
                                                 </div>
                                                 <div class='list-card-meta'>
                                                     <b:loop index='j' values='data:post.labels' var='label'>
                                                         <b:if cond='data:j &lt; 2'>
-                                                            <span class='list-meta-item'><i class='fa-solid fa-tag' />
-                                                                <data:label.name />
+                                                            <span class='list-meta-item'><i class='fa-solid fa-tag'/>
+                                                                <data:label.name/>
                                                             </span>
                                                         </b:if>
                                                     </b:loop>
                                                 </div>
                                             </div>
                                             <div class='list-card-right'>
-                                                <div class='list-card-time'><i class='fa-regular fa-clock' />
-                                                    <data:post.date />
+                                                <div class='list-card-time'><i class='fa-regular fa-clock'/>
+                                                    <data:post.date/>
                                                 </div>
                                             </div>
                                         </a>
@@ -2451,45 +2469,43 @@ body.dark-mode .fixed-socials  {
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
                                     Showing
-                                    <data:posts.size /> posts | Pagination Page
+                                    <data:posts.size/> posts | Pagination Page
                                 </div>
 
-                                <b:else />
+                                <b:else/>
                                 <!-- Label Search, General Search, or Other Views -->
                                 <div class='job-list-container'>
                                     <b:loop values='data:posts' var='post'>
                                         <a class='job-list-card' expr:href='data:post.url'>
                                             <div class='list-card-img'>
                                                 <b:if cond='data:post.featuredImage'>
-                                                    <img expr:src='data:post.featuredImage' />
-                                                    <b:else />
-                                                    <div
-                                                        style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
-                                                        <i class='fa-solid fa-briefcase fa-2x'
-                                                            style='color: #dfe6e9;' />
+                                                    <img expr:src='data:post.featuredImage'/>
+                                                    <b:else/>
+                                                    <div style='background:#f8f9fa;width:100%;height:100%;display:flex;align-items:center;justify-content:center;'>
+                                                        <i class='fa-solid fa-briefcase fa-2x' style='color: #dfe6e9;'/>
                                                     </div>
                                                 </b:if>
                                             </div>
                                             <div class='list-card-info'>
                                                 <h3 class='list-card-title'>
-                                                    <data:post.title />
+                                                    <data:post.title/>
                                                 </h3>
                                                 <div class='list-card-company'>
-                                                    <data:post.author.name />
+                                                    <data:post.author.name/>
                                                 </div>
                                                 <div class='list-card-meta'>
                                                     <b:loop index='j' values='data:post.labels' var='label'>
                                                         <b:if cond='data:j &lt; 2'>
-                                                            <span class='list-meta-item'><i class='fa-solid fa-tag' />
-                                                                <data:label.name />
+                                                            <span class='list-meta-item'><i class='fa-solid fa-tag'/>
+                                                                <data:label.name/>
                                                             </span>
                                                         </b:if>
                                                     </b:loop>
                                                 </div>
                                             </div>
                                             <div class='list-card-right'>
-                                                <div class='list-card-time'><i class='fa-regular fa-clock' />
-                                                    <data:post.date />
+                                                <div class='list-card-time'><i class='fa-regular fa-clock'/>
+                                                    <data:post.date/>
                                                 </div>
                                             </div>
                                         </a>
@@ -2498,7 +2514,7 @@ body.dark-mode .fixed-socials  {
                                 <!-- Debug: Show post count -->
                                 <div style='text-align: center; margin: 10px 0; color: #999; font-size: 12px;'>
                                     Showing
-                                    <data:posts.size /> posts on this page
+                                    <data:posts.size/> posts on this page
                                 </div>
                             </b:if>
 
@@ -2506,10 +2522,8 @@ body.dark-mode .fixed-socials  {
 
 
                             <b:if cond='data:posts.empty'>
-                                <div
-                                    style='text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;'>
-                                    <i class='fa-solid fa-magnifying-glass fa-3x'
-                                        style='color: var(--border-color); margin-bottom: 20px;' />
+                                <div style='text-align: center; padding: 50px 20px; background: var(--card-bg); border-radius: 16px; margin-top: 20px;'>
+                                    <i class='fa-solid fa-magnifying-glass fa-3x' style='color: var(--border-color); margin-bottom: 20px;'/>
                                     <h2 style='color: var(--text-color);'>No jobs found</h2>
                                     <p style='color: var(--text-muted);'>Try a different category or check back later!
                                     </p>
@@ -2523,9 +2537,8 @@ body.dark-mode .fixed-socials  {
                                     <div class='pagination-bar'>
                                         <!-- Previous Button -->
                                         <b:if cond='data:newerPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:newerPageUrl' title='Previous'
-                                                id='prev-btn'>
-                                                <i class='fa-solid fa-chevron-left' />
+                                            <a class='pagination-btn' expr:href='data:newerPageUrl' id='prev-btn' title='Previous'>
+                                                <i class='fa-solid fa-chevron-left'/>
                                             </a>
                                         </b:if>
 
@@ -2536,16 +2549,15 @@ body.dark-mode .fixed-socials  {
 
                                         <!-- Next Button -->
                                         <b:if cond='data:olderPageUrl'>
-                                            <a class='pagination-btn' expr:href='data:olderPageUrl' title='Next'
-                                                id='next-btn'>
-                                                <i class='fa-solid fa-chevron-right' />
+                                            <a class='pagination-btn' expr:href='data:olderPageUrl' id='next-btn' title='Next'>
+                                                <i class='fa-solid fa-chevron-right'/>
                                             </a>
                                         </b:if>
                                     </div>
                                 </div>
                             </b:if>
 
-                            <b:else />
+                            <b:else/>
                             <b:loop values='data:posts' var='post'>
                                 <b:if cond='data:view.isPost'>
                                     <div class='post-hero'>
@@ -2554,25 +2566,23 @@ body.dark-mode .fixed-socials  {
                                                 <b:if cond='data:view.isPost'>
                                                     <div class='post-company-logo'>
                                                         <b:if cond='data:post.featuredImage'>
-                                                            <img expr:src='data:post.featuredImage'
-                                                                style='width: 40px;' />
-                                                            <b:else />
-                                                            <i class='fa-solid fa-briefcase fa-xl' />
+                                                            <img expr:src='data:post.featuredImage' style='width: 40px;'/>
+                                                            <b:else/>
+                                                            <i class='fa-solid fa-briefcase fa-xl'/>
                                                         </b:if>
                                                     </div>
                                                 </b:if>
                                                 <b:if cond='data:view.isPost'>
                                                     <div class='post-title-group'>
                                                         <h1>
-                                                            <data:post.title />
+                                                            <data:post.title/>
                                                         </h1>
 
                                                         <div style='font-size: 14px; color: var(--text-muted);'>
-                                                            <span
-                                                                style='color: var(--primary-color); font-weight: 600;'>
-                                                                <data:post.author.name />
+                                                            <span style='color: var(--primary-color); font-weight: 600;'>
+                                                                <data:post.author.name/>
                                                             </span> &#8226;
-                                                            <data:post.date />
+                                                            <data:post.date/>
                                                         </div>
 
                                                     </div>
@@ -2580,8 +2590,7 @@ body.dark-mode .fixed-socials  {
                                             </div>
                                             <b:if cond='data:view.isPost'>
                                                 <div class='post-header-actions'>
-                                                    <div class='wait-msg'
-                                                        style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 8px 12px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9; display: inline-block; margin-right: 10px; font-size: 13px;'>
+                                                    <div class='wait-msg' style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 8px 12px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9; display: inline-block; margin-right: 10px; font-size: 13px;'>
                                                         <i class='fa-regular fa-clock' style='margin-right: 5px; color: var(--primary-color);'/> Apply link appears in <span class='timer' style='color: var(--primary-color); font-weight: 800;'>15</span>s
                                                     </div>
                                                     <a class='apply-btn-small dynamic-apply-btn' href='#' style='display:none;'>
@@ -2597,10 +2606,9 @@ body.dark-mode .fixed-socials  {
                                         <b:if cond='data:view.isPost'>
                                             <div class='post-meta-badges' id='post-tags'>
                                                 <b:loop values='data:post.labels' var='label'>
-                                                    <a class='meta-badge' expr:data-name='data:label.name'
-                                                        expr:href='data:label.url'>
-                                                        <i class='fa-solid fa-tag' />
-                                                        <data:label.name />
+                                                    <a class='meta-badge' expr:data-name='data:label.name' expr:href='data:label.url'>
+                                                        <i class='fa-solid fa-tag'/>
+                                                        <data:label.name/>
                                                     </a>
                                                 </b:loop>
                                             </div>
@@ -2610,19 +2618,16 @@ body.dark-mode .fixed-socials  {
 
                                 <div class='post-content'>
                                     <div class='post-body'>
-                                        <data:post.body />
+                                        <data:post.body/>
 
                                         <b:if cond='data:view.isPost'>
                                             <div class='post-actions' id='apply-section'>
-                                                <div class='wait-msg'
-                                                    style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 12px 20px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9;'>
+                                                <div class='wait-msg' style='color: #2d3436; font-weight: 600; background: #f1f2f6; padding: 12px 20px; border-radius: 8px; text-align: center; border: 1px solid #dfe6e9;'>
                                                     <i class='fa-regular fa-clock' style='margin-right: 5px; color: var(--primary-color);'/> Apply link appears in
                                                     <span class='timer' style='color: var(--primary-color); font-weight: 800;'>15</span>s
                                                 </div>
-                                                <a class='apply-btn-large dynamic-apply-btn' href='#'
-                                                    style='display:none;'>
-                                                    Apply Now <i class='fa-solid fa-paper-plane'
-                                                        style='margin-left: 5px;' />
+                                                <a class='apply-btn-large dynamic-apply-btn' href='#' style='display:none;'>
+                                                    Apply Now <i class='fa-solid fa-paper-plane' style='margin-left: 5px;'/>
                                                 </a>
                                             </div>
                                         </b:if>
@@ -2631,14 +2636,8 @@ body.dark-mode .fixed-socials  {
                                     <div class='post-share-box'>
                                         <div style='font-weight: 700;'>Share this job:</div>
                                         <div class='flex' style='gap: 10px;'>
-                                            <a class='social-item fb'
-                                                expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url'
-                                                style='width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;'
-                                                target='_blank'><i class='fa-brands fa-facebook-f' /></a>
-                                            <a class='social-item wa'
-                                                expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url'
-                                                style='width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;'
-                                                target='_blank'><i class='fa-brands fa-whatsapp' /></a>
+                                            <a class='social-item fb' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' style='width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#3b5998;color:white;' target='_blank'><i class='fa-brands fa-facebook-f'/></a>
+                                            <a class='social-item wa' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' style='width:35px;height:35px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;' target='_blank'><i class='fa-brands fa-whatsapp'/></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2646,227 +2645,207 @@ body.dark-mode .fixed-socials  {
                         </b:if>
 
                         <b:if cond='!data:view.isMultipleItems'>
-                            <b:include name='postPagination' />
+                            <b:include name='postPagination'/>
                         </b:if>
                     </b:includable>
-                    <b:includable id='aboutPostAuthor' />
-                    <b:includable id='addComments' />
-                    <b:includable id='blogThisShare'>
-                        <b:with
-                            value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;'
-                            var='onclick'>
-                            <b:include name='platformShare' />
+                <b:includable id='aboutPostAuthor'/>
+                <b:includable id='addComments'/>
+                <b:includable id='blogThisShare'>
+                        <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+                            <b:include name='platformShare'/>
                         </b:with>
                     </b:includable>
-                    <b:includable id='bylineByName' var='byline'>
+                <b:includable id='bylineByName' var='byline'>
                         <b:switch var='data:byline.name'>
-                            <b:case value='share' />
-                            <b:include cond='data:post.shareUrl' name='postShareButtons' />
-                            <b:case value='comments' />
-                            <b:include cond='data:post.allowComments' name='postCommentsLink' />
-                            <b:case value='location' />
-                            <b:include cond='data:post.location' name='postLocation' />
-                            <b:case value='timestamp' />
-                            <b:include cond='not data:view.isPage' name='postTimestamp' />
-                            <b:case value='author' />
-                            <b:include name='postAuthor' />
-                            <b:case value='labels' />
-                            <b:include cond='data:post.labels' name='postLabels' />
-                            <b:case value='icons' />
-                            <b:include cond='data:post.emailPostUrl' name='emailPostIcon' />
+                            <b:case value='share'/>
+                            <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+                            <b:case value='comments'/>
+                            <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+                            <b:case value='location'/>
+                            <b:include cond='data:post.location' name='postLocation'/>
+                            <b:case value='timestamp'/>
+                            <b:include cond='not data:view.isPage' name='postTimestamp'/>
+                            <b:case value='author'/>
+                            <b:include name='postAuthor'/>
+                            <b:case value='labels'/>
+                            <b:include cond='data:post.labels' name='postLabels'/>
+                            <b:case value='icons'/>
+                            <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
                         </b:switch>
                     </b:includable>
-                    <b:includable id='bylineRegion' var='regionItems'>
+                <b:includable id='bylineRegion' var='regionItems'>
                         <b:loop values='data:regionItems' var='byline'>
-                            <b:include data='byline' name='bylineByName' />
+                            <b:include data='byline' name='bylineByName'/>
                         </b:loop>
                     </b:includable>
-                    <b:includable id='commentAuthorAvatar' />
-                    <b:includable id='commentDeleteIcon' var='comment' />
-                    <b:includable id='commentForm' var='post' />
-                    <b:includable id='commentFormIframeSrc' var='post' />
-                    <b:includable id='commentItem' var='comment' />
-                    <b:includable id='commentList' var='comments' />
-                    <b:includable id='commentPicker' var='post' />
-                    <b:includable id='comments' var='post' />
-                    <b:includable id='commentsLink'>
-                        <a class='comment-link' expr:href='data:post.commentsUrl'
-                            expr:onclick='data:post.commentsUrlOnclick'>
+                <b:includable id='commentAuthorAvatar'/>
+                <b:includable id='commentDeleteIcon' var='comment'/>
+                <b:includable id='commentForm' var='post'/>
+                <b:includable id='commentFormIframeSrc' var='post'/>
+                <b:includable id='commentItem' var='comment'/>
+                <b:includable id='commentList' var='comments'/>
+                <b:includable id='commentPicker' var='post'/>
+                <b:includable id='comments' var='post'/>
+                <b:includable id='commentsLink'>
+                        <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
                             <b:if cond='data:post.numberOfComments &gt; 0'>
                                 <b:message name='messages.numberOfComments'>
-                                    <b:param expr:value='data:post.numberOfComments' name='numComments' />
+                                    <b:param expr:value='data:post.numberOfComments' name='numComments'/>
                                 </b:message>
-                                <b:else />
-                                <data:messages.postAComment />
+                                <b:else/>
+                                <data:messages.postAComment/>
                             </b:if>
                         </a>
                     </b:includable>
-                    <b:includable id='commentsLinkIframe'>
+                <b:includable id='commentsLinkIframe'>
                         <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
                     </b:includable>
-                    <b:includable id='commentsTitle' />
-                    <b:includable id='defaultAdUnit'>
-                        <ins class='adsbygoogle' data-ad-format='auto'
-                            expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId'
-                            expr:data-ad-host='data:blog.adsenseHostId'
-                            expr:style='data:style ?: &quot;display: block;&quot;'>
-                            <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber'
-                                name='data-analytics-uacct' />
+                <b:includable id='commentsTitle'/>
+                <b:includable id='defaultAdUnit'>
+                        <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
+                            <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
                         </ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
                     </b:includable>
-                    <b:includable id='emailPostIcon'>
+                <b:includable id='emailPostIcon'>
                         <span class='byline post-icons'>
                             <!-- email post links -->
                             <span class='item-action'>
                                 <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
-                                    <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }'
-                                        name='emailIcon' />
+                                    <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
                                 </a>
                             </span>
                         </span>
                     </b:includable>
-                    <b:includable id='facebookShare'>
-                        <b:with
-                            value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;'
-                            var='onclick'>
-                            <b:include name='platformShare' />
+                <b:includable id='facebookShare'>
+                        <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+                            <b:include name='platformShare'/>
                         </b:with>
                     </b:includable>
-                    <b:includable id='feedLinks' />
-                    <b:includable id='feedLinksBody' var='links' />
-                    <b:includable id='footerBylines'>
+                <b:includable id='feedLinks'/>
+                <b:includable id='feedLinksBody' var='links'/>
+                <b:includable id='footerBylines'>
                         <b:if cond='data:widgets.Blog.first.footerBylines'>
                             <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
                                 <b:if cond='not data:region.items.empty'>
                                     <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
                                         <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
-                                            <b:include data='region.items' name='bylineRegion' />
+                                            <b:include data='region.items' name='bylineRegion'/>
                                         </b:with>
                                     </div>
                                 </b:if>
                             </b:loop>
                         </b:if>
                     </b:includable>
-                    <b:includable id='googlePlusShare'>
+                <b:includable id='googlePlusShare'>
                     </b:includable>
-                    <b:includable id='headerByline'>
+                <b:includable id='headerByline'>
                         <b:if cond='data:widgets.Blog.first.headerByline'>
                             <div class='post-header'>
                                 <div class='post-header-line-1'>
                                     <b:with value='&quot;header-1&quot;' var='regionName'>
-                                        <b:include data='data:widgets.Blog.first.headerByline.items'
-                                            name='bylineRegion' />
+                                        <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
                                     </b:with>
                                 </div>
                             </div>
                         </b:if>
                     </b:includable>
-                    <b:includable id='homePageLink' />
-                    <b:includable id='iframeComments' var='post' />
-                    <b:includable id='inlineAd' var='post' />
-                    <b:includable id='linkShare'>
-                        <b:with
-                            value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;'
-                            var='onclick'>
-                            <b:include name='platformShare' />
+                <b:includable id='homePageLink'/>
+                <b:includable id='iframeComments' var='post'/>
+                <b:includable id='inlineAd' var='post'/>
+                <b:includable id='linkShare'>
+                        <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+                            <b:include name='platformShare'/>
                         </b:with>
                     </b:includable>
-                    <b:includable id='nextPageLink'>
+                <b:includable id='nextPageLink'>
                         <a class='btn btn-outline' expr:href='data:olderPageUrl'>Older Posts</a>
                     </b:includable>
-                    <b:includable id='otherSharingButton'>
-                        <span class='sharing-platform-button sharing-element-other'
-                            expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl'
-                            expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+                <b:includable id='otherSharingButton'>
+                        <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
                             <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
-                                <b:include name='sharingPlatformIcon' />
+                                <b:include name='sharingPlatformIcon'/>
                             </b:with>
                             <span class='platform-sharing-text'>
-                                <data:messages.shareOtherApps.escaped />
+                                <data:messages.shareOtherApps.escaped/>
                             </span>
                         </span>
                     </b:includable>
-                    <b:includable id='platformShare'>
-                        <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key'
-                            expr:data-url='data:originalUrl'
-                            expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target'
-                            expr:onclick='data:onclick ? data:onclick : &quot;&quot;'
-                            expr:title='data:platform.shareMessage' target='_blank'>
+                <b:includable id='platformShare'>
+                        <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
                             <span class='share-button-link-text'>
-                                <data:platform.shareMessage />
+                                <data:platform.shareMessage/>
                             </span>
                         </a>
                     </b:includable>
-                    <b:includable id='post' var='post' />
-                    <b:includable id='postAuthor'>
+                <b:includable id='post' var='post'/>
+                <b:includable id='postAuthor'>
                         <span class='byline post-author vcard'>
                             <span class='post-author-label'>
-                                <data:byline.label />
+                                <data:byline.label/>
                             </span>
                             <span class='fn'>
                                 <b:if cond='data:post.author.profileUrl'>
-                                    <meta expr:content='data:post.author.profileUrl' />
-                                    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author'
-                                        title='author profile'>
+                                    <meta expr:content='data:post.author.profileUrl'/>
+                                    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
                                         <span>
-                                            <data:post.author.name />
+                                            <data:post.author.name/>
                                         </span>
                                     </a>
-                                    <b:else />
+                                    <b:else/>
                                     <span>
-                                        <data:post.author.name />
+                                        <data:post.author.name/>
                                     </span>
                                 </b:if>
                             </span>
                         </span>
                     </b:includable>
-                    <b:includable id='postBody' var='post' />
-                    <b:includable id='postBodySnippet' var='post' />
-                    <b:includable id='postCommentsAndAd' var='post' />
-                    <b:includable id='postCommentsLink' />
-                    <b:includable id='postFooter' var='post' />
-                    <b:includable id='postFooterAuthorProfile' var='post' />
-                    <b:includable id='postHeader' var='post' />
-                    <b:includable id='postJumpLink' var='post'>
+                <b:includable id='postBody' var='post'/>
+                <b:includable id='postBodySnippet' var='post'/>
+                <b:includable id='postCommentsAndAd' var='post'/>
+                <b:includable id='postCommentsLink'/>
+                <b:includable id='postFooter' var='post'/>
+                <b:includable id='postFooterAuthorProfile' var='post'/>
+                <b:includable id='postHeader' var='post'/>
+                <b:includable id='postJumpLink' var='post'>
                         <div class='jump-link flat-button'>
                             <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
-                                <b:eval expr='data:blog.jumpLinkMessage' />
+                                <b:eval expr='data:blog.jumpLinkMessage'/>
                             </a>
                         </div>
                     </b:includable>
-                    <b:includable id='postLabels'>
+                <b:includable id='postLabels'>
                         <span class='byline post-labels'>
                             <span class='byline-label'>
-                                <data:byline.label />
+                                <data:byline.label/>
                             </span>
                             <b:loop index='i' values='data:post.labels' var='label'>
                                 <a expr:href='data:label.url' rel='tag'>
-                                    <data:label.name />
+                                    <data:label.name/>
                                 </a>
                             </b:loop>
                         </span>
                     </b:includable>
-                    <b:includable id='postLocation'>
+                <b:includable id='postLocation'>
                         <span class='byline post-location'>
-                            <data:byline.label />
+                            <data:byline.label/>
                             <a expr:href='data:post.location.mapsUrl' target='_blank'>
-                                <data:post.location.name />
+                                <data:post.location.name/>
                             </a>
                         </span>
                     </b:includable>
-                    <b:includable id='postMeta' var='post' />
-                    <b:includable id='postMetadataJSONImage'>
+                <b:includable id='postMeta' var='post'/>
+                <b:includable id='postMetadataJSONImage'>
                         &quot;image&quot;: {
                         &quot;@type&quot;: &quot;ImageObject&quot;,
                         <b:if cond='data:post.featuredImage.isResizable'>
                             &quot;url&quot;: &quot;
-                            <b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)' />&quot;,
+                            <b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
                             &quot;height&quot;: 630,
                             &quot;width&quot;: 1200
-                            <b:else />
+                            <b:else/>
                             &quot;url&quot;:
                             &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
                             &quot;height&quot;: 348,
@@ -2874,7 +2853,7 @@ body.dark-mode .fixed-socials  {
                         </b:if>
                         },
                     </b:includable>
-                    <b:includable id='postMetadataJSONPublisher'>
+                <b:includable id='postMetadataJSONPublisher'>
                         &quot;publisher&quot;: {
                         &quot;@type&quot;: &quot;Organization&quot;,
                         &quot;name&quot;: &quot;Blogger&quot;,
@@ -2887,101 +2866,82 @@ body.dark-mode .fixed-socials  {
                         }
                         },
                     </b:includable>
-                    <b:includable id='postPagination'>
+                <b:includable id='postPagination'>
                         <div class='blog-pager container' id='blog-pager'>
-                            <b:include cond='data:newerPageUrl' name='previousPageLink' />
-                            <b:include cond='data:olderPageUrl' name='nextPageLink' />
+                            <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+                            <b:include cond='data:olderPageUrl' name='nextPageLink'/>
                         </div>
                     </b:includable>
-                    <b:includable id='postReactions'>
+                <b:includable id='postReactions'>
                         <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
                     </b:includable>
-                    <b:includable id='postShareButtons'>
+                <b:includable id='postShareButtons'>
                         <div class='byline post-share-buttons goog-inline-block'>
-                            <b:with
-                                value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)'
-                                var='sharingId'>
+                            <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
                                 <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
-                                <b:include
-                                    data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }'
-                                    name='sharingButtons' />
+                                <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
                             </b:with>
                         </div>
                     </b:includable>
-                    <b:includable id='postTimestamp'>
+                <b:includable id='postTimestamp'>
                         <span class='byline post-timestamp'>
-                            <data:byline.label />
+                            <data:byline.label/>
                             <b:if cond='data:post.url'>
-                                <meta expr:content='data:post.url.canonical' />
-                                <a class='timestamp-link' expr:href='data:post.url' rel='bookmark'
-                                    title='permanent link'>
-                                    <time class='published' expr:datetime='data:post.date.iso8601'
-                                        expr:title='data:post.date.iso8601'>
-                                        <data:post.date />
+                                <meta expr:content='data:post.url.canonical'/>
+                                <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+                                    <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+                                        <data:post.date/>
                                     </time>
                                 </a>
                             </b:if>
                         </span>
                     </b:includable>
-                    <b:includable id='postTitle' var='post' />
-                    <b:includable id='previousPageLink'>
+                <b:includable id='postTitle' var='post'/>
+                <b:includable id='previousPageLink'>
                         <a class='btn btn-outline' expr:href='data:newerPageUrl'>Newer Posts</a>
                     </b:includable>
-                    <b:includable id='sharingButton'>
-                        <span expr:aria-label='data:platform.shareMessage'
-                            expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key'
-                            expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target'
-                            expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem'
-                            tabindex='-1'>
-                            <b:include name='sharingPlatformIcon' />
+                <b:includable id='sharingButton'>
+                        <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+                            <b:include name='sharingPlatformIcon'/>
                             <span class='platform-sharing-text'>
-                                <data:platform.name />
+                                <data:platform.name/>
                             </span>
                         </span>
                     </b:includable>
-                    <b:includable id='sharingButtonContent'>
+                <b:includable id='sharingButtonContent'>
                         <div class='flat-icon-button ripple'>
-                            <b:include name='shareIcon' />
+                            <b:include name='shareIcon'/>
                         </div>
                     </b:includable>
-                    <b:includable id='sharingButtons'>
-                        <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId'
-                            expr:data-title='data:shareTitle'>
-                            <button class='sharing-button touch-icon-button'
-                                expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId'
-                                expr:aria-label='data:messages.share.escaped'
-                                expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
-                                <b:include name='sharingButtonContent' />
+                <b:includable id='sharingButtons'>
+                        <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+                            <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+                                <b:include name='sharingButtonContent'/>
                             </button>
-                            <b:include name='sharingButtonsMenu' />
+                            <b:include name='sharingButtonsMenu'/>
                         </div>
                     </b:includable>
-                    <b:includable id='sharingButtonsMenu'>
+                <b:includable id='sharingButtonsMenu'>
                         <div class='share-buttons-container'>
-                            <ul aria-hidden='true' class='share-buttons hidden'
-                                expr:aria-label='data:messages.share.escaped'
-                                expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
-                                <b:loop
-                                    values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})'
-                                    var='platform'>
+                            <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+                                <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
                                     <li>
-                                        <b:include name='sharingButton' />
+                                        <b:include name='sharingButton'/>
                                     </li>
                                 </b:loop>
                                 <li aria-hidden='true' class='hidden'>
-                                    <b:include name='otherSharingButton' />
+                                    <b:include name='otherSharingButton'/>
                                 </li>
                             </ul>
                         </div>
                     </b:includable>
-                    <b:includable id='sharingPlatformIcon'>
-                        <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }'
-                            expr:name='data:platform.key + &quot;Icon&quot;' />
+                <b:includable id='sharingPlatformIcon'>
+                        <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
                     </b:includable>
-                    <b:includable id='threadedCommentForm' var='post' />
-                    <b:includable id='threadedCommentJs' var='post' />
-                    <b:includable id='threadedComments' var='post' />
-                    <b:includable id='tooltipCss'>
+                <b:includable id='threadedCommentForm' var='post'/>
+                <b:includable id='threadedCommentJs' var='post'/>
+                <b:includable id='threadedComments' var='post'/>
+                <b:includable id='tooltipCss'>
                         <!-- LINT.IfChange -->
                         <style>
                             .post-body a.b-tooltip-container {
@@ -3019,17 +2979,16 @@ body.dark-mode .fixed-socials  {
                         </style>
                         <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
                     </b:includable>
-                </b:widget>
+              </b:widget>
             </b:section>
         </div>
 
         <!-- Sidebar -->
         <div class='sidebar'>
             <b:section id='sidebar-right' name='Sidebar' showaddelement='true'>
-                <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='content'>
-                            <![CDATA[<div class="section-header-side">CONNECT WITH US</div>
+              <b:widget id='HTML2' locked='false' title='Socials' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<div class="section-header-side">CONNECT WITH US</div>
                             <div class="social-grid">
                                 <div class="social-item fb"><i class="fa-brands fa-facebook-f"></i><span class="social-name">Facebook</span></div>
                                 <div class="social-item tw"><i class="fa-brands fa-twitter"></i><span class="social-name">Twitter</span></div>
@@ -3041,19 +3000,17 @@ body.dark-mode .fixed-socials  {
                 
                                 <div class="social-item yt"><i class="fa-brands fa-youtube"></i><span class="social-name">Subscribe</span></div>
                                 <a href="https://chat.whatsapp.com/HHZsgcwKkVgLy8fKcUykk8" target="_blank" class="social-item wa"><i class="fa-brands fa-whatsapp"></i><span class="social-name">WhatsApp</span></a>
-                            </div>]]>
-                        </b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
+                            </div>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
                         <div class='widget-box'>
-                            <data:content />
+                            <data:content/>
                         </div>
                     </b:includable>
-                </b:widget>
-                <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
-                    <b:widget-settings>
-                        <b:widget-setting name='content'>
-                            <![CDATA[<div class="whatsapp-header">
+              </b:widget>
+              <b:widget id='HTML1' locked='false' title='WhatsApp Channel' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<div class="whatsapp-header">
                                 <i class="fa-brands fa-whatsapp fa-xl" style="color: #25D366;"></i>
                                 <div style="text-align: left;">
                                     <div style="font-size: 12px; color: #2d3436;">Follow Job Wave</div>
@@ -3065,17 +3022,14 @@ body.dark-mode .fixed-socials  {
                             <div class="qr-code">
                                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg68qihyphenhyphen1OFQ4IvL5SSXKwKYvahrnvv9EuKr0YtOt9JCthkFbSQJ3gepRSB3jq3uho9tqe5_vJf5nj6Kc2Ak5XCBTU7Mofm2yVvzzA00hnNXXeCyLqkGrDuIboPtO6-NcOakKmLN6vGQsm4Vn7cuneVQdo4QJDX1YeA1t_iHK6MBcbxcPfBx8RSXp3jO1ty/s993/photo_2026-01-04_09-10-45.jpg" alt="WhatsApp QR Code" style="width: 350px; height: 150px; margin: 0 auto; display: block;" />
                             </div>
-                            <div class="scan-me-btn">Scan Me</div>]]>
-                        </b:widget-setting>
-                    </b:widget-settings>
-                    <b:includable id='main'>
+                            <div class="scan-me-btn">Scan Me</div>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
                         <div class='widget-box whatsapp-widget'>
-                            <data:content />
+                            <data:content/>
                         </div>
                     </b:includable>
-                </b:widget>
-
-
+              </b:widget>
             </b:section>
         </div>
     </div>
@@ -3086,9 +3040,7 @@ body.dark-mode .fixed-socials  {
             <div class='footer-cols'>
                 <div class='footer-brand'>
 
-                    <h2 style='margin-bottom: 20px;'><img alt='Job Wave Logo'
-                            src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122'
-                            style='max-height: 25px; width: auto; position: relative; top: 5px;' /> JOB WAVE</h2>
+                    <h2 style='margin-bottom: 20px;'><img alt='Job Wave Logo' src='https://blogger.googleusercontent.com/img/a/AVvXsEgxvBpzroYosQerGiZMOaFKbWjxgNmHXNBUihiC51T_i4T9Cc8s1LCVOM-gnT-SOdOFfm2yVyhs7__aoreqPfL1BMmhFYHinqz4OB8HqLDDpdC4N1pLhnQ04looKzhD4QuIFTQK1l53_WjPxIsHzUgwm34uKGKpJpqdBuzRfAJiPKfrfMRoHhUqEtcVpH7R=s122' style='max-height: 25px; width: auto; position: relative; top: 5px;'/> JOB WAVE</h2>
                     <p class='footer-desc'>
                         We are dedicated to providing you the very best of career opportunities,
                         and skill acquisition process easier...
