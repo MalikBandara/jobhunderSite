@@ -1721,6 +1721,7 @@ body.dark-mode .fixed-socials  {
                 width: 280px;
                 height: 100vh;
                 flex-direction: column;
+                flex-wrap: nowrap !important;
                 background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
                 padding: 80px 15px 20px 15px; /* Added horizontal padding */
                 overflow-y: auto;
@@ -2267,22 +2268,22 @@ body.dark-mode .fixed-socials  {
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='/p/cv.html'>Cv <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <a class='nav-link' href='https://www.jobwavesl.site/p/cv-template.html'>Cv <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/p/cv.html'>Cv stories</a></li>
-                        <li><a class='dropdown-link' href='/p/cv.html'>crafting the perfect cv</a></li>
-                        <li><a class='dropdown-link' href='/p/cv.html'>cv making with ai</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>Cv stories</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>crafting the perfect cv</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>cv making with ai</a></li>
                         
                     </ul>
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <a class='nav-link' href='https://www.jobwavesl.site/p/interview-template.html'>Interview <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview stories</a></li>
-                        <li><a class='dropdown-link' href='/p/interview.html'>Interview prepare with AI</a></li>
-                        <li><a class='dropdown-link' href='/p/interview.html'>English before interview</a></li>
-                        <li><a class='dropdown-link' href='/p/interview.html'>Motivations</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Interview stories</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Interview prepare with AI</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>English before interview</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Motivations</a></li>
                         
                     </ul>
                 </li>
