@@ -5,6 +5,7 @@
 <head>
     <meta charset='UTF-8'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta name="monetag" content="9ac1f9ce63ebfa8010fdd316ce075d7f"/>
     <title>
         <data:view.title.escaped/>
     </title>
@@ -1721,6 +1722,7 @@ body.dark-mode .fixed-socials  {
                 width: 280px;
                 height: 100vh;
                 flex-direction: column;
+                flex-wrap: nowrap !important;
                 background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
                 padding: 80px 15px 20px 15px; /* Added horizontal padding */
                 overflow-y: auto;
@@ -2104,7 +2106,17 @@ body.dark-mode .fixed-socials  {
                                         Tech</a></li>
                             </ul>
                         </li>
-
+                        <li class='has-submenu'>
+                            <a class='dropdown-link' href='/search/label/Government-Jobs'>Government Jobs <i class='fa-solid fa-chevron-right' style='margin-left: auto; font-size: 12px; color: #b2bec3;'/></a>
+                            <ul class='submenu'>
+                                <li><a class='dropdown-link' href='/search/label/Teaching'>Teaching</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Medical-Healthcare'>Medical &amp; Healthcare</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Administrative-Service'>Administrative Service</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Police-Security'>Police &amp; Security</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Management-Assistant'>Management Assistant</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Technical-Engineering'>Technical &amp; Engineering</a></li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </li>
@@ -2187,6 +2199,22 @@ body.dark-mode .fixed-socials  {
                                 <li><a class='dropdown-link' href='/search/label/Automation'>Automation</a></li>
                             </ul>
                         </li>
+                        
+                        <!-- Government Jobs with subcategories -->
+                        <li class='has-submenu-mobile'>
+                            <a class='dropdown-link' href='#'>
+                                Government Jobs 
+                                <i class='fa-solid fa-chevron-right'/>
+                            </a>
+                            <ul class='submenu-mobile'>
+                                <li><a class='dropdown-link' href='/search/label/Teaching'>Teaching</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Medical-Healthcare'>Medical &amp; Healthcare</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Administrative-Service'>Administrative Service</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Police-Security'>Police &amp; Security</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Management-Assistant'>Management Assistant</a></li>
+                                <li><a class='dropdown-link' href='/search/label/Technical-Engineering'>Technical &amp; Engineering</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
@@ -2241,20 +2269,22 @@ body.dark-mode .fixed-socials  {
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='/p/cv.html'>Cv <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <a class='nav-link' href='https://www.jobwavesl.site/p/cv-template.html'>Cv <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='/p/cv.html'>Cv Tips</a></li>
-                        <li><a class='dropdown-link' href='/search/label/CV-AI'>Make CV with AI</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>Cv stories</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>crafting the perfect cv</a></li>
+                        <li><a class='dropdown-link' href='/p/cv-template.html'>cv making with ai</a></li>
                         
                     </ul>
                 </li>
 
                 <li class='nav-item'>
-                    <a class='nav-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
+                    <a class='nav-link' href='https://www.jobwavesl.site/p/interview-template.html'>Interview <i class='fa-solid fa-chevron-down' style='font-size: 10px;'/></a>
                     <ul class='dropdown-menu'>
-                        <li><a class='dropdown-link' href='https://sdftechblog.blogspot.com/p/interview.html'>Interview Preparation</a></li>
-                                <li><a class='dropdown-link' href='/search/label/Others-Experience'>Others Experience</a></li>
-                                <li><a class='dropdown-link' href='/search/label/Motivations'>Motivations</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Interview stories</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Interview prepare with AI</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>English before interview</a></li>
+                        <li><a class='dropdown-link' href='/p/interview-template.html'>Motivations</a></li>
                         
                     </ul>
                 </li>
